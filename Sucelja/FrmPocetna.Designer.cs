@@ -37,7 +37,9 @@
             this.Lozinka = new System.Windows.Forms.Label();
             this.podaci = new System.Windows.Forms.GroupBox();
             this.zaglavlje = new System.Windows.Forms.GroupBox();
+            this.btnIzlaz = new System.Windows.Forms.Button();
             this.podaci.SuspendLayout();
+            this.zaglavlje.SuspendLayout();
             this.SuspendLayout();
             // 
             // Prijava
@@ -53,6 +55,7 @@
             this.Prijava.TabIndex = 0;
             this.Prijava.Text = "Prijava";
             this.Prijava.UseVisualStyleBackColor = false;
+            this.Prijava.Click += new System.EventHandler(this.Prijava_Click);
             // 
             // Ponisti
             // 
@@ -67,6 +70,7 @@
             this.Ponisti.TabIndex = 1;
             this.Ponisti.Text = "Poništi";
             this.Ponisti.UseVisualStyleBackColor = false;
+            this.Ponisti.Click += new System.EventHandler(this.Ponisti_Click);
             // 
             // KorIme
             // 
@@ -83,6 +87,7 @@
             this.Pass.Location = new System.Drawing.Point(160, 67);
             this.Pass.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Pass.Name = "Pass";
+            this.Pass.PasswordChar = '*';
             this.Pass.Size = new System.Drawing.Size(205, 22);
             this.Pass.TabIndex = 6;
             // 
@@ -129,6 +134,7 @@
             // 
             this.zaglavlje.BackgroundImage = global::PI_projekt.Properties.Resources.zaglavlje2;
             this.zaglavlje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.zaglavlje.Controls.Add(this.btnIzlaz);
             this.zaglavlje.Location = new System.Drawing.Point(12, 12);
             this.zaglavlje.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.zaglavlje.Name = "zaglavlje";
@@ -137,13 +143,25 @@
             this.zaglavlje.TabIndex = 10;
             this.zaglavlje.TabStop = false;
             // 
+            // btnIzlaz
+            // 
+            this.btnIzlaz.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnIzlaz.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnIzlaz.Location = new System.Drawing.Point(360, 0);
+            this.btnIzlaz.Name = "btnIzlaz";
+            this.btnIzlaz.Size = new System.Drawing.Size(75, 23);
+            this.btnIzlaz.TabIndex = 13;
+            this.btnIzlaz.Text = "IZLAZ";
+            this.btnIzlaz.UseVisualStyleBackColor = false;
+            this.btnIzlaz.Click += new System.EventHandler(this.btnIzlaz_Click);
+            // 
             // FrmPocetna
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PI_projekt.Properties.Resources.BCKground_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(457, 420);
+            this.ClientSize = new System.Drawing.Size(457, 421);
             this.Controls.Add(this.zaglavlje);
             this.Controls.Add(this.podaci);
             this.Controls.Add(this.Ponisti);
@@ -158,6 +176,7 @@
             this.Text = "Prijava";
             this.podaci.ResumeLayout(false);
             this.podaci.PerformLayout();
+            this.zaglavlje.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -172,5 +191,6 @@
         private System.Windows.Forms.Label Lozinka;
         private System.Windows.Forms.GroupBox podaci;
         private System.Windows.Forms.GroupBox zaglavlje;
+        private System.Windows.Forms.Button btnIzlaz;
     }
 }

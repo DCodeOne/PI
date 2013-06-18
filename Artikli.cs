@@ -57,7 +57,7 @@ namespace PI_projekt
             {
                 return id_artikla;
             }
-            private set
+            set
             {
                 if (id_artikla != value)
                 {
@@ -111,7 +111,7 @@ namespace PI_projekt
             {
                 return id_mjerne_jedinice;
             }
-            private set
+            set
             {
                 if (id_mjerne_jedinice != value)
                 {
@@ -140,6 +140,53 @@ namespace PI_projekt
             }
             dr.Close();     //Zatvaranje DataReader objekta.
             return lista;
+        }
+
+        /// <summary>
+        /// Dohvaća artikl iz sa odgovarajućim id-em iz baze podataka 
+        /// </summary>
+        /// <param name="idArtikla">Id artikla tipa integer</param>
+        /// <returns>Vraća objekt tipa Artikli ukoliko artikl postoji u bazi, a ako ne postoji vraća null</returns>
+        public static Artikl DohvatiArtikl(int idArtikla)
+        {
+            Artikl artikl = new Artikl();
+            string sqlUpit = "SELECT * FROM Artikl WHERE id_artikla="+idArtikla+";";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                artikl = new Artikl(dr);
+                
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return artikl;
+        }
+
+        /// <summary>
+        /// Dodaje novi artikl u bazu
+        /// </summary>
+        /// <param name="noviArtikl">Objekt klase artikl</param>
+        /// <returns>Vraća int, broj zahvaćenih redova upitom</returns>
+        public static int DodajArtikl(Artikl noviArtikl)
+        {
+            
+            string sqlUpit = "INSERT INTO Artikl ('naziv','cijena','id_mjerne_jedinice') VALUES ('" 
+                            + noviArtikl.Naziv + "','"+Kino.PretvoriCijenu(noviArtikl.Cijena)+"', '"+noviArtikl.IdMjerneJedinice+"');";
+            int izvrsenUpit = DB.Instance.IzvrsiUpit(sqlUpit);
+
+            return izvrsenUpit;
+        }
+        /// <summary>
+        /// Ažurira artikl u bazi podakaka
+        /// </summary>
+        /// <param name="artikl">Objekt klase Artikl</param>
+        /// <returns>Broj zahvaćenih redova</returns>
+        public static int AzurirajArtikl(Artikl artikl)
+        {
+            string sqlUpit = "UPDATE  Artikl SET naziv='" + artikl.Naziv + "' , cijena='" + Kino.PretvoriCijenu(artikl.Cijena)
+                + "' ,id_mjerne_jedinice=" + artikl.IdMjerneJedinice + " WHERE id_artikla=" + artikl.IdArtikla + ";";
+            int izvrsenUpit = DB.Instance.IzvrsiUpit(sqlUpit);
+
+            return izvrsenUpit;
         }
 
         #endregion

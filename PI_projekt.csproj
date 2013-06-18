@@ -56,6 +56,13 @@
       <DependentUpon>FrmArtikli.cs</DependentUpon>
     </Compile>
     <Compile Include="DB.cs" />
+    <Compile Include="Dvorane.cs" />
+    <Compile Include="Film.cs" />
+    <Compile Include="FilmZanrovi.cs" />
+    <Compile Include="Kino.NET.cs" />
+    <Compile Include="MjerneJedinice.cs" />
+    <Compile Include="NaciniPlacanja.cs" />
+    <Compile Include="Popust.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Sucelja\FrmAdmin.cs">
@@ -63,6 +70,30 @@
     </Compile>
     <Compile Include="Sucelja\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sucelja\FrmAdminArtikli.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sucelja\FrmAdminArtikli.Designer.cs">
+      <DependentUpon>FrmAdminArtikli.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sucelja\FrmAdminArtikliDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sucelja\FrmAdminArtikliDodaj.Designer.cs">
+      <DependentUpon>FrmAdminArtikliDodaj.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sucelja\FrmAdminDvorane.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sucelja\FrmAdminDvorane.Designer.cs">
+      <DependentUpon>FrmAdminDvorane.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sucelja\FrmAdminDvoraneDodaj.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sucelja\FrmAdminDvoraneDodaj.Designer.cs">
+      <DependentUpon>FrmAdminDvoraneDodaj.cs</DependentUpon>
     </Compile>
     <Compile Include="Sucelja\FrmPocetna.cs">
       <SubType>Form</SubType>
@@ -82,6 +113,8 @@
     <Compile Include="Ulaznica\FrmUlaznica.Designer.cs">
       <DependentUpon>FrmUlaznica.cs</DependentUpon>
     </Compile>
+    <Compile Include="Zanrovi.cs" />
+    <Compile Include="Zaposlenici.cs" />
     <EmbeddedResource Include="Artikli\FrmArtikli.resx">
       <DependentUpon>FrmArtikli.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +130,12 @@
     </Compile>
     <EmbeddedResource Include="Sucelja\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sucelja\FrmAdminArtikli.resx">
+      <DependentUpon>FrmAdminArtikli.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sucelja\FrmAdminArtikliDodaj.resx">
+      <DependentUpon>FrmAdminArtikliDodaj.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Sucelja\FrmPocetna.resx">
       <DependentUpon>FrmPocetna.cs</DependentUpon>
