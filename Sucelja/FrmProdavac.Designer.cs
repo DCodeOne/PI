@@ -94,6 +94,7 @@
             this.Artikli.Text = "Artikli";
             this.Artikli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Artikli.UseVisualStyleBackColor = true;
+            this.Artikli.Click += new System.EventHandler(this.Artikli_Click);
             // 
             // Ulaznica
             // 
@@ -108,6 +109,7 @@
             this.Ulaznica.Text = "Ulaznica";
             this.Ulaznica.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Ulaznica.UseVisualStyleBackColor = true;
+            this.Ulaznica.Click += new System.EventHandler(this.Ulaznica_Click);
             // 
             // userName
             // 
@@ -149,7 +151,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PI_projekt.Properties.Resources.BCKground_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(443, 205);
+            this.ClientSize = new System.Drawing.Size(443, 206);
             this.Controls.Add(this.userRole);
             this.Controls.Add(this.uloga);
             this.Controls.Add(this.userName);
