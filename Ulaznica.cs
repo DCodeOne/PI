@@ -144,12 +144,24 @@ namespace PI_projekt
             return lista;
         }
 
+        /// <summary>
+        /// Unosi ulaznicu u bazu podataka
+        /// </summary>
+        /// <param name="sjedalo">Broj sjedala</param>
+        /// <param name="idProjekcije">Id projekcije</param>
+        /// <returns>Vraća id unešene ulaznice ili -1 ukoliko unos nije uspješan(učaznica sa tim sjedalom postoji za tu projekciju u bazi!)</returns>
         public static int UnesiUlaznicu(int sjedalo, int idProjekcije)
         {
-            
-            string sqlUpit = "INSERT INTO Karta ('sjedalo','id_projekcije') VALUES ('"+ sjedalo + "','" + idProjekcije + "');";
-            int idUlaznice = DB.Instance.IzvrsiUpitID(sqlUpit);
-
+            int idUlaznice = -1;
+            try
+            {
+                string sqlUpit = "INSERT INTO Karta ('sjedalo','id_projekcije') VALUES ('" + sjedalo + "','" + idProjekcije + "');";
+                idUlaznice = DB.Instance.IzvrsiUpitID(sqlUpit);
+            }
+            catch
+            {
+                idUlaznice = -1;
+            }
             return idUlaznice;
         }
         

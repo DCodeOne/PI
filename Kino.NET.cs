@@ -31,7 +31,7 @@ namespace PI_projekt
         public static List<int> IzradiUlaznicu(List<int> odabranaSjedala, Projekcija odabranaProjekcija)
         {
             List<int> listaIdUlaznica = new List<int>();
-            int idUlaznice = 0;
+            
 
             foreach (int sjedalo in odabranaSjedala)
             {   

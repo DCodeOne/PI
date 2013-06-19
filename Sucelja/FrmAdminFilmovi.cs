@@ -10,57 +10,32 @@ using System.Windows.Forms;
 
 namespace PI_projekt.Sucelja
 {
-    public partial class FrmAdmin : Form
+    public partial class FrmAdminFilmovi : Form
     {
-        public FrmAdmin()
+        public FrmAdminFilmovi()
         {
             InitializeComponent();
-            userName.Text = PI_projekt.Sucelja.FrmPocetna.SpremnikPodataka.Zaposlenik;
-            userRole.Text = PI_projekt.Sucelja.FrmPocetna.SpremnikPodataka.Uloga;
+            userName.Text = FrmPocetna.SpremnikPodataka.Zaposlenik;
+            userRole.Text = FrmPocetna.SpremnikPodataka.Uloga;
         }
 
         private bool pomOdjava = false;
 
-        private void Dvorane_Click(object sender, EventArgs e)
+        private void btnFilmoviPovratak_Click(object sender, EventArgs e)
         {
             pomOdjava = true;
-            FrmAdminDvorane adminDvorane = new FrmAdminDvorane();
-            adminDvorane.Show();
+            FrmAdmin admin = new FrmAdmin();
+            admin.Show();
             this.Close();
         }
 
-        private void Artikli_Click(object sender, EventArgs e)
+        private void btnFilmoviDodaj_Click(object sender, EventArgs e)
         {
             pomOdjava = true;
-            FrmAdminArtikli adminArtikli = new FrmAdminArtikli();
-            adminArtikli.Show();
-            this.Close();
+            FrmAdminFilmoviDodaj formaDodaj = new FrmAdminFilmoviDodaj();
+            formaDodaj.Show();
+            this.Close(); ;
         }
-
-        private void Zaposlenici_Click(object sender, EventArgs e)
-        {
-            pomOdjava = true;
-            FrmAdminZaposlenici adminZaposlenici = new FrmAdminZaposlenici();
-            adminZaposlenici.Show();
-            this.Close();
-        }        
-
-        private void Filmovi_Click(object sender, EventArgs e)
-        {
-            pomOdjava = true;
-            FrmAdminFilmovi adminFilmovi = new FrmAdminFilmovi();
-            adminFilmovi.Show();
-            this.Close();
-        }
-
-        private void Projekcije_Click(object sender, EventArgs e)
-        {
-            pomOdjava = true;
-            FrmAdminProjekcije adminProjekcije = new FrmAdminProjekcije();
-            adminProjekcije.Show();
-            this.Close();
-        }
-
 
         /// <summary>
         /// funkcija za odjavu iz sustava, klikom na odjava se postavlja parametar na 1
@@ -94,15 +69,13 @@ namespace PI_projekt.Sucelja
                 }
             }
         }
-
-        private void FrmAdmin_FormClosed(object sender, FormClosedEventArgs e)
+        private void FrmAdminFilmovi_FormClosed(object sender, FormClosedEventArgs e)
         {
-            if (!pomOdjava) {
-                FrmPocetna pocetna = new FrmPocetna();
-                pocetna.Show();
+            if (!pomOdjava)
+            {
+                FrmAdmin admin = new FrmAdmin();
+                admin.Show();
             }
-        }       
+        }
     }
 }
-    
-

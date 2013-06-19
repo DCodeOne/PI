@@ -37,6 +37,8 @@
             this.Nazad = new System.Windows.Forms.Button();
             this.Dalje = new System.Windows.Forms.Button();
             this.Opcije = new System.Windows.Forms.GroupBox();
+            this.cbPopust = new System.Windows.Forms.ComboBox();
+            this.lblPopust = new System.Windows.Forms.Label();
             this.txtDvorana = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.btnUkloni = new System.Windows.Forms.Button();
@@ -67,8 +69,13 @@
             this.lblUkupno = new System.Windows.Forms.Label();
             this.txtSuma = new System.Windows.Forms.TextBox();
             this.lblKn2 = new System.Windows.Forms.Label();
-            this.lblPopust = new System.Windows.Forms.Label();
-            this.cbPopust = new System.Windows.Forms.ComboBox();
+            this.lblPopust2 = new System.Windows.Forms.Label();
+            this.lblUkupno2 = new System.Windows.Forms.Label();
+            this.lblKn3 = new System.Windows.Forms.Label();
+            this.txtPopust = new System.Windows.Forms.TextBox();
+            this.txtUkupno = new System.Windows.Forms.TextBox();
+            this.shapeContainer1 = new Microsoft.VisualBasic.PowerPacks.ShapeContainer();
+            this.lineShape1 = new Microsoft.VisualBasic.PowerPacks.LineShape();
             this.Opcije.SuspendLayout();
             this.gbDetalji.SuspendLayout();
             this.SuspendLayout();
@@ -191,6 +198,25 @@
             this.Opcije.TabIndex = 27;
             this.Opcije.TabStop = false;
             this.Opcije.Text = "Opcije";
+            // 
+            // cbPopust
+            // 
+            this.cbPopust.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPopust.FormattingEnabled = true;
+            this.cbPopust.Location = new System.Drawing.Point(165, 128);
+            this.cbPopust.Name = "cbPopust";
+            this.cbPopust.Size = new System.Drawing.Size(332, 28);
+            this.cbPopust.TabIndex = 40;
+            this.cbPopust.SelectedIndexChanged += new System.EventHandler(this.cbPopust_SelectedIndexChanged);
+            // 
+            // lblPopust
+            // 
+            this.lblPopust.AutoSize = true;
+            this.lblPopust.Location = new System.Drawing.Point(7, 136);
+            this.lblPopust.Name = "lblPopust";
+            this.lblPopust.Size = new System.Drawing.Size(73, 20);
+            this.lblPopust.TabIndex = 39;
+            this.lblPopust.Text = "Popust:";
             // 
             // txtDvorana
             // 
@@ -329,34 +355,42 @@
             // txtProdanoUlaznica
             // 
             this.txtProdanoUlaznica.Location = new System.Drawing.Point(184, 161);
+            this.txtProdanoUlaznica.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.txtProdanoUlaznica.Name = "txtProdanoUlaznica";
             this.txtProdanoUlaznica.ReadOnly = true;
             this.txtProdanoUlaznica.Size = new System.Drawing.Size(114, 26);
             this.txtProdanoUlaznica.TabIndex = 14;
+            this.txtProdanoUlaznica.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtBrojMjesta
             // 
             this.txtBrojMjesta.Location = new System.Drawing.Point(184, 130);
+            this.txtBrojMjesta.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.txtBrojMjesta.Name = "txtBrojMjesta";
             this.txtBrojMjesta.ReadOnly = true;
             this.txtBrojMjesta.Size = new System.Drawing.Size(114, 26);
             this.txtBrojMjesta.TabIndex = 13;
+            this.txtBrojMjesta.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtCijena
             // 
             this.txtCijena.Location = new System.Drawing.Point(184, 99);
+            this.txtCijena.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.txtCijena.Name = "txtCijena";
             this.txtCijena.ReadOnly = true;
             this.txtCijena.Size = new System.Drawing.Size(114, 26);
             this.txtCijena.TabIndex = 12;
+            this.txtCijena.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtVrijemeTrajanja
             // 
             this.txtVrijemeTrajanja.Location = new System.Drawing.Point(184, 67);
+            this.txtVrijemeTrajanja.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
             this.txtVrijemeTrajanja.Name = "txtVrijemeTrajanja";
             this.txtVrijemeTrajanja.ReadOnly = true;
             this.txtVrijemeTrajanja.Size = new System.Drawing.Size(114, 26);
             this.txtVrijemeTrajanja.TabIndex = 11;
+            this.txtVrijemeTrajanja.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // txtFilm
             // 
@@ -460,46 +494,93 @@
             // lblUkupno
             // 
             this.lblUkupno.AutoSize = true;
-            this.lblUkupno.Location = new System.Drawing.Point(379, 529);
+            this.lblUkupno.Location = new System.Drawing.Point(561, 525);
             this.lblUkupno.Name = "lblUkupno";
-            this.lblUkupno.Size = new System.Drawing.Size(77, 20);
+            this.lblUkupno.Size = new System.Drawing.Size(120, 20);
             this.lblUkupno.TabIndex = 39;
-            this.lblUkupno.Text = "Ukupno:";
+            this.lblUkupno.Text = "Bez popusta:";
             // 
             // txtSuma
             // 
-            this.txtSuma.Location = new System.Drawing.Point(460, 525);
+            this.txtSuma.Location = new System.Drawing.Point(687, 521);
+            this.txtSuma.Margin = new System.Windows.Forms.Padding(0, 0, 7, 0);
             this.txtSuma.Name = "txtSuma";
             this.txtSuma.Size = new System.Drawing.Size(88, 26);
             this.txtSuma.TabIndex = 40;
+            this.txtSuma.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // lblKn2
             // 
             this.lblKn2.AutoSize = true;
-            this.lblKn2.Location = new System.Drawing.Point(553, 529);
+            this.lblKn2.Location = new System.Drawing.Point(780, 525);
             this.lblKn2.Name = "lblKn2";
             this.lblKn2.Size = new System.Drawing.Size(31, 20);
             this.lblKn2.TabIndex = 41;
             this.lblKn2.Text = "Kn";
             // 
-            // lblPopust
+            // lblPopust2
             // 
-            this.lblPopust.AutoSize = true;
-            this.lblPopust.Location = new System.Drawing.Point(7, 136);
-            this.lblPopust.Name = "lblPopust";
-            this.lblPopust.Size = new System.Drawing.Size(73, 20);
-            this.lblPopust.TabIndex = 39;
-            this.lblPopust.Text = "Popust:";
+            this.lblPopust2.AutoSize = true;
+            this.lblPopust2.Location = new System.Drawing.Point(606, 561);
+            this.lblPopust2.Name = "lblPopust2";
+            this.lblPopust2.Size = new System.Drawing.Size(73, 20);
+            this.lblPopust2.TabIndex = 42;
+            this.lblPopust2.Text = "Popust:";
             // 
-            // cbPopust
+            // lblUkupno2
             // 
-            this.cbPopust.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbPopust.FormattingEnabled = true;
-            this.cbPopust.Location = new System.Drawing.Point(165, 128);
-            this.cbPopust.Name = "cbPopust";
-            this.cbPopust.Size = new System.Drawing.Size(332, 28);
-            this.cbPopust.TabIndex = 40;
-            this.cbPopust.SelectedIndexChanged += new System.EventHandler(this.cbPopust_SelectedIndexChanged);
+            this.lblUkupno2.AutoSize = true;
+            this.lblUkupno2.Location = new System.Drawing.Point(606, 595);
+            this.lblUkupno2.Name = "lblUkupno2";
+            this.lblUkupno2.Size = new System.Drawing.Size(77, 20);
+            this.lblUkupno2.TabIndex = 43;
+            this.lblUkupno2.Text = "Ukupno:";
+            // 
+            // lblKn3
+            // 
+            this.lblKn3.AutoSize = true;
+            this.lblKn3.Location = new System.Drawing.Point(780, 595);
+            this.lblKn3.Name = "lblKn3";
+            this.lblKn3.Size = new System.Drawing.Size(31, 20);
+            this.lblKn3.TabIndex = 44;
+            this.lblKn3.Text = "Kn";
+            // 
+            // txtPopust
+            // 
+            this.txtPopust.Location = new System.Drawing.Point(687, 558);
+            this.txtPopust.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.txtPopust.Name = "txtPopust";
+            this.txtPopust.Size = new System.Drawing.Size(88, 26);
+            this.txtPopust.TabIndex = 45;
+            this.txtPopust.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // txtUkupno
+            // 
+            this.txtUkupno.Location = new System.Drawing.Point(685, 592);
+            this.txtUkupno.Margin = new System.Windows.Forms.Padding(3, 3, 7, 3);
+            this.txtUkupno.Name = "txtUkupno";
+            this.txtUkupno.Size = new System.Drawing.Size(90, 26);
+            this.txtUkupno.TabIndex = 46;
+            this.txtUkupno.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            // 
+            // shapeContainer1
+            // 
+            this.shapeContainer1.Location = new System.Drawing.Point(0, 0);
+            this.shapeContainer1.Margin = new System.Windows.Forms.Padding(0);
+            this.shapeContainer1.Name = "shapeContainer1";
+            this.shapeContainer1.Shapes.AddRange(new Microsoft.VisualBasic.PowerPacks.Shape[] {
+            this.lineShape1});
+            this.shapeContainer1.Size = new System.Drawing.Size(1160, 671);
+            this.shapeContainer1.TabIndex = 47;
+            this.shapeContainer1.TabStop = false;
+            // 
+            // lineShape1
+            // 
+            this.lineShape1.Name = "lineShape1";
+            this.lineShape1.X1 = 575;
+            this.lineShape1.X2 = 855;
+            this.lineShape1.Y1 = 589;
+            this.lineShape1.Y2 = 589;
             // 
             // FrmUlaznica
             // 
@@ -507,7 +588,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(1150, 613);
+            this.ClientSize = new System.Drawing.Size(1160, 671);
+            this.Controls.Add(this.txtUkupno);
+            this.Controls.Add(this.txtPopust);
+            this.Controls.Add(this.lblKn3);
+            this.Controls.Add(this.lblUkupno2);
+            this.Controls.Add(this.lblPopust2);
             this.Controls.Add(this.lblKn2);
             this.Controls.Add(this.lblUkupno);
             this.Controls.Add(this.txtSuma);
@@ -517,6 +603,7 @@
             this.Controls.Add(this.Dalje);
             this.Controls.Add(this.Odjava);
             this.Controls.Add(this.Prijava);
+            this.Controls.Add(this.shapeContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -577,5 +664,12 @@
         private System.Windows.Forms.Label lblKn2;
         private System.Windows.Forms.Label lblPopust;
         private System.Windows.Forms.ComboBox cbPopust;
+        private System.Windows.Forms.Label lblPopust2;
+        private System.Windows.Forms.Label lblUkupno2;
+        private System.Windows.Forms.Label lblKn3;
+        private System.Windows.Forms.TextBox txtPopust;
+        private System.Windows.Forms.TextBox txtUkupno;
+        private Microsoft.VisualBasic.PowerPacks.ShapeContainer shapeContainer1;
+        private Microsoft.VisualBasic.PowerPacks.LineShape lineShape1;
     }
 }

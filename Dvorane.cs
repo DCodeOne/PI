@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
-    class Dvorana
+    public class Dvorana
     {
 
         #region Constructors
@@ -17,7 +17,7 @@ namespace PI_projekt
         /// </summary>
         public Dvorana()
         {
-            
+
         }
 
         /// <summary>
@@ -29,9 +29,9 @@ namespace PI_projekt
             if (dr != null)
             {
                 BrojDvorane = int.Parse(dr["broj_dvorane"].ToString());
-                BrojSjedala=int.Parse(dr["broj_sjedala"].ToString());
+                BrojSjedala = int.Parse(dr["broj_sjedala"].ToString());
                 Naziv = dr["naziv"].ToString();
-                
+
             }
 
         }
@@ -44,7 +44,7 @@ namespace PI_projekt
         private int broj_sjedala;
         private string naziv;
 
-     
+
 
         #endregion
 
@@ -59,7 +59,7 @@ namespace PI_projekt
             {
                 return broj_dvorane;
             }
-            private set
+            set
             {
                 if (broj_dvorane != value)
                 {
@@ -77,7 +77,7 @@ namespace PI_projekt
             {
                 return broj_sjedala;
             }
-            private set
+            set
             {
                 if (broj_sjedala != value)
                 {
@@ -104,7 +104,7 @@ namespace PI_projekt
             }
         }
 
-      
+
         #endregion
 
         #region Methods
@@ -125,6 +125,25 @@ namespace PI_projekt
             }
             dr.Close();     //Zatvaranje DataReader objekta.
             return lista;
+        }
+
+        /// <summary>
+        /// Dohvaća dvoranu s odgovarajućim brojem iz baze podataka 
+        /// </summary>
+        /// <param name="brojDvorane">Id artikla tipa integer</param>
+        /// <returns>Vraća objekt tipa Dvorana ukoliko dvorana postoji u bazi, a ako ne postoji vraća null</returns>
+        public static Dvorana DohvatiDvoranu(int brojDvorane)
+        {
+            Dvorana dvorana = new Dvorana();
+            string sqlUpit = "SELECT * FROM Dvorana WHERE broj_dvorane=" + brojDvorane + ";";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                dvorana = new Dvorana(dr);
+
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return dvorana;
         }
 
         /// <summary>
@@ -150,12 +169,12 @@ namespace PI_projekt
         public static int AzurirajDvoranu(Dvorana dvorana)
         {
             string sqlUpit = "UPDATE  Dvorana SET naziv='" + dvorana.Naziv + "' , broj_sjedala=" + dvorana.BrojSjedala
-                + " WHERE id_artikla=" + dvorana.BrojDvorane + ";";
+                + " WHERE broj_dvorane=" + dvorana.BrojDvorane + ";";
             int izvrsenUpit = DB.Instance.IzvrsiUpit(sqlUpit);
 
             return izvrsenUpit;
         }
-        
+
 
         #endregion
     }

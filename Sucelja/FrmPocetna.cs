@@ -17,7 +17,9 @@ namespace PI_projekt.Sucelja
             InitializeComponent();
         }
 
-        private void Prijava_Click(object sender, EventArgs e)
+        private bool pomOdjava = false;
+
+       private void Prijava_Click(object sender, EventArgs e)
         {
             List<Zaposlenici> listaKorisnika = Zaposlenici.DohvatiZaposlenike();
             for (int i = 0; i < 4; i++)
@@ -52,15 +54,16 @@ namespace PI_projekt.Sucelja
             public static String Uloga;
         }
 
-
-
+        
         private void Ponisti_Click(object sender, EventArgs e)
         {
             KorIme.Clear();
             Pass.Clear();
         }
 
-        //funkcija za izlaz iz aplikacije
+        /// <summary>
+        ///funkcija za izlaz iz aplikacije 
+        /// </summary>
         int izlaz = 0;
         private void btnIzlaz_Click(object sender, EventArgs e)
         {
@@ -84,16 +87,13 @@ namespace PI_projekt.Sucelja
                   Application.Exit();
                 }
             }
-        } 
-        
-        
-        
-        
-        
-        
-        
-        
-        
-       
+        }  
+      
+         private void FrmPocetna_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (!pomOdjava) {
+                Application.Exit();
+            }
+        }        
     }
 }

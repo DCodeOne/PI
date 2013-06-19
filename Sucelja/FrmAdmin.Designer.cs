@@ -58,6 +58,7 @@
             this.Zaposlenici.Text = "Zaposlenici";
             this.Zaposlenici.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Zaposlenici.UseVisualStyleBackColor = true;
+            this.Zaposlenici.Click += new System.EventHandler(this.Zaposlenici_Click);
             // 
             // Artikli
             // 
@@ -89,6 +90,7 @@
             this.Filmovi.Text = "Filmovi";
             this.Filmovi.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Filmovi.UseVisualStyleBackColor = true;
+            this.Filmovi.Click += new System.EventHandler(this.Filmovi_Click);
             // 
             // Projekcije
             // 
@@ -104,6 +106,7 @@
             this.Projekcije.Text = "Projekcije";
             this.Projekcije.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.Projekcije.UseVisualStyleBackColor = true;
+            this.Projekcije.Click += new System.EventHandler(this.Projekcije_Click);
             // 
             // Dvorane
             // 
@@ -130,7 +133,7 @@
             this.Opcije.Controls.Add(this.Artikli);
             this.Opcije.Controls.Add(this.Zaposlenici);
             this.Opcije.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Opcije.Location = new System.Drawing.Point(13, 75);
+            this.Opcije.Location = new System.Drawing.Point(13, 70);
             this.Opcije.Margin = new System.Windows.Forms.Padding(4);
             this.Opcije.Name = "Opcije";
             this.Opcije.Padding = new System.Windows.Forms.Padding(4);
@@ -138,7 +141,6 @@
             this.Opcije.TabIndex = 9;
             this.Opcije.TabStop = false;
             this.Opcije.Text = "Opcije";
-            this.Opcije.Enter += new System.EventHandler(this.Opcije_Enter);
             // 
             // Odjava
             // 
@@ -147,7 +149,7 @@
             this.Odjava.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Odjava.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Odjava.LinkColor = System.Drawing.Color.Yellow;
-            this.Odjava.Location = new System.Drawing.Point(406, 13);
+            this.Odjava.Location = new System.Drawing.Point(406, 8);
             this.Odjava.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Odjava.Name = "Odjava";
             this.Odjava.Size = new System.Drawing.Size(56, 16);
@@ -161,7 +163,7 @@
             this.Statistika.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Statistika.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Statistika.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Statistika.Location = new System.Drawing.Point(364, 281);
+            this.Statistika.Location = new System.Drawing.Point(364, 276);
             this.Statistika.Margin = new System.Windows.Forms.Padding(4);
             this.Statistika.Name = "Statistika";
             this.Statistika.Size = new System.Drawing.Size(112, 28);
@@ -174,7 +176,7 @@
             this.userRole.AutoSize = true;
             this.userRole.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.userRole.ForeColor = System.Drawing.Color.Red;
-            this.userRole.Location = new System.Drawing.Point(71, 39);
+            this.userRole.Location = new System.Drawing.Point(71, 34);
             this.userRole.Name = "userRole";
             this.userRole.Size = new System.Drawing.Size(47, 16);
             this.userRole.TabIndex = 13;
@@ -185,7 +187,7 @@
             this.uloga.AutoSize = true;
             this.uloga.BackColor = System.Drawing.Color.Black;
             this.uloga.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.uloga.Location = new System.Drawing.Point(13, 39);
+            this.uloga.Location = new System.Drawing.Point(13, 34);
             this.uloga.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.uloga.Name = "uloga";
             this.uloga.Size = new System.Drawing.Size(54, 16);
@@ -197,7 +199,7 @@
             this.userName.AutoSize = true;
             this.userName.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.userName.ForeColor = System.Drawing.Color.Red;
-            this.userName.Location = new System.Drawing.Point(156, 13);
+            this.userName.Location = new System.Drawing.Point(156, 8);
             this.userName.Name = "userName";
             this.userName.Size = new System.Drawing.Size(108, 16);
             this.userName.TabIndex = 11;
@@ -208,7 +210,7 @@
             this.korisnik.AutoSize = true;
             this.korisnik.BackColor = System.Drawing.Color.Black;
             this.korisnik.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.korisnik.Location = new System.Drawing.Point(13, 13);
+            this.korisnik.Location = new System.Drawing.Point(13, 8);
             this.korisnik.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.korisnik.Name = "korisnik";
             this.korisnik.Size = new System.Drawing.Size(136, 16);
@@ -232,11 +234,11 @@
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(505, 354);
             this.MinimumSize = new System.Drawing.Size(505, 354);
             this.Name = "FrmAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Administrator";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmAdmin_FormClosed);
             this.Opcije.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
