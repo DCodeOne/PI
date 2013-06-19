@@ -53,12 +53,14 @@ namespace PI_projekt.Sucelja
         private void Artikli_Click(object sender, EventArgs e)
         {
             FrmArtikli prodavacArtikli = new FrmArtikli();
+            this.Hide();
             prodavacArtikli.Show();
         }
 
         private void Ulaznica_Click(object sender, EventArgs e)
         {
             FrmUlaznica prodavacUlaznica = new FrmUlaznica();
+            this.Close();
             prodavacUlaznica.Show();
         } 
     }

@@ -64,7 +64,9 @@
     <Compile Include="NaciniPlacanja.cs" />
     <Compile Include="Popust.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Projekcija.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RacunUlaznica.cs" />
     <Compile Include="Sucelja\FrmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,12 +109,15 @@
     <Compile Include="Sucelja\FrmProdavac.Designer.cs">
       <DependentUpon>FrmProdavac.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ulaznica.cs" />
     <Compile Include="Ulaznica\FrmUlaznica.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ulaznica\FrmUlaznica.Designer.cs">
       <DependentUpon>FrmUlaznica.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProjekcijaVrstaProjekcije.cs" />
+    <Compile Include="VrstaProjekcije.cs" />
     <Compile Include="Zanrovi.cs" />
     <Compile Include="Zaposlenici.cs" />
     <EmbeddedResource Include="Artikli\FrmArtikli.resx">

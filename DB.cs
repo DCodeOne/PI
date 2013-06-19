@@ -133,7 +133,18 @@ namespace PI_projekt
             return command.ExecuteNonQuery();
         }
 
-
+         /// <summary>
+        /// Izvršava INSERT sql izraz i vraća ID autoincrement primarnog ključa 
+        /// </summary>
+        /// <param name="sqlUpit">INSERT izraz</param>
+        /// <returns>ID posljednje unešenog primarnog ključa</returns>
+        public int IzvrsiUpitID(string sqlUpit)
+        {
+            SQLiteCommand command = new SQLiteCommand(sqlUpit, Connection);
+            command.ExecuteNonQuery();
+            return (int)Connection.LastInsertRowId;
+        }
+        
         #endregion
     }
 }

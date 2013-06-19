@@ -106,6 +106,24 @@ namespace PI_projekt
             return lista;
         }
 
+       /// <summary>
+        /// Dohvaća sve žanrove za određeni film
+       /// </summary>
+       /// <param name="idFilma">Int id filma</param>
+       /// <returns>Lista žanrova</returns>
+        public static List<Zanrovi> DohvatiZanrove(int idFilma)
+        {
+            List<Zanrovi> lista = new List<Zanrovi>();
+            string sqlUpit = "SELECT zanr.* FROM Zanr LEFT JOIN film_zanr ON Zanr.id_zanra=film_zanr.id_zanra WHERE film_zanr.id_filma=" + idFilma + ";";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                Zanrovi zanr = new Zanrovi(dr);
+                lista.Add(zanr);
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return lista;
+        }
         
 
         #endregion

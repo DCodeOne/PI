@@ -101,18 +101,18 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve žanrove za određeni film i vraća ih u obliku liste
+        /// Dohvaća sve filmove
         /// </summary>
-        /// <returns>Lista žanrova za određeni film</returns>
-        public static List<Zanrovi> DohvatiZanrove(int idFilma)
+        /// <returns>Lista filmova</returns>
+        public static List<Film> DohvatiFilmove()
         {
-            List<Zanrovi> lista = new List<Zanrovi>();
-            string sqlUpit = "SELECT zanr.* FROM zanr LEFT JOIN film_zanr ON zanr.id_zanra=film_zanr.id_zanra WHERE film_zanr.id_filma="+ idFilma+";";
+            List<Film> lista = new List<Film>();
+            string sqlUpit = "SELECT * FROM Film";
             DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
             while (dr.Read())
             {
-                Zanrovi zanr = new Zanrovi(dr);
-                lista.Add(zanr);
+                Film film = new Film(dr);
+                lista.Add(film);
             }
             dr.Close();     //Zatvaranje DataReader objekta.
             return lista;
@@ -120,21 +120,24 @@ namespace PI_projekt
 
 
         /// <summary>
-        /// Unosi sve žanrove za određeni film u tablicu film_zanr
+        /// Dohvaća listu filmova koji imaju aktualne projekcije
         /// </summary>
-        /// <param name="idFilma">Id filma za kojeg se uose žanrovi</param>
-        /// <param name="listaZanrova">Lista objekata Zanrovi koja sadrži sve žanrove za film</param>
         /// <returns>Broj zahvaćenih redova</returns>
-        public static int UnesiZanrove(int idFilma, List<Zanrovi> listaZanrova)
+        public static List<Film> DohvatiAktualneFilmove()
         {
-            int brojUmetanja=0;
-            foreach (Zanrovi zanr in listaZanrova)
+            List<Film> lista = new List<Film>();
+            DateTime sada = DateTime.Now;
+            sada.AddMinutes(15);
+
+            string sqlUpit = "SELECT DISTINCT Film.* FROM Projekcija LEFT JOIN Film ON Projekcija.id_filma=Film.Id_filma WHERE projekcija.datum=" + sada.ToString() + ";";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
             {
-                string sqlUpit = "INSERT INTO film_zanr ('id_zanra','id_filma') VALUES ('" + zanr.IdZanra + "','" + idFilma + "');";
-                brojUmetanja += DB.Instance.IzvrsiUpit(sqlUpit);
+                Film film = new Film(dr);
+                lista.Add(film);
             }
-            
-            return brojUmetanja;
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return lista;
         
         }
 

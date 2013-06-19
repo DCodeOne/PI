@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArtikli));
             this.Naziv_artikla = new System.Windows.Forms.Label();
             this.Cijena = new System.Windows.Forms.Label();
@@ -38,7 +40,7 @@
             this.Cijena_box = new System.Windows.Forms.TextBox();
             this.KolicinaBox = new System.Windows.Forms.TextBox();
             this.Stavke_racun = new System.Windows.Forms.GroupBox();
-            this.Stavke = new System.Windows.Forms.TextBox();
+            this.Stavke = new System.Windows.Forms.DataGridView();
             this.Iznos_racun = new System.Windows.Forms.Label();
             this.Ukupno = new System.Windows.Forms.TextBox();
             this.Dalje = new System.Windows.Forms.Button();
@@ -49,7 +51,11 @@
             this.uloga = new System.Windows.Forms.Label();
             this.userName = new System.Windows.Forms.Label();
             this.korisnik = new System.Windows.Forms.Label();
+            this.NazivCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CijenaCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.KolicinaCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Stavke_racun.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Stavke)).BeginInit();
             this.Opcije.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +91,7 @@
             // 
             this.Naziv.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Naziv.Cursor = System.Windows.Forms.Cursors.Default;
+            this.Naziv.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Naziv.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Naziv.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Naziv.FormattingEnabled = true;
@@ -149,6 +156,7 @@
             this.Cijena_box.Location = new System.Drawing.Point(154, 63);
             this.Cijena_box.Margin = new System.Windows.Forms.Padding(4);
             this.Cijena_box.Name = "Cijena_box";
+            this.Cijena_box.ReadOnly = true;
             this.Cijena_box.Size = new System.Drawing.Size(139, 22);
             this.Cijena_box.TabIndex = 7;
             this.Cijena_box.Text = " kn";
@@ -164,7 +172,7 @@
             this.KolicinaBox.Name = "KolicinaBox";
             this.KolicinaBox.Size = new System.Drawing.Size(139, 22);
             this.KolicinaBox.TabIndex = 8;
-            this.KolicinaBox.Text = "0";
+            this.KolicinaBox.Text = "1";
             this.KolicinaBox.TextChanged += new System.EventHandler(this.KolicinaBox_TextChanged);
             // 
             // Stavke_racun
@@ -185,17 +193,27 @@
             // 
             // Stavke
             // 
-            this.Stavke.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Stavke.Cursor = System.Windows.Forms.Cursors.Default;
-            this.Stavke.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.Stavke.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Stavke.Location = new System.Drawing.Point(8, 23);
-            this.Stavke.Margin = new System.Windows.Forms.Padding(4);
-            this.Stavke.Multiline = true;
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Black;
+            this.Stavke.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.Stavke.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Stavke.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.NazivCol,
+            this.CijenaCol,
+            this.KolicinaCol});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.Stavke.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Stavke.Location = new System.Drawing.Point(5, 17);
             this.Stavke.Name = "Stavke";
-            this.Stavke.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.Stavke.Size = new System.Drawing.Size(432, 124);
-            this.Stavke.TabIndex = 8;
+            this.Stavke.ReadOnly = true;
+            this.Stavke.Size = new System.Drawing.Size(436, 133);
+            this.Stavke.TabIndex = 21;
             // 
             // Iznos_racun
             // 
@@ -290,6 +308,7 @@
             this.Nazad.TabIndex = 16;
             this.Nazad.Text = "Nazad";
             this.Nazad.UseVisualStyleBackColor = false;
+            this.Nazad.Click += new System.EventHandler(this.Nazad_Click);
             // 
             // userRole
             // 
@@ -337,13 +356,34 @@
             this.korisnik.TabIndex = 17;
             this.korisnik.Text = "Prijavljeni ste kao:";
             // 
+            // NazivCol
+            // 
+            this.NazivCol.HeaderText = "Naziv";
+            this.NazivCol.Name = "NazivCol";
+            this.NazivCol.ReadOnly = true;
+            this.NazivCol.Width = 240;
+            // 
+            // CijenaCol
+            // 
+            this.CijenaCol.HeaderText = "Cijena";
+            this.CijenaCol.Name = "CijenaCol";
+            this.CijenaCol.ReadOnly = true;
+            this.CijenaCol.Width = 70;
+            // 
+            // KolicinaCol
+            // 
+            this.KolicinaCol.HeaderText = "Kolicina";
+            this.KolicinaCol.Name = "KolicinaCol";
+            this.KolicinaCol.ReadOnly = true;
+            this.KolicinaCol.Width = 70;
+            // 
             // FrmArtikli
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::PI_projekt.Properties.Resources.BCKground_2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(463, 481);
+            this.ClientSize = new System.Drawing.Size(463, 482);
             this.Controls.Add(this.userRole);
             this.Controls.Add(this.uloga);
             this.Controls.Add(this.userName);
@@ -366,9 +406,10 @@
             this.Name = "FrmArtikli";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Artikli";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmArtikli_FormClosed);
             this.Load += new System.EventHandler(this.FrmArtikli_Load);
             this.Stavke_racun.ResumeLayout(false);
-            this.Stavke_racun.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Stavke)).EndInit();
             this.Opcije.ResumeLayout(false);
             this.Opcije.PerformLayout();
             this.ResumeLayout(false);
@@ -393,11 +434,14 @@
         private System.Windows.Forms.LinkLabel Odjava;
         private System.Windows.Forms.GroupBox Opcije;
         private System.Windows.Forms.Button Nazad;
-        private System.Windows.Forms.TextBox Stavke;
         private System.Windows.Forms.Label userRole;
         private System.Windows.Forms.Label uloga;
         private System.Windows.Forms.Label userName;
         private System.Windows.Forms.Label korisnik;
+        private System.Windows.Forms.DataGridView Stavke;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NazivCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CijenaCol;
+        private System.Windows.Forms.DataGridViewTextBoxColumn KolicinaCol;
 
     }
 }
