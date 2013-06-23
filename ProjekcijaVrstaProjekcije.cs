@@ -126,6 +126,29 @@ namespace PI_projekt
         
         }
 
+        /// <summary>
+        /// Ažuriranje vrste projekcije za određenu projekciju
+        /// </summary>
+        /// <param name="idProjekcije">Id projekcije za koju se ažuriraju vrste</param>
+        /// <param name="idVrsteProjekcije">Lista id-a vrsta projekcija</param>
+        /// <returns>int, Broj zahvaćenih redova</returns>
+        public static int AzurirajProjekcijaVrste(int idProjekcije, List<int> idVrsteProjekcije)
+        {
+            int zahvaceno = 0;
+            //obrišemo sve vrsteProjekcije za određenu projekciju
+            string sqlUpit1 = "DELETE FROM projekcija_vrsta WHERE id_projekcije="+idProjekcije+";";
+            DB.Instance.IzvrsiUpit(sqlUpit1);
+
+            //dodajemo Ažuriranje vrste projekcija za projekciju
+            foreach (int idVrste in idVrsteProjekcije)
+            {
+                string sqlUpit = "INSERT INTO projekcija_vrsta ('id_projekcije','id_vrste') VALUES ('"
+                + idProjekcije + "','" + idVrste + "');";
+                zahvaceno += DB.Instance.IzvrsiUpit(sqlUpit);
+            }
+            return zahvaceno;
+        }
+
                
         #endregion
     }

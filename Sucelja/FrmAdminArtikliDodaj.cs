@@ -12,7 +12,7 @@ namespace PI_projekt.Sucelja
 {
     public partial class FrmAdminArtikliDodaj : Form
     {
-        private bool pomOdjava = false;
+ 
         private Artikl artiklAzuriraj = null;
 
         List<MjernaJedinica> listaMjernihJedinica = MjernaJedinica.DohvatiMjerneJedinice();
@@ -23,10 +23,7 @@ namespace PI_projekt.Sucelja
         public FrmAdminArtikliDodaj()
         {
             InitializeComponent(); 
-            userName.Text = FrmPocetna.SpremnikPodataka.Zaposlenik;
-            userRole.Text = FrmPocetna.SpremnikPodataka.Uloga;
             
-           
             foreach (MjernaJedinica mJedinica in listaMjernihJedinica)
             {
                 cbMjerneJedinice.Items.Add(mJedinica.Naziv);
@@ -34,7 +31,7 @@ namespace PI_projekt.Sucelja
 
         }
         /// <summary>
-        /// Konstruktor koji se poziva prilikom ažuriranja postojeeg artikla
+        /// Konstruktor koji se poziva prilikom ažuriranja postojćeg artikla
         /// </summary>
         /// <param name="odabraniArtikl"></param>
         public FrmAdminArtikliDodaj(Artikl odabraniArtikl)
@@ -73,12 +70,15 @@ namespace PI_projekt.Sucelja
 
         }
 
+        /// <summary>
+        /// Odustajanje od dodavanja novog artikla prilikom klika na tipku odustani
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOdustani_Click(object sender, EventArgs e)
         {
-            pomOdjava = true;
-            FrmAdminArtikli adminArtikli = new FrmAdminArtikli();
-            adminArtikli.Show();
-            this.Close();
+
+            this.Close(); 
         }
 
         /// <summary>
@@ -88,7 +88,6 @@ namespace PI_projekt.Sucelja
         /// <param name="e"></param>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            pomOdjava = true;
             Artikl noviArtikl = new Artikl();
             noviArtikl.Naziv = txtNazivDodajArtikl.Text.ToString();
             //MessageBox.Show(txtCijenaDodajArtikl.Text.ToString());
@@ -110,8 +109,7 @@ namespace PI_projekt.Sucelja
                     Artikl.DodajArtikl(noviArtikl);
                     
                 }
-                FrmAdminArtikli adminArtikli = new FrmAdminArtikli();
-                adminArtikli.Show();
+                
                 this.Close();
             }
             catch
@@ -119,48 +117,9 @@ namespace PI_projekt.Sucelja
                 
                 MessageBox.Show("Pogrešan unos podataka!");
             }
-
-
+            
         }
-        /// <summary>
-        /// funkcija za odjavu iz sustava, klikom na odjava se postavlja parametar na 1
-        /// i prosljeđuje funkciji koja će ispisati poruku i pitati želi li se korisnik odjaviti
-        /// u slučaju klika na yes, korisnik se odjavljuje i vraća na početnu stranicu (login)
-        /// </summary>
-        int odjavljivanje = 0;
-        private void Odjava_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            odjavljivanje = 1;
-            odjava();
-        }
-        private void odjava()
-        {
-            if (odjavljivanje == 1)
-            {
-                string message = "Želite li se odjaviti iz sustava?";
-                string caption = "Odjava iz sustava";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
-
-                // Displays the MessageBox.
-                result = MessageBox.Show(this, message, caption, buttons);
-
-                if (result == DialogResult.Yes)
-                {
-                    pomOdjava = true;
-                    PI_projekt.Sucelja.FrmPocetna pocetna = new PI_projekt.Sucelja.FrmPocetna();
-                    pocetna.Show();
-                    this.Close();
-                }
-            }
-        }
-        private void FrmAdminArtikliDodaj_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (!pomOdjava)
-            {
-                FrmAdminArtikli adminArtikli = new FrmAdminArtikli();
-                adminArtikli.Show();
-            }
-        }  
+        
+       
     }
 }

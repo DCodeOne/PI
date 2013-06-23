@@ -124,6 +124,25 @@ namespace PI_projekt
             return lista;
         }
 
+
+        /// <summary>
+        /// Dohvaća jednu ulaznicu sa određenim Id-em
+        /// </summary>
+        /// <returns>Objekt klase Ulaznice</returns>
+        public static Ulaznice DohvatiUlaznicu(int idUlaznice)
+        {
+           Ulaznice ulaznica = new Ulaznice();
+            string sqlUpit = "SELECT * from Karta WHERE id_karte="+idUlaznice+";";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                ulaznica = new Ulaznice(dr);
+              
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return ulaznica;
+        }
+
        /// <summary>
         /// Dohvaća sve ulaznice za određenu projekciju
        /// </summary>

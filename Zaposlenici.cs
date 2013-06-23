@@ -27,7 +27,7 @@ namespace PI_projekt
         {
             if (dr != null)
             {
-                OIB = float.Parse(dr["OIB"].ToString());
+                OIB = long.Parse(dr["OIB"].ToString());
                 Ime = dr["ime"].ToString();
                 Prezime = dr["prezime"].ToString();
                 Adresa = dr["adresa"].ToString();
@@ -44,7 +44,7 @@ namespace PI_projekt
 
         #region Private Fields
 
-        private float oib;
+        private long oib;
         private string ime;
         private string prezime;
         private string adresa;
@@ -61,13 +61,13 @@ namespace PI_projekt
         /// <summary>
         /// Jedinstveni identifikator zaposlenika.
         /// </summary>
-        public float OIB
+        public long OIB
         {
             get
             {
                 return oib;
             }
-            private set
+          set
             {
                 if (oib != value)
                 {
@@ -240,6 +240,63 @@ namespace PI_projekt
             }
             dr.Close();     //Zatvaranje DataReader objekta.
             return lista;
+        }
+
+         public static Zaposlenici DohvatiZaposlenika2(string korIme)
+        {
+            Zaposlenici zaposlenik = new Zaposlenici();
+            string sqlUpit = "SELECT * FROM Zaposlenik WHERE kor_ime='" + korIme + "';";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                zaposlenik = new Zaposlenici(dr);
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return zaposlenik;
+        }
+
+        public static Zaposlenici DohvatiZaposlenika(long oib)
+        {
+            Zaposlenici zaposlenik = new Zaposlenici();
+            string sqlUpit = "SELECT * FROM Zaposlenik WHERE oib='" + oib + "';";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                zaposlenik = new Zaposlenici(dr);
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return zaposlenik;
+        }
+
+        /// <summary>
+        /// Dodaje novog zaposlenika u bazu podataka
+        /// </summary>
+        /// <param name="noviZaposlenik">Objekt klase Zaposlenici s podacima</param>
+        /// <returns>Vraća broj zahvaćeni redova, int</returns>
+        public static int DodajZaposlenika(Zaposlenici noviZaposlenik)
+        {
+
+            string sqlUpit = "INSERT INTO Zaposlenik ('OIB', 'ime', 'prezime', 'adresa', 'kontakt', 'email', 'kor_ime', 'lozinka', 'uloga') VALUES ('" + noviZaposlenik.OIB + "','" + noviZaposlenik.Ime + "', '" + noviZaposlenik.Prezime + "', '"
+            + noviZaposlenik.Adresa + "', '" + noviZaposlenik.Kontakt + "', '" + noviZaposlenik.Email + "', '" + noviZaposlenik.KorIme + "', '"
+            + noviZaposlenik.Lozinka + "', '" + noviZaposlenik.Uloga + "');";
+            int izvrsenUpit = DB.Instance.IzvrsiUpit(sqlUpit);
+
+            return izvrsenUpit;
+        }
+
+        /// <summary>
+        /// Ažurira zaposlenika u bazi podataka
+        /// </summary>
+        /// <param name="zaposlenik">Objekt klase Zaposlenici sa novim podacima</param>
+        /// <returns>Vraća broj zahvaćeni redova</returns>
+        public static int AzurirajZaposlenika(Zaposlenici zaposlenik)
+        {
+            string sqlUpit = "UPDATE Zaposlenik SET ime='" + zaposlenik.Ime + "', prezime='" + zaposlenik.Prezime + "', adresa= '"
+            + zaposlenik.Adresa + "', kontakt='" + zaposlenik.Kontakt + "', email='" + zaposlenik.Email + "', kor_ime='" + zaposlenik.KorIme + "', lozinka='"
+            + zaposlenik.Lozinka + "', uloga='" + zaposlenik.Uloga + "' WHERE OIB=" + zaposlenik.OIB + ";";
+            int izvrsenUpit = DB.Instance.IzvrsiUpit(sqlUpit);
+            return izvrsenUpit;
+            
         }
 
         #endregion

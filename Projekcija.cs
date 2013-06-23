@@ -69,7 +69,7 @@ namespace PI_projekt
             {
                 return id_projekcije;
             }
-            private set
+            set
             {
                 if (id_projekcije != value)
                 {
@@ -87,7 +87,7 @@ namespace PI_projekt
             {
                 return id_filma;
             }
-            private set
+            set
             {
                 if (id_filma != value)
                 {
@@ -105,7 +105,7 @@ namespace PI_projekt
             {
                 return vrijeme_trajanja;
             }
-            private set
+            set
             {
                 if (vrijeme_trajanja != value)
                 {
@@ -120,7 +120,7 @@ namespace PI_projekt
             {
                 return broj_dvorane;
             }
-            private set
+             set
             {
                 if (broj_dvorane != value)
                 {
@@ -134,7 +134,7 @@ namespace PI_projekt
             {
                 return broj_mjesta;
             }
-            private set
+            set
             {
                 if (broj_mjesta != value)
                 {
@@ -148,7 +148,7 @@ namespace PI_projekt
             {
                 return prodano_ulaznica;
             }
-            private set
+             set
             {
                 if (prodano_ulaznica != value)
                 {
@@ -162,7 +162,7 @@ namespace PI_projekt
             {
                 return cijena;
             }
-            private set
+            set
             {
                 if (cijena != value)
                 {
@@ -176,7 +176,7 @@ namespace PI_projekt
             {
                 return datum;
             }
-            private set
+             set
             {
                 if (datum != value)
                 {
@@ -217,7 +217,7 @@ namespace PI_projekt
             DateTime sada = DateTime.Now;
             sada.AddMinutes(15);
 
-            string sqlUpit = "SELECT * FROM Projekcija WHERE datum=>" + sada.ToString() + ";";
+            string sqlUpit = "SELECT * FROM Projekcija WHERE datum=>" + sada.ToString("yyyy-MM-dd HH:mm:ss") + ";";
             DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
             while (dr.Read())
             {
@@ -238,7 +238,7 @@ namespace PI_projekt
             DateTime sada = DateTime.Now;
             sada.AddMinutes(15);
 
-            string sqlUpit = "SELECT * FROM Projekcija WHERE datum >= '" + sada.ToString() + "' AND id_filma=" + idFilma + ";";
+            string sqlUpit = "SELECT * FROM Projekcija WHERE datum >= '" + sada.ToString("yyyy-MM-dd HH:mm:ss") + "' AND id_filma=" + idFilma + ";";
             DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
             while (dr.Read())
             {
@@ -248,19 +248,39 @@ namespace PI_projekt
             dr.Close();     //Zatvaranje DataReader objekta.
             return lista;
         }
+
+        /// <summary>
+        /// Dohvaća jednu projekciju
+        /// </summary>
+        /// <param name="idFilma">Id Projekcije</param>
+        /// <returns>Dohvati jednu projekciju</returns>
+        public static Projekcija DohvatiProjekciju(int idProjekcije)
+        {
+            Projekcija projekcija= new Projekcija();
+
+            string sqlUpit = "SELECT * FROM Projekcija WHERE id_projekcije=" + idProjekcije + ";";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                projekcija = new Projekcija(dr);
+                
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return projekcija;
+        }
         /// <summary>
         /// Unesi projekciju u bazu podataka
         /// </summary>
         /// <param name="novaProjekcija">Objekt klase projekcija sa podacima potrebnim za unos</param>
-       /// <returns>Broj zahvaćenih redova</returns>
+       /// <returns>Broj ID unešene projekcije redova</returns>
         public static int UnesiProjekciju(Projekcija novaProjekcija)
         {
-            string sqlUpit = "INSERT INTO Projekcija ('broj_dvorane','id_filma','vrijeme_trajanja','broj_mjesta','prodano_ulaznica','cijena','datum',) VALUES ('"
-                + novaProjekcija.BrojDvorane + "','" + novaProjekcija.IdFilma + "','" + novaProjekcija.VrijemeTrajanja + "','" + novaProjekcija.BrojMjesta 
-                + "','" + novaProjekcija.ProdanoUlaznica + "','" + Kino.PretvoriCijenu(novaProjekcija.Cijena) + "','" + novaProjekcija.Datum + "');";
-              int  zahvaceno = DB.Instance.IzvrsiUpit(sqlUpit);
+            string sqlUpit = "INSERT INTO Projekcija ('broj_dvorane','id_filma','vrijeme_trajanja','broj_mjesta','prodano_ulaznica','cijena','datum') VALUES ('"
+                + novaProjekcija.BrojDvorane + "','" + novaProjekcija.IdFilma + "','" + novaProjekcija.VrijemeTrajanja + "','" + novaProjekcija.BrojMjesta
+                + "','" + novaProjekcija.ProdanoUlaznica + "','" + Kino.PretvoriCijenu(novaProjekcija.Cijena) + "','" + novaProjekcija.Datum.ToString("yyyy-MM-dd HH:mm:ss") + "');";
+              int  IDProjekcije = DB.Instance.IzvrsiUpitID(sqlUpit);
 
-            return zahvaceno;
+            return IDProjekcije;
         
         }
 
@@ -272,9 +292,9 @@ namespace PI_projekt
         public static int AzurirajProjekciju(Projekcija novaProjekcija)
         {
             string sqlUpit = "UPDATE  Projekcija SET broj_dvorane='"+novaProjekcija.BrojDvorane+"',id_filma='"+novaProjekcija.IdFilma
-                +"',vrijeme_trajanja='"+ novaProjekcija.VrijemeTrajanja+"','broj_mjesta='"+novaProjekcija.BrojMjesta
-                + "','prodano_ulaznica='" + novaProjekcija.ProdanoUlaznica + "',cijena='" + Kino.PretvoriCijenu(novaProjekcija.Cijena)
-                + "',datum='" + novaProjekcija.Datum + "' WHERE id_projekcije=" + novaProjekcija .IdProjekcije+ ";";
+                +"',vrijeme_trajanja='"+ novaProjekcija.VrijemeTrajanja+"',broj_mjesta='"+novaProjekcija.BrojMjesta
+                + "',prodano_ulaznica='" + novaProjekcija.ProdanoUlaznica + "',cijena='" + Kino.PretvoriCijenu(novaProjekcija.Cijena)
+                + "',datum='" + novaProjekcija.Datum.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE id_projekcije=" + novaProjekcija.IdProjekcije + ";";
           
             int zahvaceno = DB.Instance.IzvrsiUpit(sqlUpit);
 

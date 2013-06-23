@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +43,28 @@ namespace PI_projekt
             return listaIdUlaznica;
         }
 
+        public static void KreirajRacun(long OIB, int idNacinaPlacanja, List<Artikl> listaArtikala, List<int> listaKolicina, List<int> listaIdUlaznica, Popust popust)
+        {
+            int IdRacun = Racun.UnesiRacun(OIB, idNacinaPlacanja);
+            if (listaArtikala != null)
+            {
+                int brojElemenata = listaArtikala.Count;
+                for (int i = 0; i < brojElemenata; i++)
+                {
+                    RacunArtikl.UnesiRacunArtikl(IdRacun, listaArtikala[i].IdArtikla, listaKolicina[i]);
+                }
+            }
+            if (listaIdUlaznica != null)
+            {
+                foreach (int ID in listaIdUlaznica)
+                {
+                    RacunUlaznica.UnesiRacunUlaznica(IdRacun, ID, popust.IdPopusta);
+                }
+            }
+            Izvjestaj.RacunIzvjestaj racun = new Izvjestaj.RacunIzvjestaj(IdRacun);
+            racun.Show();
+        }
 
+     
     }
 }

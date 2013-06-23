@@ -28,11 +28,8 @@ namespace PI_projekt.Sucelja
         public FrmAdminDvorane()
         {
             InitializeComponent();
-            userName.Text = FrmPocetna.SpremnikPodataka.Zaposlenik;
-            userRole.Text = FrmPocetna.SpremnikPodataka.Uloga;
         }
 
-        private bool pomOdjava = false;
 
         private void FrmAdminDvorane_Load(object sender, EventArgs e)
         {
@@ -41,7 +38,6 @@ namespace PI_projekt.Sucelja
 
         private void btnDvoraneOsvjezi_Click(object sender, EventArgs e)
         {
-            pomOdjava = true;
             OsvjeziDvorane();
         }
 
@@ -52,7 +48,6 @@ namespace PI_projekt.Sucelja
         /// <param name="e"></param>
         private void dgvSveDvorane_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            pomOdjava = true;
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow red = this.dgvSveDvorane.Rows[e.RowIndex];
@@ -61,14 +56,7 @@ namespace PI_projekt.Sucelja
             }
         }
 
-        private void btnDvoranePovratak_Click(object sender, EventArgs e)
-        {
-            pomOdjava = true;
-            FrmAdmin admin = new FrmAdmin();
-            admin.Show();
-            this.Close();
-        }
-
+      
         /// <summary>
         /// Klikom na gumb dodaj otvara se forma za dodavanje nove dvorane
         /// </summary>
@@ -76,10 +64,8 @@ namespace PI_projekt.Sucelja
         /// <param name="e"></param>
         private void btnDvoraneDodaj_Click(object sender, EventArgs e)
         {
-            pomOdjava = true;
             FrmAdminDvoraneDodaj formaDodaj = new FrmAdminDvoraneDodaj();
-            formaDodaj.Show();
-            this.Close(); ;
+            formaDodaj.ShowDialog(this);
         }
 
         /// <summary>
@@ -89,59 +75,16 @@ namespace PI_projekt.Sucelja
         /// <param name="e"></param>
         private void btnDvoraneAzuriraj_Click(object sender, EventArgs e)
         {
-            pomOdjava = true;
             //ako je odabrana dvorana u dgvSveDvorane
             if (BrojDvorane > -1)
             {
                 detaljiDvorana = Dvorana.DohvatiDvoranu(BrojDvorane);
                 FrmAdminDvoraneDodaj formaAzuriraj = new FrmAdminDvoraneDodaj(detaljiDvorana);
-                formaAzuriraj.Show();
-                this.Close();
+                formaAzuriraj.ShowDialog(this);
             }
             else
             {
                 MessageBox.Show("Molimo vas odaberite dvoranu!");
-            }
-        }
-
-        /// <summary>
-        /// funkcija za odjavu iz sustava, klikom na odjava se postavlja parametar na 1
-        /// i prosljeduje funkciji koja ce ispisati poruku i pitati želi li se korisnik odjaviti
-        /// u slucaju klika na yes, korisnik se odjavljuje i vraca na pocetnu stranicu (login)
-        /// </summary>
-        int odjavljivanje = 0;
-        private void Odjava_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            odjavljivanje = 1;
-            odjava();
-        }
-        private void odjava()
-        {
-            if (odjavljivanje == 1)
-            {
-                string message = "Želite li se odjaviti iz sustava?";
-                string caption = "Odjava iz sustava";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
-
-                // Displays the MessageBox.
-                result = MessageBox.Show(this, message, caption, buttons);
-
-                if (result == DialogResult.Yes)
-                {
-                    pomOdjava = true;
-                    PI_projekt.Sucelja.FrmPocetna pocetna = new PI_projekt.Sucelja.FrmPocetna();
-                    pocetna.Show();
-                    this.Close();
-                }
-            }
-        }
-        private void FrmAdminDvorane_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (!pomOdjava)
-            {
-                FrmAdmin admin = new FrmAdmin();
-                admin.Show();
             }
         }
     }

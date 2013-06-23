@@ -30,7 +30,9 @@ namespace PI_projekt.Ulaznica
         private float popust = 0;
         private float suma = 0;
         
-
+        /// <summary>
+        /// Metoda koja osvježava prikaz podataka koji se nalaze na ulaznici
+        /// </summary>
         private void Osvjezi()
         {
             cbDatum.Items.Clear();
@@ -51,6 +53,10 @@ namespace PI_projekt.Ulaznica
             txtSuma.Clear();
         
         }
+
+        /// <summary>
+        /// Metoda koja služi za uračunavanje određenog popusta na cijenu karte
+        /// </summary>
         private void UracunajPopust()
         {
             ukupno = lbOdabrana.Items.Count * odabranaProjekcija.Cijena;
@@ -59,11 +65,6 @@ namespace PI_projekt.Ulaznica
             txtSuma.Text = ukupno.ToString();
             txtPopust.Text = popust.ToString() + "%";
             txtUkupno.Text = suma.ToString();
-        }
-
-        private void PostaviDetalje()
-        {
-
         }
 
         public FrmUlaznica()
@@ -76,35 +77,30 @@ namespace PI_projekt.Ulaznica
                 cbPopust.Items.Add(popust.Naziv);
             }
             cbPopust.SelectedIndex = cbPopust.FindStringExact("Bez Popusta");
-
         }
 
-        private void Nazad_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
-        private void FrmUlaznica_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            FrmProdavac prodavac = new FrmProdavac();
-            prodavac.Show();
-        }
-
+        /// <summary>
+        /// Metoda koja se poziva pri otvaranju forme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmUlaznica_Load(object sender, EventArgs e)
         {
-           
             // filmovi = Film.DohvatiAktualneFilmove();
             filmovi = Film.DohvatiFilmove();
             foreach (Film film in filmovi)
             {
                 cbNazivProjekcije.Items.Add(film.Naziv);
             }
-
         }
 
+        /// <summary>
+        /// Metoda koja služi da bi se dohvatile sve moguće projekcije za zadani film
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbNazivProjekcije_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             Osvjezi();
             odabraniFilm = filmovi[cbNazivProjekcije.SelectedIndex];
             projekcije = Projekcija.DohvatiProjekcijeFilm(odabraniFilm.IdFilma);
@@ -115,9 +111,18 @@ namespace PI_projekt.Ulaznica
             //obrisi sve iz ostalih boxova
         }
 
+        /// <summary>
+        /// Metoda koja služi za identificiranje datuma za određenu projekciju
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbDatum_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            odabranaMjesta = null;
+            zauzetaMjesta = null;
+            lbOdabrana.Items.Clear();
+            lbSlobodna.Items.Clear();
+
             idProjekcije = projekcije[cbDatum.SelectedIndex].IdProjekcije;
             foreach (Projekcija projekcija2 in projekcije)
             {
@@ -125,7 +130,7 @@ namespace PI_projekt.Ulaznica
                 {
                     odabranaProjekcija = projekcija2;
                 }
-
+            }
   //napravi metodu koja ce dohvatit za taj ID dvorane Naziv dvorane umjesto linije ispod!!!
                 txtDvorana.Text = odabranaProjekcija.BrojDvorane.ToString();
                 txtFilm.Text = odabraniFilm.Naziv;
@@ -156,12 +161,14 @@ namespace PI_projekt.Ulaznica
                 {
                     if (!zauzetaMjesta.Contains(i))
                         lbSlobodna.Items.Add(i);
-                }
-
-
-            }
+                }           
         }
 
+        /// <summary>
+        /// Gumb dodaj 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
             if (lbSlobodna.SelectedItem != null)
@@ -179,6 +186,11 @@ namespace PI_projekt.Ulaznica
 
         }
 
+        /// <summary>
+        /// Gumb ukloni
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnUkloni_Click(object sender, EventArgs e)
         {
             if (lbOdabrana.SelectedItem != null)
@@ -187,7 +199,6 @@ namespace PI_projekt.Ulaznica
                 lbOdabrana.Items.Remove(lbOdabrana.SelectedItem);
                 //lbOdabrana.Sorted = true;
                 UracunajPopust();
-                
             }
             else
             {
@@ -195,6 +206,11 @@ namespace PI_projekt.Ulaznica
             }
         }
 
+        /// <summary>
+        /// Gumb dalje koji otvara formu za odabir artikala
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Dalje_Click(object sender, EventArgs e)
         {
             if (lbOdabrana.Items.Count > 0 && odabranaProjekcija!=null)
@@ -206,7 +222,20 @@ namespace PI_projekt.Ulaznica
                     
                     odabranaSjedala.Add(int.Parse(lbOdabrana.Items[i].ToString()));
                 }
-                Kino.IzradiUlaznicu(odabranaSjedala, odabranaProjekcija);
+                listaIdUlaznica = Kino.IzradiUlaznicu(odabranaSjedala, odabranaProjekcija);
+                Artikli.FrmArtikli formaArtikli = new Artikli.FrmArtikli(listaIdUlaznica, odabraniPopust.IdPopusta);
+                formaArtikli.Show();
+                
+                /////
+                //Jako je bitno da se poziva nakon unosa artikala i kreiranja racun_karta stavki ulaznica zbog uračunavanja popusta
+                /////
+                foreach (int idUlaznice in listaIdUlaznica)
+                {
+                   
+                    Izvjestaj.UlaznicaIspis ispisUlaznice = new Izvjestaj.UlaznicaIspis(idUlaznice);
+                    ispisUlaznice.Show();
+                }
+                this.Close();
             }
             else
             {
@@ -214,6 +243,11 @@ namespace PI_projekt.Ulaznica
             }
         }
 
+        /// <summary>
+        /// Metoda koja služi za odabir popusta
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void cbPopust_SelectedIndexChanged(object sender, EventArgs e)
         {
             odabraniPopust = popusti[cbPopust.SelectedIndex];

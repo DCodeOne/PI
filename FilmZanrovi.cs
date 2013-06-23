@@ -112,17 +112,34 @@ namespace PI_projekt
         /// <param name="idFilma">Id filma za kojeg se uose žanrovi</param>
         /// <param name="listaZanrova">Lista objekata Zanrovi koja sadrži sve žanrove za film</param>
         /// <returns>Broj zahvaćenih redova</returns>
-        public static int UnesiZanrove(int idFilma, List<Zanrovi> listaZanrova)
+        public static int UnesiZanrove(int idFilma, List<int> listaZanrova)
         {
             int brojUmetanja=0;
-            foreach (Zanrovi zanr in listaZanrova)
+            foreach (int zanr in listaZanrova)
             {
-                string sqlUpit = "INSERT INTO film_zanr ('id_zanra','id_filma') VALUES ('" + zanr.IdZanra + "','" + idFilma + "');";
+                string sqlUpit = "INSERT INTO film_zanr ('id_zanra','id_filma') VALUES ('" + zanr.ToString() + "','" + idFilma + "');";
                 brojUmetanja += DB.Instance.IzvrsiUpit(sqlUpit);
             }
             
             return brojUmetanja;
         
+        }
+
+        public static int AzurirajZanrove(int idFilma, List<int> idZanrova)
+        {
+            int zahvaceno = 0;
+            //obrišemo sve vrsteProjekcije za određenu projekciju
+            string sqlUpit1 = "DELETE FROM film_zanr WHERE id_filma=" + idFilma + ";";
+            DB.Instance.IzvrsiUpit(sqlUpit1);
+
+            //dodajemo Ažuriranje vrste projekcija za projekciju
+            foreach (int idZanra in idZanrova)
+            {
+                string sqlUpit = "INSERT INTO film_zanr ('id_filma','id_zanra') VALUES ('"
+                + idFilma + "','" + idZanra + "');";
+                zahvaceno += DB.Instance.IzvrsiUpit(sqlUpit);
+            }
+            return zahvaceno;
         }
 
         

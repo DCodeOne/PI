@@ -124,6 +124,23 @@ namespace PI_projekt
         }
 
         /// <summary>
+        /// Dohvaća račun__ulaznica za određenu ulaznicu
+        /// </summary>
+        /// <returns>Lista stavki svih racun ulaznica</returns>
+        public static RacunUlaznica DohvatiRacunUlaznica(int idUlaznice)
+        {
+            RacunUlaznica racunUlaznica = new RacunUlaznica();
+            string sqlUpit = "SELECT * from racun_karta WHERE id_karte="+idUlaznice+";";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                racunUlaznica = new RacunUlaznica(dr);
+               
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return racunUlaznica;
+        }
+        /// <summary>
         /// Dohvaća stavke svih ulaznica za određeni račun
         /// </summary>
         /// <param name="idRacuna">Id računa za kojeg se dohvacaju sve stavke ulaznica</param>
@@ -142,6 +159,11 @@ namespace PI_projekt
             return lista;
         }
 
+        public static void UnesiRacunUlaznica(int IdRacuna, int IdKarte, int Popust)
+        {
+            string sqlUpit = "INSERT INTO racun_karta VALUES (" + IdRacuna + ", " + IdKarte + ", " + Popust + ");";
+            int idRacuna = DB.Instance.IzvrsiUpitID(sqlUpit);
+        }
         
         #endregion
     }

@@ -141,6 +141,12 @@ namespace PI_projekt
             return lista;
         }
 
+        public static void UnesiRacunArtikl(int IdRacuna, int IdArtikla, int Kolicina)
+        {
+            string sqlUpit = "INSERT INTO stavka_racuna VALUES (" + IdRacuna + ", " + IdArtikla + ", " + Kolicina + ");";
+            int idRacuna = DB.Instance.IzvrsiUpitID(sqlUpit);
+        }
+
         #endregion
     }
 }

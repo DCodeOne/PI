@@ -127,6 +127,23 @@ namespace PI_projekt
             return lista;
         }
 
+        /// <summary>
+        /// Dohvati popust sa Id
+        /// </summary>
+        /// <returns>Lista mjernih jedinica</returns>
+        public static Popust DohvatiPopust(int idPopusta)
+        {
+             Popust popust = new Popust();
+            string sqlUpit = "SELECT * FROM Popust WHERE id_popusta="+ idPopusta+";";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                popust = new Popust(dr);
+               
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return popust;
+        }
        
 
         #endregion

@@ -31,6 +31,7 @@ namespace PI_projekt
                 IdRacuna = int.Parse(dr["id_racuna"].ToString());
                 OIB = float.Parse(dr["OIB"].ToString());
                 IdNacinaPlacanja = int.Parse(dr["id_nacina_placanja"].ToString());
+                Datum = DateTime.Parse(dr["datum"].ToString());
             }
 
         }
@@ -42,6 +43,7 @@ namespace PI_projekt
         private int id_racuna;
         private float oib;
         private int id_nacina_placanja;
+        private DateTime datum;
 
         #endregion
 
@@ -103,6 +105,21 @@ namespace PI_projekt
             }
         }
 
+        public DateTime Datum
+        {
+            get
+            {
+                return datum;
+            }
+            private set
+            {
+                if (datum != value)
+                {
+                    datum = value;
+                }
+            }
+        }
+
         #endregion
 
         #region Methods
@@ -124,16 +141,15 @@ namespace PI_projekt
             dr.Close();
             return lista;
         }
-        
+
         /// <summary>
         /// Unos novog računa
         /// </summary>
         /// <param name="idRacuna">Id računa</param>
         /// <returns>int vraća ID računa</returns>
-        public static int UnesiRacun(int OIB, int IDNacinaPlacanja)
+        public static int UnesiRacun(long OIB, int IDNacinaPlacanja)
         {
-
-            string sqlUpit = "INSERT INTO Racun ('OIB','id_nacina_placanja') VALUES ('" + OIB + "','" + IDNacinaPlacanja + "');";
+            string sqlUpit = "INSERT INTO Racun (OIB, id_nacina_placanja, datum) VALUES (" + OIB + ", " + IDNacinaPlacanja + ", datetime('now'));";
             int idRacuna = DB.Instance.IzvrsiUpitID(sqlUpit);
 
             return idRacuna;

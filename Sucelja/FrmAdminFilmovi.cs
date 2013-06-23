@@ -15,67 +15,86 @@ namespace PI_projekt.Sucelja
         public FrmAdminFilmovi()
         {
             InitializeComponent();
-            userName.Text = FrmPocetna.SpremnikPodataka.Zaposlenik;
-            userRole.Text = FrmPocetna.SpremnikPodataka.Uloga;
         }
-
-        private bool pomOdjava = false;
-
-        private void btnFilmoviPovratak_Click(object sender, EventArgs e)
+  
+        /// <summary>
+        /// Metoda koja osvježava popis filmova u dgvSviFilmovi objektu
+        /// </summary>
+        private void OsvjeziFilmove()
         {
-            pomOdjava = true;
-            FrmAdmin admin = new FrmAdmin();
-            admin.Show();
-            this.Close();
-        }
-
-        private void btnFilmoviDodaj_Click(object sender, EventArgs e)
-        {
-            pomOdjava = true;
-            FrmAdminFilmoviDodaj formaDodaj = new FrmAdminFilmoviDodaj();
-            formaDodaj.Show();
-            this.Close(); ;
+            List<Film> listaFilmova = Film.DohvatiFilmove();
+            dgvSviFilmovi.DataSource = listaFilmova;
         }
 
         /// <summary>
-        /// funkcija za odjavu iz sustava, klikom na odjava se postavlja parametar na 1
-        /// i prosljeđuje funkciji koja će ispisati poruku i pitati želi li se korisnik odjaviti
-        /// u slučaju klika na yes, korisnik se odjavljuje i vraća na početnu stranicu (login)
+        /// Pri učitavanju forme poziva se metoda osvježi
         /// </summary>
-        int odjavljivanje = 0;
-        private void Odjava_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void FrmAdminFilmovi_Load(object sender, EventArgs e)
         {
-            odjavljivanje = 1;
-            odjava();
+             OsvjeziFilmove();
         }
-        private void odjava()
+
+        private void btnFilmoviOsvjezi_Click_1(object sender, EventArgs e)
         {
-            if (odjavljivanje == 1)
+            OsvjeziFilmove();
+        }      
+
+        //objekt klase film ukog se sprema film za uređivanje
+        Film detaljiFilm = new Film();
+        int IdFilma = -1;
+        /// <summary>
+        /// Klikom na pojedinu ćeliju u dgvSviFilmovi odabiremo pojedini element
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void dgvSviFilmovi_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
             {
-                string message = "Želite li se odjaviti iz sustava?";
-                string caption = "Odjava iz sustava";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
+                DataGridViewRow red = this.dgvSviFilmovi.Rows[e.RowIndex];
+                //postavljamo id filma u varijablu IdFilma
+                IdFilma = int.Parse(red.Cells["IdFilma"].Value.ToString());
+            }
 
-                // Displays the MessageBox.
-                result = MessageBox.Show(this, message, caption, buttons);
+        }
 
-                if (result == DialogResult.Yes)
-                {
-                    pomOdjava = true;
-                    PI_projekt.Sucelja.FrmPocetna pocetna = new PI_projekt.Sucelja.FrmPocetna();
-                    pocetna.Show();
-                    this.Close();
-                }
+        /// <summary>
+        /// Gumb osvježi osvježava spisak filmova koji se nalaze u dgvSviFilmovi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFilmoviOsvjezi_Click(object sender, EventArgs e)
+        {
+            OsvjeziFilmove();
+        }
+
+        /// <summary>
+        /// Gumb dodaj otvara formu za unos novih filmova
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFilmoviDodaj_Click(object sender, EventArgs e)
+        {
+            FrmAdminFilmoviDodaj formaDodaj = new FrmAdminFilmoviDodaj();
+            formaDodaj.ShowDialog(this);
+        }
+
+        /// <summary>
+        /// Gumb dodaj otvara formu za ažuriranje postojećih
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnFilmoviAzuriraj_Click(object sender, EventArgs e)
+        {
+            //ako je odabran artikl u dgvSviArtikli
+            if (IdFilma > -1)
+            {
+                FrmAdminFilmoviDodaj formaAzuriraj = new FrmAdminFilmoviDodaj(IdFilma);
+                formaAzuriraj.ShowDialog(this);
             }
         }
-        private void FrmAdminFilmovi_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            if (!pomOdjava)
-            {
-                FrmAdmin admin = new FrmAdmin();
-                admin.Show();
-            }
-        }
+                       
     }
 }

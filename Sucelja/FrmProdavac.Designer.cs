@@ -29,145 +29,131 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmProdavac));
-            this.korisnik = new System.Windows.Forms.Label();
-            this.Odjava = new System.Windows.Forms.LinkLabel();
-            this.Opcije = new System.Windows.Forms.GroupBox();
-            this.Artikli = new System.Windows.Forms.Button();
-            this.Ulaznica = new System.Windows.Forms.Button();
-            this.userName = new System.Windows.Forms.Label();
-            this.userRole = new System.Windows.Forms.Label();
-            this.uloga = new System.Windows.Forms.Label();
-            this.Opcije.SuspendLayout();
+            this.msIzbornik = new System.Windows.Forms.MenuStrip();
+            this.miOpcije = new System.Windows.Forms.ToolStripMenuItem();
+            this.miOpcijeOdjava = new System.Windows.Forms.ToolStripMenuItem();
+            this.miOpcijeIzlaz = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSifarnici = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSifarniciUlaznica = new System.Windows.Forms.ToolStripMenuItem();
+            this.miSifarniciArtikli = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusnaTraka = new System.Windows.Forms.StatusStrip();
+            this.sstext = new System.Windows.Forms.ToolStripStatusLabel();
+            this.ssUsername = new System.Windows.Forms.ToolStripStatusLabel();
+            this.msIzbornik.SuspendLayout();
+            this.statusnaTraka.SuspendLayout();
             this.SuspendLayout();
             // 
-            // korisnik
+            // msIzbornik
             // 
-            this.korisnik.AutoSize = true;
-            this.korisnik.BackColor = System.Drawing.Color.Black;
-            this.korisnik.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.korisnik.Location = new System.Drawing.Point(13, 18);
-            this.korisnik.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.korisnik.Name = "korisnik";
-            this.korisnik.Size = new System.Drawing.Size(136, 16);
-            this.korisnik.TabIndex = 0;
-            this.korisnik.Text = "Prijavljeni ste kao:";
+            this.msIzbornik.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miOpcije,
+            this.miSifarnici});
+            this.msIzbornik.Location = new System.Drawing.Point(0, 0);
+            this.msIzbornik.Name = "msIzbornik";
+            this.msIzbornik.Size = new System.Drawing.Size(699, 29);
+            this.msIzbornik.TabIndex = 7;
+            this.msIzbornik.Text = "Izbornik";
             // 
-            // Odjava
+            // miOpcije
             // 
-            this.Odjava.AutoSize = true;
-            this.Odjava.BackColor = System.Drawing.Color.Black;
-            this.Odjava.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Odjava.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Odjava.LinkColor = System.Drawing.Color.Yellow;
-            this.Odjava.Location = new System.Drawing.Point(382, 18);
-            this.Odjava.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Odjava.Name = "Odjava";
-            this.Odjava.Size = new System.Drawing.Size(56, 16);
-            this.Odjava.TabIndex = 1;
-            this.Odjava.TabStop = true;
-            this.Odjava.Text = "odjava";
-            this.Odjava.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Odjava_LinkClicked);
+            this.miOpcije.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miOpcijeOdjava,
+            this.miOpcijeIzlaz});
+            this.miOpcije.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.miOpcije.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.miOpcije.Name = "miOpcije";
+            this.miOpcije.Size = new System.Drawing.Size(66, 25);
+            this.miOpcije.Text = "Opcije";
             // 
-            // Opcije
+            // miOpcijeOdjava
             // 
-            this.Opcije.BackColor = System.Drawing.Color.Black;
-            this.Opcije.Controls.Add(this.Artikli);
-            this.Opcije.Controls.Add(this.Ulaznica);
-            this.Opcije.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Opcije.Location = new System.Drawing.Point(16, 76);
-            this.Opcije.Name = "Opcije";
-            this.Opcije.Size = new System.Drawing.Size(202, 117);
-            this.Opcije.TabIndex = 3;
-            this.Opcije.TabStop = false;
-            this.Opcije.Text = "Opcije";
+            this.miOpcijeOdjava.Name = "miOpcijeOdjava";
+            this.miOpcijeOdjava.Size = new System.Drawing.Size(152, 26);
+            this.miOpcijeOdjava.Text = "Odjava";
+            this.miOpcijeOdjava.MouseUp += new System.Windows.Forms.MouseEventHandler(this.miOpcijeOdjava_MouseUp);
             // 
-            // Artikli
+            // miOpcijeIzlaz
             // 
-            this.Artikli.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Artikli.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Artikli.Image = global::PI_projekt.Properties.Resources.kokice;
-            this.Artikli.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Artikli.Location = new System.Drawing.Point(29, 70);
-            this.Artikli.Name = "Artikli";
-            this.Artikli.Size = new System.Drawing.Size(130, 30);
-            this.Artikli.TabIndex = 1;
-            this.Artikli.Text = "Artikli";
-            this.Artikli.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Artikli.UseVisualStyleBackColor = true;
-            this.Artikli.Click += new System.EventHandler(this.Artikli_Click);
+            this.miOpcijeIzlaz.Name = "miOpcijeIzlaz";
+            this.miOpcijeIzlaz.Size = new System.Drawing.Size(152, 26);
+            this.miOpcijeIzlaz.Text = "Izlaz";
+            this.miOpcijeIzlaz.MouseUp += new System.Windows.Forms.MouseEventHandler(this.miOpcijeIzlaz_MouseUp);
             // 
-            // Ulaznica
+            // miSifarnici
             // 
-            this.Ulaznica.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Ulaznica.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Ulaznica.Image = global::PI_projekt.Properties.Resources.tiket;
-            this.Ulaznica.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Ulaznica.Location = new System.Drawing.Point(29, 24);
-            this.Ulaznica.Name = "Ulaznica";
-            this.Ulaznica.Size = new System.Drawing.Size(130, 30);
-            this.Ulaznica.TabIndex = 0;
-            this.Ulaznica.Text = "Ulaznica";
-            this.Ulaznica.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.Ulaznica.UseVisualStyleBackColor = true;
-            this.Ulaznica.Click += new System.EventHandler(this.Ulaznica_Click);
+            this.miSifarnici.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.miSifarniciUlaznica,
+            this.miSifarniciArtikli});
+            this.miSifarnici.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.miSifarnici.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.miSifarnici.Name = "miSifarnici";
+            this.miSifarnici.Size = new System.Drawing.Size(78, 25);
+            this.miSifarnici.Text = "Šifranici";
             // 
-            // userName
+            // miSifarniciUlaznica
             // 
-            this.userName.AutoSize = true;
-            this.userName.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.userName.ForeColor = System.Drawing.Color.Red;
-            this.userName.Location = new System.Drawing.Point(156, 18);
-            this.userName.Name = "userName";
-            this.userName.Size = new System.Drawing.Size(108, 16);
-            this.userName.TabIndex = 4;
-            this.userName.Text = "korisničko ime";
+            this.miSifarniciUlaznica.Name = "miSifarniciUlaznica";
+            this.miSifarniciUlaznica.Size = new System.Drawing.Size(152, 26);
+            this.miSifarniciUlaznica.Text = "Ulaznica";
+            this.miSifarniciUlaznica.MouseUp += new System.Windows.Forms.MouseEventHandler(this.miSifarniciUlaznica_MouseUp);
             // 
-            // userRole
+            // miSifarniciArtikli
             // 
-            this.userRole.AutoSize = true;
-            this.userRole.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.userRole.ForeColor = System.Drawing.Color.Red;
-            this.userRole.Location = new System.Drawing.Point(71, 44);
-            this.userRole.Name = "userRole";
-            this.userRole.Size = new System.Drawing.Size(47, 16);
-            this.userRole.TabIndex = 6;
-            this.userRole.Text = "uloga";
+            this.miSifarniciArtikli.Name = "miSifarniciArtikli";
+            this.miSifarniciArtikli.Size = new System.Drawing.Size(152, 26);
+            this.miSifarniciArtikli.Text = "Artikli";
+            this.miSifarniciArtikli.MouseUp += new System.Windows.Forms.MouseEventHandler(this.miSifarniciArtikli_MouseUp);
             // 
-            // uloga
+            // statusnaTraka
             // 
-            this.uloga.AutoSize = true;
-            this.uloga.BackColor = System.Drawing.Color.Black;
-            this.uloga.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.uloga.Location = new System.Drawing.Point(13, 44);
-            this.uloga.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.uloga.Name = "uloga";
-            this.uloga.Size = new System.Drawing.Size(54, 16);
-            this.uloga.TabIndex = 5;
-            this.uloga.Text = "Uloga:";
+            this.statusnaTraka.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sstext,
+            this.ssUsername});
+            this.statusnaTraka.Location = new System.Drawing.Point(0, 401);
+            this.statusnaTraka.Name = "statusnaTraka";
+            this.statusnaTraka.Size = new System.Drawing.Size(699, 26);
+            this.statusnaTraka.TabIndex = 9;
+            this.statusnaTraka.Text = "status";
+            // 
+            // sstext
+            // 
+            this.sstext.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.sstext.ForeColor = System.Drawing.Color.Black;
+            this.sstext.Name = "sstext";
+            this.sstext.Size = new System.Drawing.Size(150, 21);
+            this.sstext.Text = "Prijavljeni ste kao:";
+            // 
+            // ssUsername
+            // 
+            this.ssUsername.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ssUsername.ForeColor = System.Drawing.Color.Red;
+            this.ssUsername.Name = "ssUsername";
+            this.ssUsername.Size = new System.Drawing.Size(85, 21);
+            this.ssUsername.Text = "username";
             // 
             // FrmProdavac
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::PI_projekt.Properties.Resources.BCKground_2;
+            this.BackgroundImage = global::PI_projekt.Properties.Resources.pozadina;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(443, 206);
-            this.Controls.Add(this.userRole);
-            this.Controls.Add(this.uloga);
-            this.Controls.Add(this.userName);
-            this.Controls.Add(this.Opcije);
-            this.Controls.Add(this.Odjava);
-            this.Controls.Add(this.korisnik);
+            this.ClientSize = new System.Drawing.Size(699, 427);
+            this.Controls.Add(this.statusnaTraka);
+            this.Controls.Add(this.msIzbornik);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.msIzbornik;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.MaximumSize = new System.Drawing.Size(459, 244);
-            this.MinimumSize = new System.Drawing.Size(459, 244);
             this.Name = "FrmProdavac";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prodavač";
-            this.Opcije.ResumeLayout(false);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.msIzbornik.ResumeLayout(false);
+            this.msIzbornik.PerformLayout();
+            this.statusnaTraka.ResumeLayout(false);
+            this.statusnaTraka.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -175,13 +161,15 @@
 
         #endregion
 
-        private System.Windows.Forms.Label korisnik;
-        private System.Windows.Forms.LinkLabel Odjava;
-        private System.Windows.Forms.GroupBox Opcije;
-        private System.Windows.Forms.Button Artikli;
-        private System.Windows.Forms.Button Ulaznica;
-        private System.Windows.Forms.Label userName;
-        private System.Windows.Forms.Label userRole;
-        private System.Windows.Forms.Label uloga;
+        private System.Windows.Forms.MenuStrip msIzbornik;
+        private System.Windows.Forms.ToolStripMenuItem miOpcije;
+        private System.Windows.Forms.ToolStripMenuItem miOpcijeOdjava;
+        private System.Windows.Forms.ToolStripMenuItem miOpcijeIzlaz;
+        private System.Windows.Forms.ToolStripMenuItem miSifarnici;
+        private System.Windows.Forms.ToolStripMenuItem miSifarniciUlaznica;
+        private System.Windows.Forms.ToolStripMenuItem miSifarniciArtikli;
+        private System.Windows.Forms.StatusStrip statusnaTraka;
+        private System.Windows.Forms.ToolStripStatusLabel sstext;
+        private System.Windows.Forms.ToolStripStatusLabel ssUsername;
     }
 }

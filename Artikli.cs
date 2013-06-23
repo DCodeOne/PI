@@ -182,7 +182,7 @@ namespace PI_projekt
         /// <returns>Broj zahvaćenih redova</returns>
         public static int AzurirajArtikl(Artikl artikl)
         {
-            string sqlUpit = "UPDATE  Artikl SET naziv='" + artikl.Naziv + "' , cijena='" + Kino.PretvoriCijenu(artikl.Cijena)
+            string sqlUpit = "UPDATE Artikl SET naziv='" + artikl.Naziv + "' , cijena='" + Kino.PretvoriCijenu(artikl.Cijena)
                 + "' ,id_mjerne_jedinice=" + artikl.IdMjerneJedinice + " WHERE id_artikla=" + artikl.IdArtikla + ";";
             int izvrsenUpit = DB.Instance.IzvrsiUpit(sqlUpit);
 
