@@ -15,6 +15,10 @@ namespace PI_projekt.Izvjestaj
     {
         private int idUlaznice;
 
+        /// <summary>
+        /// Metoda za ispis ulaznice
+        /// </summary>
+        /// <param name="ulaznicaId"></param>
         public UlaznicaIspis(int ulaznicaId)
         {
             InitializeComponent();
@@ -33,12 +37,14 @@ namespace PI_projekt.Izvjestaj
             this.DvoranaBindingSource.DataSource = dvorana;
             this.FilmBindingSource.DataSource = film;
             this.PopustBindingSource.DataSource = popust;
-            this.reportViewer1.RefreshReport();
-           
-          
-           
+            this.reportViewer1.RefreshReport(); 
         }
 
+        /// <summary>
+        /// Pokreće se pri pokretanju forme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void UlaznicaIspis_Load(object sender, EventArgs e)
         {
             

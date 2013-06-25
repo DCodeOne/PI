@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    /// Klasa za rad s projekcijama i vrstama projekcija
+    /// </summary>
     class ProjekcijaVrstaProjekcije
     {
          #region Constructors
@@ -49,7 +52,7 @@ namespace PI_projekt
 
         
         /// <summary>
-        /// Jedinstveni identifikator vrste projekcije
+        /// Jedinstveni identifikator projekcije
         /// </summary>
         public int IdProjekcije
         {
@@ -67,7 +70,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Jedinstveni identifikator projekcije
+        /// Jedinstveni identifikator vrste projekcije
         /// </summary>
         public int IdVrste
         {
@@ -89,7 +92,7 @@ namespace PI_projekt
          #region Methods
 
         /// <summary>
-        /// Dohvaća sve vrste projekcije za određenu projekciju
+        /// Metoda koja dohvaća sve vrste projekcije za određenu projekciju
         /// </summary>
         /// <returns>Lista vrsta projekcija</returns>
         public static List<VrstaProjekcije> DohvatiVrsteProjekcije(int IdProjekcije)
@@ -108,7 +111,7 @@ namespace PI_projekt
 
 
         /// <summary>
-        /// Dodaje vrste projekcije za određenu projekciju
+        /// Metoda koja dodaje vrste projekcije za određenu projekciju
         /// </summary>
         /// <param name="idProjekcije">Id projekcije za koju se dodaje vrsta</param>
         /// <param name="idVrsteProjekcije">Lista vrsta projekcija</param>
@@ -127,7 +130,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Ažuriranje vrste projekcije za određenu projekciju
+        /// Metoda koja ažuriranja vrstu projekcije za određenu projekciju
         /// </summary>
         /// <param name="idProjekcije">Id projekcije za koju se ažuriraju vrste</param>
         /// <param name="idVrsteProjekcije">Lista id-a vrsta projekcija</param>
@@ -139,7 +142,7 @@ namespace PI_projekt
             string sqlUpit1 = "DELETE FROM projekcija_vrsta WHERE id_projekcije="+idProjekcije+";";
             DB.Instance.IzvrsiUpit(sqlUpit1);
 
-            //dodajemo Ažuriranje vrste projekcija za projekciju
+            //dodajemo ažuriranje vrste projekcija za projekciju
             foreach (int idVrste in idVrsteProjekcije)
             {
                 string sqlUpit = "INSERT INTO projekcija_vrsta ('id_projekcije','id_vrste') VALUES ('"

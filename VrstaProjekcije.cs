@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    //Klasa za rad s vrstama projekcija
     class VrstaProjekcije
     {
         
@@ -23,7 +24,7 @@ namespace PI_projekt
         /// <summary>
         /// Puni objekt sa podacima iz DataReader objekta.
         /// </summary>
-        /// <param name="dr">DataReader objekt sa podacima za film-Zanr.</param>
+        /// <param name="dr">DataReader objekt sa podacima za vrstu projekcija</param>
         public VrstaProjekcije(DbDataReader dr)
         {
             if (dr != null)
@@ -88,7 +89,7 @@ namespace PI_projekt
 
         #region Methods
         /// <summary>
-        /// Dohvaca vrste projekcije za određenu projekciju
+        /// Metoda koja dohvaca vrste projekcije za određenu projekciju
         /// </summary>
         /// <param name="idProjekcije">int id projekcije</param>
         /// <returns>lista vrsti projekcije</returns>
@@ -107,9 +108,9 @@ namespace PI_projekt
             return lista;
         }
         /// <summary>
-        /// Dohvaća listu svih projekcija
+        /// Metoda koja dohvaća listu svih projekcija
         /// </summary>
-        /// <returns></returns>
+        /// <returns></vrste projekcija>
         public static List<VrstaProjekcije> DohvatiSveVrste()
         {
             List<VrstaProjekcije> lista = new List<VrstaProjekcije>();
@@ -124,6 +125,12 @@ namespace PI_projekt
             return lista;
         }
 
+        /// <summary>
+        /// Metoda koja unosi u bazu projekcije
+        /// </summary>
+        /// <param name="IdProjekcije"></param>
+        /// <param name="IdVrsta"></param>
+        /// <returns></broj zahvaćenih redova>
         public static int UnesiVrsteProjekcija(int IdProjekcije, List<int> IdVrsta)
         {
             int brojUmetanja = 0;

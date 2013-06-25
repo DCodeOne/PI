@@ -14,7 +14,7 @@ namespace PI_projekt.Sucelja
     {
         private int IdProjekcije = -1;
         /// <summary>
-        /// Prikazuje sve projekcije u dgvProjeckije
+        /// Osvježava prikaz svih projekcija u dgvProjeckije
         /// </summary>
         private void OsvjeziProjekcije()
         {
@@ -22,18 +22,30 @@ namespace PI_projekt.Sucelja
             dgvSveProjekcije.DataSource = listaProjekcija;
         }
 
-
+        /// <summary>
+        /// Inicijalizacija
+        /// </summary>
         public FrmAdminProjekcije()
 
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Gumb Osvježi poziva metodu za osvježavanje prikaza svih projekcija u dgvSveProjekcije
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProjekcijeOsvjezi_Click(object sender, EventArgs e)
         {
             OsvjeziProjekcije();
         }
 
+        /// <summary>
+        /// Pokreće se prilikom učitavanja forme i poziva metodu za osvježavanje prikaza svih projekcija u dgvSveprojekcije
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAdminProjekcije_Load(object sender, EventArgs e)
         {
             OsvjeziProjekcije();
@@ -54,12 +66,22 @@ namespace PI_projekt.Sucelja
             }
         }
 
+        /// <summary>
+        /// Gumb koji poziva formu za dodavanje nove projekcije
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProjekcijeDodaj_Click(object sender, EventArgs e)
         {
             FrmAdminProjekcijeDodaj formaDodaj = new FrmAdminProjekcijeDodaj();
             formaDodaj.ShowDialog(this);
         }
 
+        /// <summary>
+        /// Gumb koji ažurira prikaz svih projekcija, poziva metodu Osvježi
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProjekcijeAžuriraj_Click(object sender, EventArgs e)
         {
             if (IdProjekcije != -1)

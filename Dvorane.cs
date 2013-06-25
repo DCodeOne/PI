@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    /// Klasa za rad s dvoranama
+    /// </summary>
     public class Dvorana
     {
 
@@ -23,7 +26,7 @@ namespace PI_projekt
         /// <summary>
         /// Puni objekt sa podacima iz DataReader objekta.
         /// </summary>
-        /// <param name="dr">DataReader objekt sa podacima za Artikl.</param>
+        /// <param name="dr">DataReader objekt sa podacima za Dvoranu.</param>
         public Dvorana(DbDataReader dr)
         {
             if (dr != null)
@@ -110,9 +113,9 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve dvorane i vraća ih u obliku liste
+        /// Metoda koja dohvaća sve dvorane i vraća ih u obliku liste
         /// </summary>
-        /// <returns>Lista mjernih jedinica</returns>
+        /// <returns>Lista dvorana</returns>
         public static List<Dvorana> DohvatiDvorane()
         {
             List<Dvorana> lista = new List<Dvorana>();
@@ -128,7 +131,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Dohvaća dvoranu s odgovarajućim brojem iz baze podataka 
+        /// Metoda koja dohvaća dvoranu s odgovarajućim brojem iz baze podataka 
         /// </summary>
         /// <param name="brojDvorane">Id artikla tipa integer</param>
         /// <returns>Vraća objekt tipa Dvorana ukoliko dvorana postoji u bazi, a ako ne postoji vraća null</returns>
@@ -147,10 +150,10 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Dodaje novu dvoranu u bazu podataka
+        /// Metoda koja dodaje novu dvoranu u bazu podataka
         /// </summary>
         /// <param name="novaDvorana">Objekt klase Dvorana sa podacima</param>
-        /// <returns>Vraća broj zahvaćeni redova, int</returns>
+        /// <returns>Vraća broj zahvaćenih redova, int</returns>
         public static int DodajDvoranu(Dvorana novaDvorana)
         {
 
@@ -162,10 +165,10 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Ažurira dvoranu u bazi podataka
+        /// Metoda koja ažurira dvoranu u bazi podataka
         /// </summary>
         /// <param name="dvorana">Objekt klase Dvorana sa novim podacima</param>
-        /// <returns>Vraća broj zahvaćeni redova</returns>
+        /// <returns>Vraća broj zahvaćenih redova</returns>
         public static int AzurirajDvoranu(Dvorana dvorana)
         {
             string sqlUpit = "UPDATE  Dvorana SET naziv='" + dvorana.Naziv + "' , broj_sjedala=" + dvorana.BrojSjedala
@@ -174,8 +177,6 @@ namespace PI_projekt
 
             return izvrsenUpit;
         }
-
-
         #endregion
     }
 }

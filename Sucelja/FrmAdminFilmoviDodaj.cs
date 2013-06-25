@@ -39,6 +39,7 @@ namespace PI_projekt.Sucelja
         {
             InitializeComponent();
             filmAzuriraj = Film.DohvatiFilm(odabraniFilm);
+            
             txtDodajFilmNaziv.Text = filmAzuriraj.Naziv.ToString();
             txtFilmoviDodajTrajanje.Text = filmAzuriraj.VrijemeTrajanja.ToString();
             txtFilmoviDodajRedatelj.Text = filmAzuriraj.Redatelj.ToString();
@@ -56,6 +57,8 @@ namespace PI_projekt.Sucelja
         private void FrmAdminFilmDodaj_Load(object sender, EventArgs e)
         {
             listaZanrova = Zanrovi.DohvatiZanrove();
+
+            this.ActiveControl = txtDodajFilmNaziv;
            
             //ukoliko se radi o ažuriranju
             if (filmAzuriraj != null)
@@ -113,7 +116,7 @@ namespace PI_projekt.Sucelja
             }
             else
             {
-                MessageBox.Show("Odaberite Žanr!");
+                MessageBox.Show("Greška! Odaberite Žanr.");
             }
         }
         /// <summary>
@@ -123,14 +126,14 @@ namespace PI_projekt.Sucelja
         /// <param name="e"></param>
         private void btnFilmoviDodajOdustaniLb_Click(object sender, EventArgs e)
         {
-            if (lbFilmoviDodajZanroviOdabrani != null)
+            if (lbFilmoviDodajZanroviOdabrani.SelectedItem != null)
             {
                 lbFilmoviDodajZanrovi.Items.Add(lbFilmoviDodajZanroviOdabrani.SelectedItem);
                 lbFilmoviDodajZanroviOdabrani.Items.Remove(lbFilmoviDodajZanroviOdabrani.SelectedItem);
             }
             else
             {
-                MessageBox.Show("Odaberite Žanr!");
+                MessageBox.Show("Greška! Odaberite Žanr.");
             }
         } 
 
@@ -156,42 +159,46 @@ namespace PI_projekt.Sucelja
             {
                 //Prolazimo kroz svaku odabranu vrstu projekcije iz lbOdabrane i 
                 //spremamo u pomoćnu listu lbFilmoviDodajZanroviOdabrani listu ID-a svih odabranih žanrova projekcija 
-                foreach (Zanrovi zanr in lbFilmoviDodajZanroviOdabrani.Items)
+                noviFilm.Naziv = txtDodajFilmNaziv.Text.ToString();
+                noviFilm.VrijemeTrajanja = int.Parse(txtFilmoviDodajTrajanje.Text.ToString());
+                noviFilm.Redatelj = txtFilmoviDodajRedatelj.Text.ToString();
+                noviFilm.Godina = int.Parse(txtFilmoviDodajGodina.Text.ToString());
+                noviFilm.Glumci = txtFilmoviDodajGlumci.Text.ToString();
+                noviFilm.Sinopsis = txtFilmoviDodajSinopsis.Text.ToString();
+                if (noviFilm.Naziv == "" || noviFilm.VrijemeTrajanja == 0 || noviFilm.Redatelj == ""
+                    || noviFilm.Godina == 0 || noviFilm.Glumci == "" || noviFilm.Sinopsis == "")
                 {
-                    listaOdabranih.Add(zanr.IdZanra);
+                    MessageBox.Show("Greška! Pogrešan unos podataka.");
                 }
-        
-
-                //ako je korisnik odabrao vrste projekcije nastavljamo sa unosom projekcije u bazu podataka
-                if (listaOdabranih.Count!=0)                   
+                else
                 {
-                    noviFilm.Naziv = txtDodajFilmNaziv.Text.ToString();
-                    noviFilm.VrijemeTrajanja = int.Parse(txtFilmoviDodajTrajanje.Text.ToString());
-                    noviFilm.Redatelj = txtFilmoviDodajRedatelj.Text.ToString();
-                    noviFilm.Godina = int.Parse(txtFilmoviDodajGodina.Text.ToString());
-                    noviFilm.Glumci = txtFilmoviDodajGlumci.Text.ToString();
-                    noviFilm.Sinopsis = txtFilmoviDodajSinopsis.Text.ToString();
-                    if (filmAzuriraj != null)
+                    if (lbFilmoviDodajZanroviOdabrani.Items.Count > 0)
                     {
-                        noviFilm.IdFilma = filmAzuriraj.IdFilma;
-                        Film.AzurirajFilm(noviFilm);
-                        FilmZanrovi.AzurirajZanrove(noviFilm.IdFilma, listaOdabranih);
+                        foreach (Zanrovi zanr in lbFilmoviDodajZanroviOdabrani.Items)
+                        {
+                            listaOdabranih.Add(zanr.IdZanra);
+                        }
+                        if (filmAzuriraj != null)
+                        {
+                            noviFilm.IdFilma = filmAzuriraj.IdFilma;
+                            Film.AzurirajFilm(noviFilm);
+                            FilmZanrovi.AzurirajZanrove(noviFilm.IdFilma, listaOdabranih);
+                        }
+                        else
+                        {
+                            int IdDodanogFilma = Film.DodajFilm(noviFilm);
+                            FilmZanrovi.UnesiZanrove(IdDodanogFilma, listaOdabranih);
+                        }
+                        this.Close();
                     }
-                    else
+                    else //ako korisnik nije unio žanrove ispisuje se poruka o pogrešci
                     {
-                        int IdDodanogFilma = Film.DodajFilm(noviFilm);
-                        FilmZanrovi.UnesiZanrove(IdDodanogFilma, listaOdabranih);
+                        MessageBox.Show("Greška! Odaberite žanr.");
                     }
-                    this.Close();
-
-                } 
-                else //ako korisnik nije unio žanrove ispisuje se poruka o pogrešci
-                {
-                    MessageBox.Show("Odaberite žanr!");
                 }
             }
             catch {
-                MessageBox.Show("Pogrešan unos podataka!");
+                MessageBox.Show("Greška! Pogrešan unos podataka.");
             }
         }   
     }

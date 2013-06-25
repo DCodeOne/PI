@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    ///Klasa za rad s filmovima i žanrovima
+    /// </summary>
     class FilmZanrovi
     {
 
@@ -30,9 +33,7 @@ namespace PI_projekt
             {
                 IdZanra = int.Parse(dr["id_zanra"].ToString());
                 IdFilma = int.Parse(dr["id_filma"].ToString());
-
             }
-
         }
 
         #endregion
@@ -88,7 +89,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve žanrove za određeni film i vraća ih u obliku liste
+        /// Metoda koja dohvaća sve žanrove za određeni film i vraća ih u obliku liste
         /// </summary>
         /// <returns>Lista žanrova za određeni film</returns>
         public static List<Zanrovi> DohvatiZanrove(int idFilma)
@@ -107,7 +108,7 @@ namespace PI_projekt
 
 
         /// <summary>
-        /// Unosi sve žanrove za određeni film u tablicu film_zanr
+        /// Metoda koja unosi sve žanrove za određeni film u tablicu film_zanr
         /// </summary>
         /// <param name="idFilma">Id filma za kojeg se uose žanrovi</param>
         /// <param name="listaZanrova">Lista objekata Zanrovi koja sadrži sve žanrove za film</param>
@@ -125,6 +126,12 @@ namespace PI_projekt
         
         }
 
+        /// <summary>
+        /// Metoda koja ažurira žanrove
+        /// </summary>
+        /// <param name="idFilma"></param>
+        /// <param name="idZanrova"></param>
+        /// <returns>Zahvaćeni broj redaka</returns>
         public static int AzurirajZanrove(int idFilma, List<int> idZanrova)
         {
             int zahvaceno = 0;
@@ -141,10 +148,6 @@ namespace PI_projekt
             }
             return zahvaceno;
         }
-
-        
         #endregion
     }
-
-
 }

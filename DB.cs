@@ -24,15 +24,6 @@ namespace PI_projekt
             Connection.Open();
         }
 
-        /// <summary>
-        /// Destruktor klase.
-        /// </summary>
-        /*~DB()
-        {
-            Connection.Close();
-            Connection = null;
-        }*/
-
         #endregion
 
         #region Private Fields
@@ -101,7 +92,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća podatke u obliku DataReader objekta na temelju proslijeđenog upita.
+        /// Metoda koja dohvaća podatke u obliku DataReader objekta na temelju proslijeđenog upita.
         /// </summary>
         /// <param name="sqlUpit">SQL upit.</param>
         /// <returns>Rezultati upita.</returns>
@@ -112,7 +103,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Dohvaća skalarnu vrijednost kao rezultat proslijeđenog upita.
+        /// Metoda koja dohvaća skalarnu vrijednost kao rezultat proslijeđenog upita.
         /// </summary>
         /// <param name="sqlUpit">SQL upit.</param>
         /// <returns>Skalarna vrijednost kao rezultat upita.</returns>
@@ -123,7 +114,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Izvršava INSERT, UPDATE, DELETE SQL izraz.
+        /// Metoda oja izvršava INSERT, UPDATE, DELETE SQL izraz.
         /// </summary>
         /// <param name="sqlUpit">INSERT, UPDATE, DELETE SQL izraz.</param>
         /// <returns>Broj redaka u tablici koji su dodani, promijenjeni ili obrisani.</returns>
@@ -134,7 +125,7 @@ namespace PI_projekt
         }
 
          /// <summary>
-        /// Izvršava INSERT sql izraz i vraća ID autoincrement primarnog ključa 
+        /// Metoda koja izvršava INSERT sql izraz i vraća ID autoincrement primarnog ključa 
         /// </summary>
         /// <param name="sqlUpit">INSERT izraz</param>
         /// <returns>ID posljednje unešenog primarnog ključa</returns>

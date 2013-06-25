@@ -7,6 +7,10 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    /// Klasa za rad računima i ulaznicama
+    /// </summary>
+
     class RacunUlaznica
     {
         #region Constructors
@@ -67,7 +71,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Jedinstveni identifikator projekcije
+        /// Jedinstveni računa
         /// </summary>
         public int IdRacuna
         {
@@ -84,7 +88,7 @@ namespace PI_projekt
             }
         }
         /// <summary>
-        /// broj sjedala
+        /// Popust
         /// </summary>
         public int IdPopusta
         {
@@ -106,7 +110,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća stavke svih ulaznica
+        /// Metoda koja dohvaća stavke svih ulaznica
         /// </summary>
         /// <returns>Lista stavki svih racun ulaznica</returns>
         public static List<RacunUlaznica> DohvatiSveRacunUlaznica()
@@ -124,7 +128,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Dohvaća račun__ulaznica za određenu ulaznicu
+        /// Metoda koja dohvaća račun__ulaznica za određenu ulaznicu
         /// </summary>
         /// <returns>Lista stavki svih racun ulaznica</returns>
         public static RacunUlaznica DohvatiRacunUlaznica(int idUlaznice)
@@ -141,10 +145,10 @@ namespace PI_projekt
             return racunUlaznica;
         }
         /// <summary>
-        /// Dohvaća stavke svih ulaznica za određeni račun
+        /// Metoda koja dohvaća stavke svih ulaznica za određeni račun
         /// </summary>
         /// <param name="idRacuna">Id računa za kojeg se dohvacaju sve stavke ulaznica</param>
-        /// <returns></returns>
+        /// <returns></stavke ulaznica za račun>
         public static List<RacunUlaznica> DohvatiSveRacunUlaznica(int idRacuna)
         {
             List<RacunUlaznica> lista = new List<RacunUlaznica>();
@@ -159,6 +163,12 @@ namespace PI_projekt
             return lista;
         }
 
+        /// <summary>
+        /// Metoda koja unosi račune, ulaznice i popust
+        /// </summary>
+        /// <param name="IdRacuna"></param>
+        /// <param name="IdKarte"></param>
+        /// <param name="Popust"></param>
         public static void UnesiRacunUlaznica(int IdRacuna, int IdKarte, int Popust)
         {
             string sqlUpit = "INSERT INTO racun_karta VALUES (" + IdRacuna + ", " + IdKarte + ", " + Popust + ");";

@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    /// Klasa za rad s načinima plaćanja
+    /// </summary>
     class NaciniPlacanja
     {
 
         #region Constructors
 
         /// <summary>
-        /// Konstruktor za kreiranje nacina placanja
+        /// Konstruktor za kreiranje načina placanja
         /// </summary>
         public NaciniPlacanja()
         {
@@ -23,7 +26,7 @@ namespace PI_projekt
         /// <summary>
         /// Puni objekt sa podacima iz DataReader objekta.
         /// </summary>
-        /// <param name="dr">DataReader objekt sa podacima za Nacin placanja.</param>
+        /// <param name="dr">DataReader objekt sa podacima za način plaćanja.</param>
         public NaciniPlacanja(DbDataReader dr)
         {
             if (dr != null)
@@ -48,7 +51,7 @@ namespace PI_projekt
         #region Properties
 
         /// <summary>
-        /// Jedinstveni identifikator nacina placanja
+        /// Jedinstveni identifikator načina plaćanja
         /// </summary>
         public int IdNacinaPlacanja
         {
@@ -67,7 +70,7 @@ namespace PI_projekt
 
        
         /// <summary>
-        /// Naziv nacina placanja
+        /// Naziv načina plaćanja
         /// </summary>
         public string Naziv
         {
@@ -90,7 +93,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve načine plaćanja 
+        /// Metoda koja dohvaća sve načine plaćanja 
         /// </summary>
         /// <returns>Lista načina plaćanja</returns>
         public static List<NaciniPlacanja> DohvatiNacinePlacanja()

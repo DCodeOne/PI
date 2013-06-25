@@ -94,7 +94,26 @@ namespace PI_projekt.Sucelja
                 FrmAdminFilmoviDodaj formaAzuriraj = new FrmAdminFilmoviDodaj(IdFilma);
                 formaAzuriraj.ShowDialog(this);
             }
+            else
+            {
+                MessageBox.Show("Molimo vas odaberite film!");
+            }
         }
-                       
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (IdFilma > -1)
+            {
+                    int obrisano = Film.ObrisiFilm(IdFilma);
+                    if (obrisano == -1)
+                    {
+                        MessageBox.Show("Nije moguće obrisati film!\n Postoje projekcije za film.");
+                    }
+                    else
+                    {
+                        OsvjeziFilmove();
+                    }
+            }      
+        }                       
     }
 }

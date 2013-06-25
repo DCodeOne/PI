@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    /// Klasa za rad s računima
+    /// </summary>
     class Racun
     {
 
@@ -88,7 +91,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Jedinstveni identifikator načina plačanja
+        /// Jedinstveni identifikator načina plaćanja
         /// </summary>
         public int IdNacinaPlacanja
         {
@@ -125,7 +128,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve račune
+        /// Metoda koja dohvaća sve račune
         /// </summary>
         /// <returns>Lista svih računa</returns>
         public static List<Racun> DohvatiSveRacune()
@@ -143,7 +146,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Unos novog računa
+        /// Metoda koja unosi račun u bazu
         /// </summary>
         /// <param name="idRacuna">Id računa</param>
         /// <returns>int vraća ID računa</returns>

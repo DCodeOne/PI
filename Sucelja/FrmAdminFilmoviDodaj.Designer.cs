@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminFilmoviDodaj));
             this.btnFilmoviDodajSpremi = new System.Windows.Forms.Button();
             this.btnFilmoviDodajOdustani = new System.Windows.Forms.Button();
             this.lblFilmoviDodajNaziv = new System.Windows.Forms.Label();
@@ -60,7 +61,7 @@
             this.btnFilmoviDodajSpremi.Location = new System.Drawing.Point(182, 499);
             this.btnFilmoviDodajSpremi.Name = "btnFilmoviDodajSpremi";
             this.btnFilmoviDodajSpremi.Size = new System.Drawing.Size(80, 35);
-            this.btnFilmoviDodajSpremi.TabIndex = 29;
+            this.btnFilmoviDodajSpremi.TabIndex = 43;
             this.btnFilmoviDodajSpremi.Text = "Spremi";
             this.btnFilmoviDodajSpremi.UseVisualStyleBackColor = true;
             this.btnFilmoviDodajSpremi.Click += new System.EventHandler(this.btnFilmoviDodajSpremi_Click);
@@ -71,7 +72,7 @@
             this.btnFilmoviDodajOdustani.Location = new System.Drawing.Point(268, 499);
             this.btnFilmoviDodajOdustani.Name = "btnFilmoviDodajOdustani";
             this.btnFilmoviDodajOdustani.Size = new System.Drawing.Size(80, 35);
-            this.btnFilmoviDodajOdustani.TabIndex = 30;
+            this.btnFilmoviDodajOdustani.TabIndex = 44;
             this.btnFilmoviDodajOdustani.Text = "Odustani";
             this.btnFilmoviDodajOdustani.UseVisualStyleBackColor = true;
             this.btnFilmoviDodajOdustani.Click += new System.EventHandler(this.btnFilmoviDodajOdustani_Click);
@@ -98,14 +99,14 @@
             // 
             // txtDodajFilmNaziv
             // 
-            this.txtDodajFilmNaziv.Location = new System.Drawing.Point(100, 23);
+            this.txtDodajFilmNaziv.Location = new System.Drawing.Point(98, 22);
             this.txtDodajFilmNaziv.Name = "txtDodajFilmNaziv";
             this.txtDodajFilmNaziv.Size = new System.Drawing.Size(230, 20);
             this.txtDodajFilmNaziv.TabIndex = 33;
             // 
             // txtFilmoviDodajTrajanje
             // 
-            this.txtFilmoviDodajTrajanje.Location = new System.Drawing.Point(100, 52);
+            this.txtFilmoviDodajTrajanje.Location = new System.Drawing.Point(98, 51);
             this.txtFilmoviDodajTrajanje.Name = "txtFilmoviDodajTrajanje";
             this.txtFilmoviDodajTrajanje.Size = new System.Drawing.Size(100, 20);
             this.txtFilmoviDodajTrajanje.TabIndex = 34;
@@ -147,7 +148,7 @@
             this.lbFilmoviDodajZanrovi.Location = new System.Drawing.Point(7, 350);
             this.lbFilmoviDodajZanrovi.Name = "lbFilmoviDodajZanrovi";
             this.lbFilmoviDodajZanrovi.Size = new System.Drawing.Size(120, 95);
-            this.lbFilmoviDodajZanrovi.TabIndex = 38;
+            this.lbFilmoviDodajZanrovi.TabIndex = 39;
             this.lbFilmoviDodajZanrovi.ValueMember = "idZanra";
             // 
             // lbFilmoviDodajZanroviOdabrani
@@ -157,7 +158,7 @@
             this.lbFilmoviDodajZanroviOdabrani.Location = new System.Drawing.Point(210, 350);
             this.lbFilmoviDodajZanroviOdabrani.Name = "lbFilmoviDodajZanroviOdabrani";
             this.lbFilmoviDodajZanroviOdabrani.Size = new System.Drawing.Size(120, 95);
-            this.lbFilmoviDodajZanroviOdabrani.TabIndex = 39;
+            this.lbFilmoviDodajZanroviOdabrani.TabIndex = 41;
             // 
             // btnFilmoviDodajDodajLb
             // 
@@ -176,7 +177,7 @@
             this.btnFilmoviDodajUkloniLb.Location = new System.Drawing.Point(134, 400);
             this.btnFilmoviDodajUkloniLb.Name = "btnFilmoviDodajUkloniLb";
             this.btnFilmoviDodajUkloniLb.Size = new System.Drawing.Size(70, 30);
-            this.btnFilmoviDodajUkloniLb.TabIndex = 41;
+            this.btnFilmoviDodajUkloniLb.TabIndex = 42;
             this.btnFilmoviDodajUkloniLb.Text = "Ukloni";
             this.btnFilmoviDodajUkloniLb.UseVisualStyleBackColor = true;
             this.btnFilmoviDodajUkloniLb.Click += new System.EventHandler(this.btnFilmoviDodajOdustaniLb_Click);
@@ -196,15 +197,16 @@
             this.txtFilmoviDodajSinopsis.Location = new System.Drawing.Point(98, 228);
             this.txtFilmoviDodajSinopsis.Multiline = true;
             this.txtFilmoviDodajSinopsis.Name = "txtFilmoviDodajSinopsis";
+            this.txtFilmoviDodajSinopsis.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtFilmoviDodajSinopsis.Size = new System.Drawing.Size(232, 84);
-            this.txtFilmoviDodajSinopsis.TabIndex = 46;
+            this.txtFilmoviDodajSinopsis.TabIndex = 38;
             // 
             // txtFilmoviDodajRedatelj
             // 
             this.txtFilmoviDodajRedatelj.Location = new System.Drawing.Point(98, 80);
             this.txtFilmoviDodajRedatelj.Name = "txtFilmoviDodajRedatelj";
             this.txtFilmoviDodajRedatelj.Size = new System.Drawing.Size(230, 20);
-            this.txtFilmoviDodajRedatelj.TabIndex = 45;
+            this.txtFilmoviDodajRedatelj.TabIndex = 35;
             // 
             // lblFilmoviDodajSinopsis
             // 
@@ -232,7 +234,7 @@
             this.txtFilmoviDodajGlumci.Multiline = true;
             this.txtFilmoviDodajGlumci.Name = "txtFilmoviDodajGlumci";
             this.txtFilmoviDodajGlumci.Size = new System.Drawing.Size(230, 85);
-            this.txtFilmoviDodajGlumci.TabIndex = 48;
+            this.txtFilmoviDodajGlumci.TabIndex = 37;
             // 
             // lblFilmoviDodajGlumci
             // 
@@ -249,7 +251,7 @@
             this.txtFilmoviDodajGodina.Location = new System.Drawing.Point(98, 109);
             this.txtFilmoviDodajGodina.Name = "txtFilmoviDodajGodina";
             this.txtFilmoviDodajGodina.Size = new System.Drawing.Size(230, 20);
-            this.txtFilmoviDodajGodina.TabIndex = 50;
+            this.txtFilmoviDodajGodina.TabIndex = 36;
             // 
             // lblFilmoviDodajGodina
             // 
@@ -298,6 +300,7 @@
             this.Controls.Add(this.btnFilmoviDodajSpremi);
             this.Controls.Add(this.panFilm);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

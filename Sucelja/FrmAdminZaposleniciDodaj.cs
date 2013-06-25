@@ -14,9 +14,11 @@ namespace PI_projekt.Sucelja
     {
 
         private Zaposlenici zaposlenikAzuriraj = null;
+        long kontrolnaSuma = 10000000000;
         List<Uloga> listaUloga = new List<Uloga>();
 
         /// <summary>
+        /// Inicijalizacija
         /// Konstruktor koji se poziva u slucaju dodavanja novog zaposlenika
         /// </summary> 
         public FrmAdminZaposleniciDodaj()
@@ -51,12 +53,13 @@ namespace PI_projekt.Sucelja
         }
 
         /// <summary>
-        /// Rukuje dogadajem pokretanja forme, ukoliko se radi o ažuriranju dvorane tada formu popunjava sa postojecim podacima
+        /// Rukuje dogadajem pokretanja forme, ukoliko se radi o ažuriranju zaposlenika tada formu popunjava sa postojećim podacima
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void FrmAdminZaposleniciDodaj_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = txtZaposleniciDodajOIB;
             listaUloga = Uloga.DohvatiSveUloge();
             foreach (Uloga uloga in listaUloga) 
             {
@@ -83,17 +86,6 @@ namespace PI_projekt.Sucelja
                     }
                 }
             }
-
-            //ako je otvoren obrazac za dodavanje
-            else{
-            foreach (Uloga uloga in listaUloga)
-                {
-                    if (uloga.IdUloge == zaposlenikAzuriraj.Uloga)
-                    {
-                        cbUloga.SelectedIndex = cbUloga.FindStringExact(uloga.Naziv.ToString());
-                    }
-                }
-            }
         }
 
         /// <summary>
@@ -111,32 +103,52 @@ namespace PI_projekt.Sucelja
             noviZaposlenik.Email = txtZaposleniciDodajEmail.Text.ToString();
             noviZaposlenik.KorIme = txtZaposleniciDodajKorime.Text.ToString();
             noviZaposlenik.Lozinka = txtZaposleniciDodajLozinka.Text.ToString();
-            noviZaposlenik.Uloga = listaUloga[cbUloga.SelectedIndex].IdUloge;
-                
-            //try
-            //{                
-               
-            if (zaposlenikAzuriraj != null)
+            try
+            {
+                noviZaposlenik.Uloga = listaUloga[cbUloga.SelectedIndex].IdUloge;
+                if (noviZaposlenik.Ime == "" || noviZaposlenik.Prezime == "" || noviZaposlenik.Adresa == "" ||
+                    noviZaposlenik.Kontakt == "" || noviZaposlenik.Email == "" || noviZaposlenik.KorIme == "" ||
+                    noviZaposlenik.Lozinka == "")
                 {
-                    noviZaposlenik.OIB = zaposlenikAzuriraj.OIB; 
-                    Zaposlenici.AzurirajZaposlenika(noviZaposlenik);
-                    this.Close();
+                    MessageBox.Show("Greška! Podaci neispravno uneseni.");
                 }
-                
-            else 
+                else
                 {
-                    noviZaposlenik.OIB = long.Parse(txtZaposleniciDodajOIB.Text.ToString());
-                    Zaposlenici.DodajZaposlenika(noviZaposlenik);
-                    this.Close();
+                    if (zaposlenikAzuriraj != null)
+                    {
+                        string oibTest = txtZaposleniciDodajOIB.Text.ToString();
+                        noviZaposlenik.OIB = long.Parse(txtZaposleniciDodajOIB.Text.ToString());
+                        if (noviZaposlenik.OIB > kontrolnaSuma && oibTest.Length == 11)
+                        {
+                            noviZaposlenik.OIB = zaposlenikAzuriraj.OIB;
+                            Zaposlenici.AzurirajZaposlenika(noviZaposlenik);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Greška! Unijeli ste neispravan OIB.");
+                        }
+                    }
+                    else
+                    {
+                        string oibTest = txtZaposleniciDodajOIB.Text.ToString();
+                        noviZaposlenik.OIB = long.Parse(txtZaposleniciDodajOIB.Text.ToString());
+                        if (noviZaposlenik.OIB > kontrolnaSuma && oibTest.Length == 11)
+                        {
+                            Zaposlenici.DodajZaposlenika(noviZaposlenik);
+                            this.Close();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Greška! Unijeli ste neispravan OIB.");
+                        }
+                    }
                 }
-
-
-            //}
-
-            //catch
-            //{
-            //    MessageBox.Show("Pogrešno uneseni podaci!");
-            //}
+            }
+            catch
+            {
+                MessageBox.Show("Greška! Podaci neispravno uneseni.");
+            }
         }
 
         /// <summary>

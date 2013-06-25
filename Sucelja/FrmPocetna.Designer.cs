@@ -39,16 +39,15 @@
             this.zaglavlje = new System.Windows.Forms.GroupBox();
             this.btnIzlaz = new System.Windows.Forms.Button();
             this.podaci.SuspendLayout();
-            this.zaglavlje.SuspendLayout();
             this.SuspendLayout();
             // 
             // Prijava
             // 
             this.Prijava.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Prijava.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Prijava.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Prijava.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Prijava.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Prijava.Location = new System.Drawing.Point(12, 362);
+            this.Prijava.Location = new System.Drawing.Point(20, 343);
             this.Prijava.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Prijava.Name = "Prijava";
             this.Prijava.Size = new System.Drawing.Size(160, 46);
@@ -61,9 +60,9 @@
             // 
             this.Ponisti.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Ponisti.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Ponisti.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.Ponisti.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.Ponisti.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.Ponisti.Location = new System.Drawing.Point(287, 362);
+            this.Ponisti.Location = new System.Drawing.Point(246, 343);
             this.Ponisti.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Ponisti.Name = "Ponisti";
             this.Ponisti.Size = new System.Drawing.Size(160, 46);
@@ -123,35 +122,36 @@
             this.podaci.Controls.Add(this.Pass);
             this.podaci.Controls.Add(this.KorIme);
             this.podaci.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.podaci.Location = new System.Drawing.Point(12, 233);
+            this.podaci.Location = new System.Drawing.Point(20, 214);
             this.podaci.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.podaci.Name = "podaci";
             this.podaci.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.podaci.Size = new System.Drawing.Size(435, 113);
+            this.podaci.Size = new System.Drawing.Size(386, 111);
             this.podaci.TabIndex = 9;
             this.podaci.TabStop = false;
             this.podaci.Text = "Korisnički podaci";
             // 
             // zaglavlje
             // 
-            this.zaglavlje.BackgroundImage = global::PI_projekt.Properties.Resources.zaglavlje2;
+            this.zaglavlje.BackgroundImage = global::PI_projekt.Properties.Resources.imgPocetna;
             this.zaglavlje.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.zaglavlje.Controls.Add(this.btnIzlaz);
-            this.zaglavlje.Location = new System.Drawing.Point(12, 12);
+            this.zaglavlje.Location = new System.Drawing.Point(20, 12);
             this.zaglavlje.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.zaglavlje.Name = "zaglavlje";
             this.zaglavlje.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.zaglavlje.Size = new System.Drawing.Size(435, 215);
+            this.zaglavlje.Size = new System.Drawing.Size(386, 181);
             this.zaglavlje.TabIndex = 10;
             this.zaglavlje.TabStop = false;
             // 
             // btnIzlaz
             // 
-            this.btnIzlaz.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnIzlaz.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.btnIzlaz.Location = new System.Drawing.Point(360, 0);
+            this.btnIzlaz.BackColor = System.Drawing.Color.Maroon;
+            this.btnIzlaz.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnIzlaz.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnIzlaz.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.btnIzlaz.Location = new System.Drawing.Point(246, 409);
             this.btnIzlaz.Name = "btnIzlaz";
-            this.btnIzlaz.Size = new System.Drawing.Size(75, 23);
+            this.btnIzlaz.Size = new System.Drawing.Size(160, 44);
             this.btnIzlaz.TabIndex = 13;
             this.btnIzlaz.Text = "IZLAZ";
             this.btnIzlaz.UseVisualStyleBackColor = false;
@@ -161,24 +161,23 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::PI_projekt.Properties.Resources.pozadina;
-            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(457, 420);
+            this.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.ClientSize = new System.Drawing.Size(431, 478);
+            this.Controls.Add(this.btnIzlaz);
             this.Controls.Add(this.zaglavlje);
             this.Controls.Add(this.podaci);
             this.Controls.Add(this.Ponisti);
             this.Controls.Add(this.Prijava);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.MaximumSize = new System.Drawing.Size(473, 459);
-            this.MinimumSize = new System.Drawing.Size(473, 459);
             this.Name = "FrmPocetna";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava";
+            this.Load += new System.EventHandler(this.FrmPocetna_Load);
             this.podaci.ResumeLayout(false);
             this.podaci.PerformLayout();
-            this.zaglavlje.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

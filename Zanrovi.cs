@@ -7,13 +7,14 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    //Klasa za rad s podacima o žanrovima
     class Zanrovi
     {
      
         #region Constructors
 
         /// <summary>
-        /// Konstruktor za kreiranje mjerne jedinice
+        /// Konstruktor za kreiranje žanrova
         /// </summary>
         public Zanrovi()
         {
@@ -89,7 +90,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve žanrove iz baze i vraća ih u obliku generičke liste.
+        /// Metoda koja dohvaća sve žanrove iz baze i vraća ih u obliku generičke liste.
         /// </summary>
         /// <returns>Lista žanrova</returns>
         public static List<Zanrovi> DohvatiZanrove()
@@ -107,7 +108,7 @@ namespace PI_projekt
         }
 
        /// <summary>
-        /// Dohvaća sve žanrove za određeni film
+        /// Metoda koja dohvaća sve žanrove za određeni film
        /// </summary>
        /// <param name="idFilma">Int id filma</param>
        /// <returns>Lista žanrova</returns>

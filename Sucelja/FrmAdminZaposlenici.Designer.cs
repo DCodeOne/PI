@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminZaposlenici));
             this.dgvSviZaposlenici = new System.Windows.Forms.DataGridView();
             this.btnZaposleniciOsvjezi = new System.Windows.Forms.Button();
             this.btnZaposleniciDodaj = new System.Windows.Forms.Button();
             this.btnZaposleniciAzuriraj = new System.Windows.Forms.Button();
             this.lblSviZaposlenici = new System.Windows.Forms.Label();
+            this.btnObrisi = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSviZaposlenici)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +60,7 @@
             // btnZaposleniciOsvjezi
             // 
             this.btnZaposleniciOsvjezi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZaposleniciOsvjezi.Location = new System.Drawing.Point(450, 290);
+            this.btnZaposleniciOsvjezi.Location = new System.Drawing.Point(366, 290);
             this.btnZaposleniciOsvjezi.Name = "btnZaposleniciOsvjezi";
             this.btnZaposleniciOsvjezi.Size = new System.Drawing.Size(80, 35);
             this.btnZaposleniciOsvjezi.TabIndex = 27;
@@ -69,7 +71,7 @@
             // btnZaposleniciDodaj
             // 
             this.btnZaposleniciDodaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZaposleniciDodaj.Location = new System.Drawing.Point(536, 290);
+            this.btnZaposleniciDodaj.Location = new System.Drawing.Point(452, 290);
             this.btnZaposleniciDodaj.Name = "btnZaposleniciDodaj";
             this.btnZaposleniciDodaj.Size = new System.Drawing.Size(80, 35);
             this.btnZaposleniciDodaj.TabIndex = 28;
@@ -80,7 +82,7 @@
             // btnZaposleniciAzuriraj
             // 
             this.btnZaposleniciAzuriraj.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnZaposleniciAzuriraj.Location = new System.Drawing.Point(622, 290);
+            this.btnZaposleniciAzuriraj.Location = new System.Drawing.Point(538, 290);
             this.btnZaposleniciAzuriraj.Name = "btnZaposleniciAzuriraj";
             this.btnZaposleniciAzuriraj.Size = new System.Drawing.Size(80, 35);
             this.btnZaposleniciAzuriraj.TabIndex = 29;
@@ -98,17 +100,30 @@
             this.lblSviZaposlenici.TabIndex = 30;
             this.lblSviZaposlenici.Text = "Pregled svih zaposlenika:";
             // 
+            // btnObrisi
+            // 
+            this.btnObrisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnObrisi.Location = new System.Drawing.Point(622, 290);
+            this.btnObrisi.Name = "btnObrisi";
+            this.btnObrisi.Size = new System.Drawing.Size(80, 35);
+            this.btnObrisi.TabIndex = 31;
+            this.btnObrisi.Text = "Obriši";
+            this.btnObrisi.UseVisualStyleBackColor = true;
+            this.btnObrisi.Click += new System.EventHandler(this.btnObrisi_Click);
+            // 
             // FrmAdminZaposlenici
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(714, 337);
+            this.Controls.Add(this.btnObrisi);
             this.Controls.Add(this.lblSviZaposlenici);
             this.Controls.Add(this.btnZaposleniciAzuriraj);
             this.Controls.Add(this.btnZaposleniciDodaj);
             this.Controls.Add(this.btnZaposleniciOsvjezi);
             this.Controls.Add(this.dgvSviZaposlenici);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminZaposlenici";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Zaposlenici";
@@ -126,6 +141,7 @@
         private System.Windows.Forms.Button btnZaposleniciDodaj;
         private System.Windows.Forms.Button btnZaposleniciAzuriraj;
         private System.Windows.Forms.Label lblSviZaposlenici;
+        private System.Windows.Forms.Button btnObrisi;
 
     }
 }

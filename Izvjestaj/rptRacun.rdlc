@@ -17,8 +17,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>1.25209cm</Top>
-        <Left>1.45202cm</Left>
+        <Top>1.2521cm</Top>
+        <Left>0.85667cm</Left>
         <Height>0.6cm</Height>
         <Width>2.15605cm</Width>
         <Visibility>
@@ -49,10 +49,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>2.02847cm</Top>
-        <Left>2.69557cm</Left>
+        <Top>2.02848cm</Top>
+        <Left>1.33293cm</Left>
         <Height>0.6cm</Height>
-        <Width>0.9125cm</Width>
+        <Width>1.04479cm</Width>
         <ZIndex>1</ZIndex>
         <Visibility>
           <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
@@ -127,8 +127,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Projekcija</DataSetName>
-        <Top>1.25209cm</Top>
-        <Left>3.67863cm</Left>
+        <Top>1.2521cm</Top>
+        <Left>3.08328cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>2</ZIndex>
@@ -145,7 +145,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.99792cm</Width>
+              <Width>7.04138cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -199,10 +199,10 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Film</DataSetName>
-        <Top>2.06375cm</Top>
-        <Left>3.67863cm</Left>
+        <Top>2.06376cm</Top>
+        <Left>2.44828cm</Left>
         <Height>0.6cm</Height>
-        <Width>6.99792cm</Width>
+        <Width>7.04138cm</Width>
         <ZIndex>3</ZIndex>
         <Visibility>
           <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
@@ -231,8 +231,8 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>0.41438cm</Top>
-        <Left>0.68474cm</Left>
+        <Top>0.41439cm</Top>
+        <Left>0.40689cm</Left>
         <Height>0.6cm</Height>
         <Width>2.15605cm</Width>
         <ZIndex>4</ZIndex>
@@ -473,8 +473,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Karta</DataSetName>
-        <Top>3.18354cm</Top>
-        <Left>3.22001cm</Left>
+        <Top>3.18355cm</Top>
+        <Left>1.98966cm</Left>
         <Height>1.2cm</Height>
         <Width>7.5cm</Width>
         <ZIndex>5</ZIndex>
@@ -502,10 +502,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>3.78354cm</Top>
-        <Left>11.38842cm</Left>
+        <Top>3.113cm</Top>
+        <Left>9.94766cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.44167cm</Width>
+        <Width>1.5286cm</Width>
         <ZIndex>6</ZIndex>
         <Visibility>
           <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
@@ -520,80 +520,6 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Tablix Name="Tablix6">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn>
-              <Width>2.5cm</Width>
-            </TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <TablixRow>
-              <Height>0.6cm</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="broj_dvorane2">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!naziv.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>broj_dvorane</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>None</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember />
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <Group Name="Details3" />
-            </TablixMember>
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <DataSetName>Popust</DataSetName>
-        <Top>3.78354cm</Top>
-        <Left>12.90064cm</Left>
-        <Height>0.6cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>7</ZIndex>
-        <Visibility>
-          <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
-        </Visibility>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Tablix>
       <Textbox Name="Textbox11">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
@@ -609,11 +535,11 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>3.11299cm</Top>
-        <Left>11.38842cm</Left>
+        <Top>2.44245cm</Top>
+        <Left>9.94766cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.73812cm</Width>
-        <ZIndex>8</ZIndex>
+        <Width>2.82505cm</Width>
+        <ZIndex>7</ZIndex>
         <Visibility>
           <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
         </Visibility>
@@ -687,11 +613,11 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Projekcija</DataSetName>
-        <Top>3.11299cm</Top>
-        <Left>14.1971cm</Left>
+        <Top>2.44245cm</Top>
+        <Left>12.84327cm</Left>
         <Height>0.6cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>8</ZIndex>
         <Visibility>
           <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
         </Visibility>
@@ -701,11 +627,46 @@
           </Border>
         </Style>
       </Tablix>
-      <Tablix Name="Tablix8">
+      <Textbox Name="Textbox12">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Artikli:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox7</rd:DefaultName>
+        <Top>4.60804cm</Top>
+        <Left>0.40689cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.15605cm</Width>
+        <ZIndex>9</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_artikla.Value, "Artikl") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="Tablix6">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.38875cm</Width>
+              <Width>2.79104cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -714,14 +675,14 @@
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="broj_dvorane4">
+                    <Textbox Name="naziv2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!popust.Value</Value>
+                              <Value>=Fields!naziv.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -730,7 +691,92 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>broj_dvorane</rd:DefaultName>
+                      <rd:DefaultName>naziv2</rd:DefaultName>
+                      <Visibility>
+                        <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
+                      </Visibility>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details3" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Popust</DataSetName>
+        <Top>3.113cm</Top>
+        <Left>11.54682cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.79104cm</Width>
+        <ZIndex>10</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TextAlign>Left</TextAlign>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix8">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.43161cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="naziv3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!popust.Value * 100</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
+                              <Value> %</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>naziv2</rd:DefaultName>
+                      <Visibility>
+                        <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
+                      </Visibility>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -761,11 +807,124 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>Popust</DataSetName>
-        <Top>3.78354cm</Top>
-        <Left>15.4712cm</Left>
+        <Top>3.113cm</Top>
+        <Left>14.40841cm</Left>
         <Height>0.6cm</Height>
-        <Width>1.38875cm</Width>
-        <ZIndex>10</ZIndex>
+        <Width>1.43161cm</Width>
+        <ZIndex>11</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <TextAlign>Left</TextAlign>
+        </Style>
+      </Tablix>
+      <Textbox Name="Textbox27">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Ukupna cijena ulaznica:</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox27</rd:DefaultName>
+        <Top>3.78355cm</Top>
+        <Left>9.94766cm</Left>
+        <Height>0.6cm</Height>
+        <Width>4.04845cm</Width>
+        <ZIndex>12</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="Tablix10">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.77336cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="popust">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!ukupnaCijenaUlaznica.Value, "CijenaUlaznica") - Sum(Fields!ukupnaCijenaUlaznica.Value, "CijenaUlaznica")*Fields!popust.Value</Value>
+                              <Style>
+                                <Format>0.00'kn';(0.00'kn')</Format>
+                                <rd:FormatSymbolCulture>hr-HR</rd:FormatSymbolCulture>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>popust</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details6" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Popust</DataSetName>
+        <Top>3.78355cm</Top>
+        <Left>14.06667cm</Left>
+        <Height>0.6cm</Height>
+        <Width>1.77336cm</Width>
+        <ZIndex>13</ZIndex>
         <Visibility>
           <Hidden>=Sum(Fields!id_karte.Value, "Karta") = 0</Hidden>
         </Visibility>
@@ -775,28 +934,782 @@
           </Border>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox12">
+      <Tablix Name="Tablix11">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.55293cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>2.26188cm</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>4.54202cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox40">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Artikl br.</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox40</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox42">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>ID artikla</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox42</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox44">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Naziv artikla</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox44</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox41">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=RowNumber(Nothing)</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox41</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="id_artikla">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!id_artikla.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>id_artikla</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="naziv4">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!naziv.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>naziv4</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details7" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Artikl</DataSetName>
+        <Top>5.67547cm</Top>
+        <Left>1.67563cm</Left>
+        <Height>1.2cm</Height>
+        <Width>9.35682cm</Width>
+        <ZIndex>14</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_artikla.Value, "Artikl") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix13">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.62687cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox54">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>cijena</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox54</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="cijena">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!cijena.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>cijena</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details9" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Artikl</DataSetName>
+        <Top>5.67547cm</Top>
+        <Left>11.03245cm</Left>
+        <Height>1.2cm</Height>
+        <Width>1.62687cm</Width>
+        <ZIndex>15</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_artikla.Value, "Artikl") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix14">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>1.6666cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox60">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>kolicina</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox60</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="kolicina">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!kolicina.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>kolicina</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="Details10" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>StavkaRacuna</DataSetName>
+        <Top>5.67547cm</Top>
+        <Left>12.65933cm</Left>
+        <Height>1.2cm</Height>
+        <Width>1.6666cm</Width>
+        <ZIndex>16</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_artikla.Value, "Artikl") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Textbox Name="Textbox31">
         <CanGrow>true</CanGrow>
         <KeepTogether>true</KeepTogether>
         <Paragraphs>
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Artikli:</Value>
-                <Style>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
+                <Value>Ukupna cijena artikala:</Value>
+                <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
-        <rd:DefaultName>Textbox7</rd:DefaultName>
-        <Top>4.60803cm</Top>
-        <Left>0.68474cm</Left>
+        <rd:DefaultName>Textbox27</rd:DefaultName>
+        <Top>7.34289cm</Top>
+        <Left>9.88371cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.15605cm</Width>
-        <ZIndex>11</ZIndex>
+        <Width>3.85569cm</Width>
+        <ZIndex>17</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_artikla.Value, "Artikl") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="Tablix15">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.03006cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ukupnaCijenaArtikala">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!ukupnaCijenaArtikala.Value</Value>
+                              <Style />
+                            </TextRun>
+                            <TextRun>
+                              <Value> kn</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ukupnaCijenaArtikala</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details11" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>CijenaArtikala</DataSetName>
+        <Top>7.34289cm</Top>
+        <Left>13.80996cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.03006cm</Width>
+        <ZIndex>18</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_artikla.Value, "Artikl") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix16">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.03006cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ukupnaCijenaUlaznica">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Sum(Fields!ukupnaCijenaUlaznica.Value, "CijenaUlaznica") - Sum(Fields!ukupnaCijenaUlaznica.Value, "CijenaUlaznica")*Fields!popust.Value + Sum(Fields!ukupnaCijenaArtikala.Value, "CijenaArtikala")</Value>
+                              <Style>
+                                <Format>0.00'kn';(0.00'kn')</Format>
+                                <rd:FormatSymbolCulture>hr-HR</rd:FormatSymbolCulture>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ukupnaCijenaUlaznica</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details12" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Popust</DataSetName>
+        <Top>8.925cm</Top>
+        <Left>13.80996cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.03006cm</Width>
+        <ZIndex>19</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix17">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>2.03006cm</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.6cm</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="popust1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=(Sum(Fields!ukupnaCijenaUlaznica.Value, "CijenaUlaznica") - Sum(Fields!ukupnaCijenaUlaznica.Value, "CijenaUlaznica")*Fields!popust.Value + Sum(Fields!ukupnaCijenaArtikala.Value, "CijenaArtikala")) * 0.75</Value>
+                              <Style>
+                                <Format>0.00'kn';(0.00'kn')</Format>
+                                <rd:FormatSymbolCulture>hr-HR</rd:FormatSymbolCulture>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Left</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>popust1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Details13" />
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>Popust</DataSetName>
+        <Top>8.11928cm</Top>
+        <Left>13.80996cm</Left>
+        <Height>0.6cm</Height>
+        <Width>2.03006cm</Width>
+        <ZIndex>20</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Textbox Name="Textbox33">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Cijena bez PDV-a (25%):</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox27</rd:DefaultName>
+        <Top>8.11928cm</Top>
+        <Left>8.64017cm</Left>
+        <Height>0.6cm</Height>
+        <Width>5.09924cm</Width>
+        <ZIndex>21</ZIndex>
+        <Visibility>
+          <Hidden>=Sum(Fields!id_artikla.Value, "Artikl") = 0</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox34">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Cijena računa (+PDV):</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox27</rd:DefaultName>
+        <Top>8.925cm</Top>
+        <Left>8.64017cm</Left>
+        <Height>0.6cm</Height>
+        <Width>5.09924cm</Width>
+        <ZIndex>22</ZIndex>
         <Visibility>
           <Hidden>=Sum(Fields!id_artikla.Value, "Artikl") = 0</Hidden>
         </Visibility>
@@ -811,13 +1724,13 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>3.36459in</Height>
+    <Height>4.0383in</Height>
     <Style />
   </Body>
-  <Width>6.99318in</Width>
+  <Width>6.6235in</Width>
   <Page>
     <PageHeader>
-      <Height>3.18974cm</Height>
+      <Height>3.40141cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -839,7 +1752,7 @@
           </Paragraphs>
           <rd:DefaultName>Textbox1</rd:DefaultName>
           <Top>0.3937cm</Top>
-          <Left>0.68474cm</Left>
+          <Left>0.36724cm</Left>
           <Height>0.67938cm</Height>
           <Width>2.42063cm</Width>
           <Style>
@@ -868,9 +1781,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>1.45203cm</Top>
-          <Left>0.68474cm</Left>
+          <Left>0.36724cm</Left>
           <Height>0.6cm</Height>
-          <Width>1.97083cm</Width>
+          <Width>2.42063cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -900,7 +1813,7 @@
           </Paragraphs>
           <rd:DefaultName>id_racuna</rd:DefaultName>
           <Top>1.45203cm</Top>
-          <Left>2.69085cm</Left>
+          <Left>2.82315cm</Left>
           <Height>0.6cm</Height>
           <Width>1.65333cm</Width>
           <ZIndex>2</ZIndex>
@@ -932,7 +1845,7 @@
           </Paragraphs>
           <rd:DefaultName>datum</rd:DefaultName>
           <Top>0.67564cm</Top>
-          <Left>11.96419cm</Left>
+          <Left>11.01169cm</Left>
           <Height>0.6cm</Height>
           <Width>4.53729cm</Width>
           <ZIndex>3</ZIndex>
@@ -957,14 +1870,16 @@
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox4</rd:DefaultName>
           <Top>0.67564cm</Top>
-          <Left>9.13787cm</Left>
+          <Left>6.98966cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.79104cm</Width>
+          <Width>3.98675cm</Width>
           <ZIndex>4</ZIndex>
           <Style>
             <Border>
@@ -992,9 +1907,9 @@
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>2.22842cm</Top>
-          <Left>0.68474cm</Left>
+          <Left>0.36724cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>3.31576cm</Width>
           <ZIndex>5</ZIndex>
           <Style>
             <Border>
@@ -1024,7 +1939,7 @@
           </Paragraphs>
           <rd:DefaultName>naziv</rd:DefaultName>
           <Top>2.22842cm</Top>
-          <Left>3.22001cm</Left>
+          <Left>3.71828cm</Left>
           <Height>0.6cm</Height>
           <Width>2.5cm</Width>
           <ZIndex>6</ZIndex>
@@ -1049,14 +1964,16 @@
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>1.45203cm</Top>
-          <Left>9.74641cm</Left>
+          <Left>6.98966cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.1825cm</Width>
+          <Width>3.98675cm</Width>
           <ZIndex>7</ZIndex>
           <Style>
             <Border>
@@ -1084,7 +2001,7 @@
           </Paragraphs>
           <rd:DefaultName>ime</rd:DefaultName>
           <Top>1.45203cm</Top>
-          <Left>11.96419cm</Left>
+          <Left>11.01169cm</Left>
           <Height>0.6cm</Height>
           <Width>4.53729cm</Width>
           <ZIndex>8</ZIndex>
@@ -1109,14 +2026,16 @@
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
           <Top>2.22842cm</Top>
-          <Left>9.13787cm</Left>
+          <Left>6.98966cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.79104cm</Width>
+          <Width>3.98675cm</Width>
           <ZIndex>9</ZIndex>
           <Style>
             <Border>
@@ -1146,7 +2065,7 @@
           </Paragraphs>
           <rd:DefaultName>OIB</rd:DefaultName>
           <Top>2.22842cm</Top>
-          <Left>11.96419cm</Left>
+          <Left>11.01169cm</Left>
           <Height>0.6cm</Height>
           <Width>4.53729cm</Width>
           <ZIndex>10</ZIndex>
@@ -1160,6 +2079,17 @@
             <PaddingBottom>2pt</PaddingBottom>
           </Style>
         </Textbox>
+        <Line Name="Line1">
+          <Top>3.2512cm</Top>
+          <Height>0cm</Height>
+          <Width>16.82369cm</Width>
+          <ZIndex>11</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
       </ReportItems>
       <Style>
         <Border>
@@ -1171,6 +2101,86 @@
       <Height>1.69334cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Textbox Name="PageNumber">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>PageNumber</rd:DefaultName>
+          <Top>0.54625cm</Top>
+          <Left>11.37391cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="TotalPages">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>/ </Value>
+                  <Style />
+                </TextRun>
+                <TextRun>
+                  <Value>=Globals!TotalPages</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>TotalPages</rd:DefaultName>
+          <Top>0.54625cm</Top>
+          <Left>13.87391cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.63229cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Line Name="Line2">
+          <Top>0.07056cm</Top>
+          <Height>0cm</Height>
+          <Width>16.82369cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>Solid</Style>
+            </Border>
+          </Style>
+        </Line>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>
@@ -1193,7 +2203,7 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>77440b79-3ce4-4edd-80a9-e7ae31d9e5e2</rd:DataSourceID>
+      <rd:DataSourceID>e61cf309-3d86-45cf-b15a-575c93228aa4</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -1222,7 +2232,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Racun</rd:TableName>
         <rd:TableAdapterFillMethod>FillByIdRacuna</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetDataByIdRacuna</rd:TableAdapterGetDataMethod>
@@ -1246,7 +2256,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Nacin_placanja</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1298,7 +2308,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Zaposlenik</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1330,7 +2340,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Artikl</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1354,7 +2364,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Mjerna_jedinica</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1382,7 +2392,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>stavka_racuna</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1410,7 +2420,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Karta</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1438,7 +2448,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>racun_karta</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1486,7 +2496,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Projekcija</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1514,11 +2524,31 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Film</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>FilmTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="CijenaUlaznica">
+      <Query>
+        <DataSourceName>KinoDBDataSet</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ukupnaCijenaUlaznica">
+          <DataField>ukupnaCijenaUlaznica</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>CijenaUlaznica</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>CijenaUlaznicaTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
     <DataSet Name="Popust">
@@ -1542,11 +2572,31 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\Rider\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
         <rd:TableName>Popust</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
         <rd:TableAdapterName>PopustTableAdapter</rd:TableAdapterName>
+      </rd:DataSetInfo>
+    </DataSet>
+    <DataSet Name="CijenaArtikala">
+      <Query>
+        <DataSourceName>KinoDBDataSet</DataSourceName>
+        <CommandText>/* Local Query */</CommandText>
+      </Query>
+      <Fields>
+        <Field Name="ukupnaCijenaArtikala">
+          <DataField>ukupnaCijenaArtikala</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+      </Fields>
+      <rd:DataSetInfo>
+        <rd:DataSetName>KinoDBDataSet</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\Ursa\Documents\GitHub\PI_projekt\KinoDBDataSet.xsd</rd:SchemaPath>
+        <rd:TableName>CijenaArtikala</rd:TableName>
+        <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
+        <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
+        <rd:TableAdapterName>CijenaArtikalaTableAdapter</rd:TableAdapterName>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>

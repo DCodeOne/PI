@@ -6,8 +6,11 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace PI_projekt
-{
-    class Projekcija
+{ 
+    /// <summary>
+    /// Klasa za rad s projekcijama
+    /// </summary>
+    public class Projekcija
     {
           #region Constructors
 
@@ -114,6 +117,9 @@ namespace PI_projekt
             }
         }
 
+        /// <summary>
+        /// Broj dvorana (integer)
+        /// </summary>
         public int BrojDvorane
         {
             get
@@ -128,6 +134,10 @@ namespace PI_projekt
                 }
             }
         }
+
+        /// <summary>
+        /// Broj mjesta u pojedinoj dvorani
+        /// </summary>
          public int BrojMjesta
         {
             get
@@ -142,6 +152,10 @@ namespace PI_projekt
                 }
             }
         }
+
+        /// <summary>
+        /// Broj prodanih ulaznica za pojedinu projekciju
+        /// </summary>
         public int ProdanoUlaznica
         {
             get
@@ -156,6 +170,10 @@ namespace PI_projekt
                 }
             }
         }
+
+        /// <summary>
+        /// Cijena ulaznice
+        /// </summary>
         public float Cijena
         {
             get
@@ -170,6 +188,10 @@ namespace PI_projekt
                 }
             }
         }
+
+        /// <summary>
+        /// Datum projekcije
+        /// </summary>
         public DateTime Datum
         {
             get
@@ -189,7 +211,7 @@ namespace PI_projekt
 
           #region Methods
         /// <summary>
-        /// Dohvaća sve projekcije
+        /// Metoda koja dohvaća sve projekcije
         /// </summary>
         /// <returns>Lista projekcija</returns>
         public static List<Projekcija> DohvatiProjekcije()
@@ -208,7 +230,7 @@ namespace PI_projekt
 
 
         /// <summary>
-        /// Dohvaća sve projekcije koje su aktualne i one koje su počele(najkasnije 15 minuta)
+        /// Metoda koja dohvaća sve projekcije koje su aktualne i one koje su počele (najkasnije 15 minuta)
         /// </summary>
         /// <returns>Lista aktualnih projekcija</returns>
         public static List<Projekcija> DohvatiAktualneProjekcije()
@@ -228,7 +250,7 @@ namespace PI_projekt
             return lista;
         }
         /// <summary>
-        /// Dohvaća sve aktualne projekcije za određeni film 
+        /// Metoda koja dohvaća sve aktualne projekcije za određeni film 
         /// </summary>
         /// <param name="idFilma">Id filma</param>
         /// <returns>Lista projekcija za određeni film</returns>
@@ -250,9 +272,9 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Dohvaća jednu projekciju
+        /// Metoda koja dohvaća jednu projekciju ()
         /// </summary>
-        /// <param name="idFilma">Id Projekcije</param>
+        /// <param name="idProjekcije">Id Projekcije</param>
         /// <returns>Dohvati jednu projekciju</returns>
         public static Projekcija DohvatiProjekciju(int idProjekcije)
         {
@@ -269,15 +291,15 @@ namespace PI_projekt
             return projekcija;
         }
         /// <summary>
-        /// Unesi projekciju u bazu podataka
+        /// Metoda koja unosi
         /// </summary>
         /// <param name="novaProjekcija">Objekt klase projekcija sa podacima potrebnim za unos</param>
-       /// <returns>Broj ID unešene projekcije redova</returns>
+        /// <returns>Broj ID unešene projekcije redova</returns>
         public static int UnesiProjekciju(Projekcija novaProjekcija)
         {
             string sqlUpit = "INSERT INTO Projekcija ('broj_dvorane','id_filma','vrijeme_trajanja','broj_mjesta','prodano_ulaznica','cijena','datum') VALUES ('"
                 + novaProjekcija.BrojDvorane + "','" + novaProjekcija.IdFilma + "','" + novaProjekcija.VrijemeTrajanja + "','" + novaProjekcija.BrojMjesta
-                + "','" + novaProjekcija.ProdanoUlaznica + "','" + Kino.PretvoriCijenu(novaProjekcija.Cijena) + "','" + novaProjekcija.Datum.ToString("yyyy-MM-dd HH:mm:ss") + "');";
+                + "','" + novaProjekcija.ProdanoUlaznica + "','" + Kino.PretvoriCijenu(novaProjekcija.Cijena) + "','" + Kino.PretvoriDatum(novaProjekcija.Datum) + "');";
               int  IDProjekcije = DB.Instance.IzvrsiUpitID(sqlUpit);
 
             return IDProjekcije;
@@ -285,25 +307,45 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Ažuriraj projekciju
+        /// Metoda koja ažurira projekciju
         /// </summary>
         /// <param name="novaProjekcija">Objekt klase projekcija sa podacima potrebnim za ažuriranje</param>
         /// <returns>Broj zahvaćenih redova</returns>
         public static int AzurirajProjekciju(Projekcija novaProjekcija)
         {
             string sqlUpit = "UPDATE  Projekcija SET broj_dvorane='"+novaProjekcija.BrojDvorane+"',id_filma='"+novaProjekcija.IdFilma
-                +"',vrijeme_trajanja='"+ novaProjekcija.VrijemeTrajanja+"',broj_mjesta='"+novaProjekcija.BrojMjesta
-                + "',prodano_ulaznica='" + novaProjekcija.ProdanoUlaznica + "',cijena='" + Kino.PretvoriCijenu(novaProjekcija.Cijena)
-                + "',datum='" + novaProjekcija.Datum.ToString("yyyy-MM-dd HH:mm:ss") + "' WHERE id_projekcije=" + novaProjekcija.IdProjekcije + ";";
+                +"',vrijeme_trajanja='"+ novaProjekcija.VrijemeTrajanja+"', prodano_ulaznica='" + novaProjekcija.ProdanoUlaznica 
+                + "',cijena='" + Kino.PretvoriCijenu(novaProjekcija.Cijena) + "',datum='" + novaProjekcija.Datum.ToString("yyyy-MM-dd HH:mm:ss")
+                + "' WHERE id_projekcije=" + novaProjekcija.IdProjekcije + ";";
           
             int zahvaceno = DB.Instance.IzvrsiUpit(sqlUpit);
 
             return zahvaceno;
 
         }
-
-
         
+        /// <summary>
+        /// Metoda koja provjerava trenutno odabranu projekciju i to da li je broj slobodnih mjesta 5 ili manje
+        /// </summary>
+        /// <returns>Dohvaća projekcije koje imaj manje od 6 slobodnih mjesta</returns>
+        public static List<Projekcija> ProvjeriProjekcije()
+        {
+            List<Projekcija> lista = new List<Projekcija>();
+            DateTime sada = DateTime.Now;
+
+
+            string sqlUpit = "SELECT * FROM Projekcija WHERE (broj_mjesta-prodano_ulaznica)<6 AND  (broj_mjesta-prodano_ulaznica)>0 AND datum >= '" + sada.ToString("yyyy-MM-dd HH:mm:ss") + "';";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                Projekcija projekcija = new Projekcija(dr);
+                lista.Add(projekcija);
+
+            }
+            dr.Close();     //Zatvaranje DataReader objekta.
+            return lista;
+        }
+
         #endregion
     }
     

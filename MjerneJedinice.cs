@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    /// Klasa za rad s mjernim jedinicama
+    /// </summary>
     class MjernaJedinica
     {
         #region Constructors
@@ -28,10 +31,8 @@ namespace PI_projekt
             if (dr != null)
             {
                 IdMjerneJedinice = int.Parse(dr["id_mjerne_jedinice"].ToString());
-                Naziv = dr["naziv"].ToString();
-                
+                Naziv = dr["naziv"].ToString();                
             }
-
         }
 
         #endregion
@@ -88,7 +89,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve mjerne jedinice iz baze i vraća ih u obliku generičke liste.
+        /// Metoda koja dohvaća sve mjerne jedinice iz baze i vraća ih u obliku generičke liste.
         /// </summary>
         /// <returns>Lista mjernih jedinica</returns>
         public static List<MjernaJedinica> DohvatiMjerneJedinice()
@@ -104,9 +105,6 @@ namespace PI_projekt
             dr.Close();     //Zatvaranje DataReader objekta.
             return lista;
         }
-
-        
-
         #endregion
     }
 }

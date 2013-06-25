@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminArtikliDodaj));
             this.lblNazivArtikla = new System.Windows.Forms.Label();
             this.lblCijenaArtikla = new System.Windows.Forms.Label();
             this.lblMjernaJedinica = new System.Windows.Forms.Label();
@@ -157,6 +158,7 @@
             this.Controls.Add(this.lblNazivArtikla);
             this.Controls.Add(this.panArtikl);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;

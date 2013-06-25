@@ -22,7 +22,7 @@ namespace PI_projekt.Sucelja
         long oib = -1;
 
         /// <summary>
-        /// Prilikom klika na odredenu celiju dohvaca se OIB pojedinog zaposlenika
+        /// Prilikom klika na odredenu ćeliju dohvaca se OIB pojedinog zaposlenika
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -36,7 +36,6 @@ namespace PI_projekt.Sucelja
                 oib = long.Parse(red.Cells["oib"].Value.ToString());
             }
         }
-
 
         /// <summary>
         /// Metoda koja osvježava popis zaposlenika u dgvSviZaposlenici objektu
@@ -95,6 +94,32 @@ namespace PI_projekt.Sucelja
             {
                 FrmAdminZaposleniciDodaj formaAzuriraj = new FrmAdminZaposleniciDodaj(oib);
                 formaAzuriraj.ShowDialog(this);
+            }
+            else
+            {
+                MessageBox.Show("Molimo vas odaberite zaposlenika!");
+            }
+        }
+
+        /// <summary>
+        /// Brišezaposlenika iz baze podataka ukoliko nije izradio nijedan račun
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnObrisi_Click(object sender, EventArgs e)
+        {
+             //Provjera je li odabran zaposlenik u dgv
+            if (oib > -1)
+            {
+               int obrisano= Zaposlenici.ObrisiZaposlenika(oib);
+               if (obrisano == -1)
+               {
+                   MessageBox.Show("Nije moguće obrisati zaposlenika!\n Postoje unosi računa za zadanog zaposlenika.");
+               }
+               else
+               {
+                   OsvjeziZaposlenike();
+               }
             }
             else
             {

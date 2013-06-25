@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminProjekcije));
             this.dgvSveProjekcije = new System.Windows.Forms.DataGridView();
             this.btnProjekcijeOsvjezi = new System.Windows.Forms.Button();
             this.btnProjekcijeDodaj = new System.Windows.Forms.Button();
@@ -108,6 +109,7 @@
             this.Controls.Add(this.btnProjekcijeOsvjezi);
             this.Controls.Add(this.dgvSveProjekcije);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminProjekcije";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Projekcije";

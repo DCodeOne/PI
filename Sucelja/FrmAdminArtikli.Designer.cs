@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminArtikli));
             this.dgvSviArtikli = new System.Windows.Forms.DataGridView();
             this.btnDodajArtikl = new System.Windows.Forms.Button();
             this.btnOsvjeziArtikle = new System.Windows.Forms.Button();
@@ -52,6 +53,7 @@
             this.dgvSviArtikli.RowHeadersVisible = false;
             this.dgvSviArtikli.RowTemplate.Height = 24;
             this.dgvSviArtikli.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvSviArtikli.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvSviArtikli.Size = new System.Drawing.Size(305, 235);
             this.dgvSviArtikli.TabIndex = 0;
             this.dgvSviArtikli.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSviArtikli_CellClick);
@@ -113,7 +115,8 @@
             this.Controls.Add(this.btnOsvjeziArtikle);
             this.Controls.Add(this.btnDodajArtikl);
             this.Controls.Add(this.dgvSviArtikli);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "FrmAdminArtikli";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    /// Klasa za rad sa podacima o artiklima
+    /// </summary>
     public class Artikl
     {
         #region Constructors
@@ -32,7 +35,6 @@ namespace PI_projekt
                 Cijena = float.Parse(dr["cijena"].ToString());
                 IdMjerneJedinice = int.Parse(dr["id_mjerne_jedinice"].ToString());
             }
-
         }
 
         #endregion
@@ -125,7 +127,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve artikle iz baze i vraća ih u obliku generičke liste.
+        /// Metoda koja dohvaća sve artikle iz baze i vraća ih u obliku generičke liste.
         /// </summary>
         /// <returns>Lista artikala.</returns>
         public static List<Artikl> DohvatiArtikle()
@@ -143,7 +145,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Dohvaća artikl iz sa odgovarajućim id-em iz baze podataka 
+        /// Metoda koja dohvaća artikl iz sa odgovarajućim id-em iz baze podataka 
         /// </summary>
         /// <param name="idArtikla">Id artikla tipa integer</param>
         /// <returns>Vraća objekt tipa Artikli ukoliko artikl postoji u bazi, a ako ne postoji vraća null</returns>
@@ -162,7 +164,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Dodaje novi artikl u bazu
+        /// Metoda koja dodaje novi artikl u bazu
         /// </summary>
         /// <param name="noviArtikl">Objekt klase artikl</param>
         /// <returns>Vraća int, broj zahvaćenih redova upitom</returns>
@@ -175,8 +177,9 @@ namespace PI_projekt
 
             return izvrsenUpit;
         }
+
         /// <summary>
-        /// Ažurira artikl u bazi podakaka
+        /// Metoda koja ažurira artikl u bazi podakaka
         /// </summary>
         /// <param name="artikl">Objekt klase Artikl</param>
         /// <returns>Broj zahvaćenih redova</returns>
@@ -188,7 +191,6 @@ namespace PI_projekt
 
             return izvrsenUpit;
         }
-
         #endregion
     }
 }

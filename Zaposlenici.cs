@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
-    class Zaposlenici
+    //Klasa za rad s podacima o zaposlenicima
+    public class Zaposlenici
     {
         #region Constructors
 
@@ -225,7 +226,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve zaposlenike iz baze i vraća ih u obliku generičke liste.
+        /// Metoda koja dohvaća sve zaposlenike iz baze i vraća ih u obliku generičke liste.
         /// </summary>
         /// <returns>Lista zaposlenika.</returns>
         public static List<Zaposlenici> DohvatiZaposlenike()
@@ -242,7 +243,12 @@ namespace PI_projekt
             return lista;
         }
 
-         public static Zaposlenici DohvatiZaposlenika2(string korIme)
+        /// <summary>
+        /// Metoda koja dohvaća zaposlenika po korisničkom imenu
+        /// </summary>
+        /// <param name="korIme"></param>
+        /// <returns></zaposlenik>
+        public static Zaposlenici DohvatiZaposlenika2(string korIme)
         {
             Zaposlenici zaposlenik = new Zaposlenici();
             string sqlUpit = "SELECT * FROM Zaposlenik WHERE kor_ime='" + korIme + "';";
@@ -255,6 +261,12 @@ namespace PI_projekt
             return zaposlenik;
         }
 
+        
+        /// <summary>
+        /// Metoda koja dohvaća zaposlenika po OIB-u 
+        /// </summary>
+        /// <param name="oib"></param>
+        /// <returns></zaposlenik>
         public static Zaposlenici DohvatiZaposlenika(long oib)
         {
             Zaposlenici zaposlenik = new Zaposlenici();
@@ -285,7 +297,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Ažurira zaposlenika u bazi podataka
+        /// Metoda koja ažurira zaposlenika u bazi podataka
         /// </summary>
         /// <param name="zaposlenik">Objekt klase Zaposlenici sa novim podacima</param>
         /// <returns>Vraća broj zahvaćeni redova</returns>
@@ -297,6 +309,32 @@ namespace PI_projekt
             int izvrsenUpit = DB.Instance.IzvrsiUpit(sqlUpit);
             return izvrsenUpit;
             
+        }
+
+
+
+        /// <summary>
+        /// Metoda koja provjerava je li zaposlenik kreirao koji računa, ukoliko nije, briše zaposlenika iz baze podataka. 
+        /// </summary>
+        /// <param name="OIB">OIB zaposlenika</param>
+        /// <returns>-1 ako je zaposlenik kreirao račun, ako je obrisan onda broj zahvaćenih redova</returns>
+        public static int ObrisiZaposlenika(long OIB)
+        {
+
+            Racun racun = new Racun();
+            string sqlUpit = "SELECT * FROM Racun WHERE oib='" + OIB + "';";
+            DbDataReader dr = DB.Instance.DohvatiDataReader(sqlUpit);
+            while (dr.Read())
+            {
+                dr.Close();
+                return -1;
+            }
+            dr.Close();  //Zatvaranje DataReader objekta.
+
+            string sqlUpit2 = "DELETE FROM Zaposlenik  WHERE OIB=" + OIB + ";";
+            int izvrsenUpit = DB.Instance.IzvrsiUpit(sqlUpit2);
+
+            return izvrsenUpit;
         }
 
         #endregion

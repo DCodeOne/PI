@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAdminDvorane));
             this.btnDvoraneAzuriraj = new System.Windows.Forms.Button();
             this.btnDvoraneDodaj = new System.Windows.Forms.Button();
             this.btnDvoraneOsvjezi = new System.Windows.Forms.Button();
@@ -118,8 +119,8 @@
             this.Controls.Add(this.btnDvoraneAzuriraj);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FrmAdminDvorane";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dvorane";
             this.Load += new System.EventHandler(this.FrmAdminDvorane_Load);

@@ -17,8 +17,7 @@ namespace PI_projekt.Sucelja
             InitializeComponent();
             
         }
-        
-        
+                
         //objekt klase artikl u kojeg se sprema artikl za uređivanje
         Artikl detaljiArtikl = null;
         int IdArtikla = -1;
@@ -93,13 +92,10 @@ namespace PI_projekt.Sucelja
                 FrmAdminArtikliDodaj formaAzuriraj = new FrmAdminArtikliDodaj(detaljiArtikl);
                 formaAzuriraj.ShowDialog(this);
             }
-
             else
             {
                 MessageBox.Show("Molimo vas odaberite artikl!");
             }
-        }
-
-        
+        }        
     }
 }

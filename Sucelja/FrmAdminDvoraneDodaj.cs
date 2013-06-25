@@ -15,7 +15,7 @@ namespace PI_projekt.Sucelja
         private Dvorana dvoranaAzuriraj = null;
 
         /// <summary>
-        /// Konstruktor koji se poziva u slucaju dodavanja nove dvorane
+        /// Konstruktor koji se poziva u slućaju dodavanja nove dvorane
         /// </summary>
         public FrmAdminDvoraneDodaj()
         {
@@ -39,6 +39,7 @@ namespace PI_projekt.Sucelja
         /// <param name="e"></param>
         private void FrmAdminDvoraneDodaj_Load(object sender, EventArgs e)
         {
+            this.ActiveControl = txtDodajDvoranuNaziv;
             if (dvoranaAzuriraj != null)
             {
                 txtDodajDvoranuNaziv.Text = dvoranaAzuriraj.Naziv.ToString();
@@ -46,38 +47,50 @@ namespace PI_projekt.Sucelja
             }
         }
 
+        /// <summary>
+        /// Gumb Odustani zatvara formu bez da doda dvoranu u bazu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnOdustani_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Gumb Spremi dodaje zapis u bazu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnSpremi_Click(object sender, EventArgs e)
         {
             Dvorana novaDvorana = new Dvorana();
             novaDvorana.Naziv = txtDodajDvoranuNaziv.Text.ToString();
-            //MessageBox.Show(txtCijenaDodajArtikl.Text.ToString());
-            try
+            if (novaDvorana.Naziv == "")
             {
-                novaDvorana.BrojSjedala = int.Parse(txtDodajDvoranuBrSjedala.Text.ToString());
-
-                if (dvoranaAzuriraj != null)
-                {
-                    novaDvorana.BrojDvorane = dvoranaAzuriraj.BrojDvorane;
-                    Dvorana.AzurirajDvoranu(novaDvorana);
-                }
-                else
-                {
-                    Dvorana.DodajDvoranu(novaDvorana);
-
-                }
-  
-                this.Close();
+                MessageBox.Show("Greška! Pogrešan unos podataka.");
             }
-            catch
+            else
             {
-                MessageBox.Show("Pogrešan unos podataka!");
+                try
+                {
+                    novaDvorana.BrojSjedala = int.Parse(txtDodajDvoranuBrSjedala.Text.ToString());
+                    if (dvoranaAzuriraj != null)
+                    {
+                        novaDvorana.BrojDvorane = dvoranaAzuriraj.BrojDvorane;
+                        Dvorana.AzurirajDvoranu(novaDvorana);
+                    }
+                    else
+                    {
+                        Dvorana.DodajDvoranu(novaDvorana);
+                    }
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Greška! Pogrešan unos podataka.");
+                }
             }
         }
-
     }
 }

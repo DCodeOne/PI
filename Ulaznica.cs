@@ -7,13 +7,16 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
-    class Ulaznice
+    /// <summary>
+    /// Klasa za rad s podacima o ulaznicama
+    /// </summary>
+    public class Ulaznice
     {
            
         #region Constructors
 
         /// <summary>
-        /// Konstruktor za kreiranje  vrste projekcije
+        /// Konstruktor za kreiranje  ulaznice
         /// </summary>
         public Ulaznice()
         {
@@ -76,7 +79,7 @@ namespace PI_projekt
             {
                 return id_projekcije;
             }
-            private set
+            set
             {
                 if (id_projekcije != value)
                 {
@@ -93,7 +96,7 @@ namespace PI_projekt
             {
                 return sjedalo;
             }
-            private set
+             set
             {
                 if (sjedalo != value)
                 {
@@ -107,7 +110,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve ulaznice
+        /// Metoda koja dohvaća sve ulaznice
         /// </summary>
         /// <returns>Lista svih ulaznica</returns>
         public static List<Ulaznice>  DohvatiSveUlaznice()
@@ -126,7 +129,7 @@ namespace PI_projekt
 
 
         /// <summary>
-        /// Dohvaća jednu ulaznicu sa određenim Id-em
+        /// Metoda koja dohvaća jednu ulaznicu sa određenim Id-em
         /// </summary>
         /// <returns>Objekt klase Ulaznice</returns>
         public static Ulaznice DohvatiUlaznicu(int idUlaznice)
@@ -144,7 +147,7 @@ namespace PI_projekt
         }
 
        /// <summary>
-        /// Dohvaća sve ulaznice za određenu projekciju
+        /// Metoda koja dohvaća sve ulaznice za određenu projekciju
        /// </summary>
        /// <param name="idProjekcije">Id projekcije za koju se dohvaćaju sve ulaznice</param>
        /// <returns>int vraća listu sjedala</returns>
@@ -164,7 +167,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Unosi ulaznicu u bazu podataka
+        /// Metoda koja unosi ulaznicu u bazu podataka
         /// </summary>
         /// <param name="sjedalo">Broj sjedala</param>
         /// <param name="idProjekcije">Id projekcije</param>
@@ -183,7 +186,20 @@ namespace PI_projekt
             }
             return idUlaznice;
         }
-        
+
+
+        /// <summary>
+        /// Metoda koja briše ulaznicu iz baze podataka
+        /// </summary>
+        /// <param name="idUlaznice">Id ulaznice</param>
+        /// <returns>Broj zahvaćenih redaka</returns>
+        public static int IzbrisiUlaznicu(int idUlaznice)
+        {
+            string sqlUpit = "DELETE FROM Karta WHERE id_karte='" + idUlaznice + "';";
+            idUlaznice = DB.Instance.IzvrsiUpitID(sqlUpit);
+            return idUlaznice;
+        }
+
         #endregion
     }
 }

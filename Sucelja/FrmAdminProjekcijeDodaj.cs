@@ -12,7 +12,6 @@ namespace PI_projekt.Sucelja
 {
     public partial class FrmAdminProjekcijeDodaj : Form
     {
-       
         List<VrstaProjekcije> listaVrste = new List<VrstaProjekcije>();
         List<Dvorana> listaDvorana = new List<Dvorana>();
         Projekcija novaProjekcija = new Projekcija();
@@ -26,7 +25,7 @@ namespace PI_projekt.Sucelja
         }
 
         /// <summary>
-        /// Kontruktor koji se poziva kada se poziva forma za ažuriranje projekcije
+        /// Gumb koji se poziva kada se poziva forma za ažuriranje projekcije
         /// </summary>
         /// <param name="IdProjekcije"></param>
         public FrmAdminProjekcijeDodaj(int IdProjekcije)
@@ -38,14 +37,23 @@ namespace PI_projekt.Sucelja
 
         }
 
+        /// <summary>
+        /// Gumb koji zatvara formu za dodavanje Projekcija
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnProjekcijeDodajOdustani_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Gumb koji se pokreće prilikom učitavanje forme FrmAdminProjeckijeDodaj
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAdminProjekcijeDodaj_Load(object sender, EventArgs e)
         {
-            
             listaVrste = VrstaProjekcije.DohvatiSveVrste();
             listaDvorana = Dvorana.DohvatiDvorane();
             listaFilmova = Film.DohvatiFilmove();
@@ -115,7 +123,7 @@ namespace PI_projekt.Sucelja
 
 
         /// <summary>
-        /// Dodaje vrste projekcija za određeni film
+        /// Gumb koji dodaje vrste projekcija za određeni film
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -128,13 +136,13 @@ namespace PI_projekt.Sucelja
             }
             else 
             {
-                MessageBox.Show("Odaberite vrstu projekcije!");
+                MessageBox.Show("Greška! Odaberite vrstu projekcije.");
             } 
         }
 
 
         /// <summary>
-        /// Uklanja vrste porjekcija za određeni film
+        /// Gumb koji uklanja vrste projekcija za određeni film
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -148,57 +156,69 @@ namespace PI_projekt.Sucelja
             }
             else
             {
-                MessageBox.Show("Odaberite vrstu projekcije!");
+                MessageBox.Show("Greška! Odaberite vrstu projekcije.");
             } 
         }
 
+        /// <summary>
+        /// Event koji sprema unešene podatke u bazu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnFilmoviDodajSpremi_Click(object sender, EventArgs e)
         {            
             //Pokušavamo parsirati korisnički unos, ukoliko je korisnički unos validan i dodana je vrsta projekcije nastavljamo sa unosom projekcije u bazu
-           try
-           {
-                novaProjekcija.BrojDvorane = listaDvorana[cbBrojDvorana.SelectedIndex].BrojDvorane;
-                novaProjekcija.IdFilma = listaFilmova[cbNazivFilma.SelectedIndex].IdFilma;
-                novaProjekcija.VrijemeTrajanja = int.Parse(txtProjekcijeDodajTrajanje.Text.ToString());
-                novaProjekcija.Cijena = float.Parse(txtProjekcijeDodajCijena.Text.ToString());
-                novaProjekcija.Datum = DateTime.Parse(dtDatum.Text.ToString());
-                novaProjekcija.BrojMjesta = listaDvorana[cbBrojDvorana.SelectedIndex].BrojSjedala;
-                List<int> listaOdabraneVrste = new List<int>();
+            if (lbOdabrane.Items.Count == 0)
+            {
+                MessageBox.Show("Greška! Odaberite vrstu projekcije.");
+            }
+            else
+            {
+                try
+                {
+                    novaProjekcija.BrojDvorane = listaDvorana[cbBrojDvorana.SelectedIndex].BrojDvorane;
+                    novaProjekcija.IdFilma = listaFilmova[cbNazivFilma.SelectedIndex].IdFilma;
+                    novaProjekcija.VrijemeTrajanja = int.Parse(txtProjekcijeDodajTrajanje.Text.ToString());
+                    novaProjekcija.Cijena = float.Parse(txtProjekcijeDodajCijena.Text.ToString());
+                    novaProjekcija.Datum = DateTime.Parse(dtDatum.Text.ToString());
+                    novaProjekcija.BrojMjesta = listaDvorana[cbBrojDvorana.SelectedIndex].BrojSjedala;
+                    List<int> listaOdabraneVrste = new List<int>();
 
-                //Prolazimo kroz svaku odabranu vrstu projekcije iz lbOdabrane i 
-                //spremamo u pomoćnu listu listaOdabraneVrste listu ID-a svih odabranih vrsta projekcija 
-                foreach (VrstaProjekcije vrsta in lbOdabrane.Items)
-                {
-                       listaOdabraneVrste.Add(vrsta.IdVrste);
-                }
-        
-                //ako je korisnik odabrao vrste projekcije nastavljamo sa unosom projekcije u bazu podataka
-                if (listaOdabraneVrste != null)
-                {
-                    //ako se ažurira projekcija
-                    if (azurirajProjekcija != null)
+                    //Prolazimo kroz svaku odabranu vrstu projekcije iz lbOdabrane i 
+                    //spremamo u pomoćnu listu listaOdabraneVrste listu ID-a svih odabranih vrsta projekcija 
+                    foreach (VrstaProjekcije vrsta in lbOdabrane.Items)
                     {
-                       
-                        Projekcija.AzurirajProjekciju(novaProjekcija);
-                        ProjekcijaVrstaProjekcije.AzurirajProjekcijaVrste(novaProjekcija.IdProjekcije, listaOdabraneVrste);
+                        listaOdabraneVrste.Add(vrsta.IdVrste);
                     }
-                    else //ako se dodaje nova projekcija
+
+                    //ako je korisnik odabrao vrste projekcije nastavljamo sa unosom projekcije u bazu podataka
+                    if (listaOdabraneVrste != null)
                     {
-                       int idUneseneProjekcije= Projekcija.UnesiProjekciju(novaProjekcija);
-                       ProjekcijaVrstaProjekcije.UnesiProjekciju(idUneseneProjekcije, listaOdabraneVrste);
+                        //ako se ažurira projekcija
+                        if (azurirajProjekcija != null)
+                        {
+
+                            Projekcija.AzurirajProjekciju(novaProjekcija);
+                            ProjekcijaVrstaProjekcije.AzurirajProjekcijaVrste(novaProjekcija.IdProjekcije, listaOdabraneVrste);
+                        }
+                        else //ako se dodaje nova projekcija
+                        {
+                            int idUneseneProjekcije = Projekcija.UnesiProjekciju(novaProjekcija);
+                            ProjekcijaVrstaProjekcije.UnesiProjekciju(idUneseneProjekcije, listaOdabraneVrste);
+                        }
+                        this.Close();
                     }
-                    this.Close();
-                } 
-                else //ako korisnik nije unio vrste projekcije ispisuje se poruka o pogrešci
-                {
-                    MessageBox.Show("Odaberite vrstu projekcije!");
+                    else //ako korisnik nije unio vrste projekcije ispisuje se poruka o pogrešci
+                    {
+                        MessageBox.Show("Greška! Odaberite vrstu projekcije.");
+                    }
                 }
-           }
-            //Ukoliko korisnički unos nije validan ispisuje se poruka o pogrešci
-           catch 
-           {
-                MessageBox.Show("Pogrešno uneseni podaci!");
-           }
+                //Ukoliko korisnički unos nije validan ispisuje se poruka o pogrešci
+                catch
+                {
+                    MessageBox.Show("Greška! Pogrešno uneseni podaci.");
+                }
+            }
         }
     }
 }

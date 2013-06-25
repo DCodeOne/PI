@@ -27,8 +27,8 @@ namespace PI_projekt.Ulaznica
         private int idProjekcije = 0;
         private Popust odabraniPopust;
         private float ukupno = 0;
-        private float popust = 0;
-        private float suma = 0;
+        //private float popust = 0;
+       // private float suma = 0;
         
         /// <summary>
         /// Metoda koja osvježava prikaz podataka koji se nalaze na ulaznici
@@ -59,12 +59,22 @@ namespace PI_projekt.Ulaznica
         /// </summary>
         private void UracunajPopust()
         {
-            ukupno = lbOdabrana.Items.Count * odabranaProjekcija.Cijena;
-            suma = ukupno - (odabraniPopust.PopustPostotak * ukupno);
-            popust = odabraniPopust.PopustPostotak * 100;
-            txtSuma.Text = ukupno.ToString();
-            txtPopust.Text = popust.ToString() + "%";
-            txtUkupno.Text = suma.ToString();
+            //računamo cijenu sa popustom i sumu 
+            List<decimal> listaPopust = Kino.IzracunajPopust(lbOdabrana.Items.Count, odabranaProjekcija.Cijena, odabraniPopust.PopustPostotak);
+
+            //Ukoliko je odabran popust i ulaznica upisuje ukupnu cijenu ulaznica, inače prazni tekstualna polja
+            if (listaPopust[0] != -1 && listaPopust[1] != -1 && listaPopust[2] != -1)
+            {
+                txtSuma.Text = listaPopust[0].ToString();
+                txtPopust.Text = listaPopust[1].ToString() + "%";
+                txtUkupno.Text = listaPopust[2].ToString();
+            }
+            else
+            {
+                txtSuma.Text = "";
+                txtPopust.Text = "";
+                txtUkupno.Text = "";
+            }
         }
 
         public FrmUlaznica()
@@ -86,8 +96,8 @@ namespace PI_projekt.Ulaznica
         /// <param name="e"></param>
         private void FrmUlaznica_Load(object sender, EventArgs e)
         {
-            // filmovi = Film.DohvatiAktualneFilmove();
-            filmovi = Film.DohvatiFilmove();
+             filmovi = Film.DohvatiAktualneFilmove();
+            //filmovi = Film.DohvatiFilmove();
             foreach (Film film in filmovi)
             {
                 cbNazivProjekcije.Items.Add(film.Naziv);
@@ -131,7 +141,7 @@ namespace PI_projekt.Ulaznica
                     odabranaProjekcija = projekcija2;
                 }
             }
-  //napravi metodu koja ce dohvatit za taj ID dvorane Naziv dvorane umjesto linije ispod!!!
+
                 txtDvorana.Text = odabranaProjekcija.BrojDvorane.ToString();
                 txtFilm.Text = odabraniFilm.Naziv;
                 txtCijena.Text = odabranaProjekcija.Cijena.ToString();
@@ -217,24 +227,18 @@ namespace PI_projekt.Ulaznica
             {
                 List<int> odabranaSjedala = new List<int>();
                 List<int> listaIdUlaznica = new List<int>();
+
                 for (int i = 0; i < lbOdabrana.Items.Count; i++)
                 {
                     
                     odabranaSjedala.Add(int.Parse(lbOdabrana.Items[i].ToString()));
                 }
                 listaIdUlaznica = Kino.IzradiUlaznicu(odabranaSjedala, odabranaProjekcija);
-                Artikli.FrmArtikli formaArtikli = new Artikli.FrmArtikli(listaIdUlaznica, odabraniPopust.IdPopusta);
-                formaArtikli.Show();
-                
-                /////
-                //Jako je bitno da se poziva nakon unosa artikala i kreiranja racun_karta stavki ulaznica zbog uračunavanja popusta
-                /////
-                foreach (int idUlaznice in listaIdUlaznica)
-                {
-                   
-                    Izvjestaj.UlaznicaIspis ispisUlaznice = new Izvjestaj.UlaznicaIspis(idUlaznice);
-                    ispisUlaznice.Show();
-                }
+
+                ukupno = float.Parse(txtUkupno.Text);
+                Artikli.FrmArtikli formaArtikli = new Artikli.FrmArtikli(listaIdUlaznica, odabraniPopust.IdPopusta, ukupno);
+                formaArtikli.Show();     
+             
                 this.Close();
             }
             else

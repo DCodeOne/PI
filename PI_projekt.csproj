@@ -70,6 +70,12 @@
     <Compile Include="Izvjestaj\RacunIzvjestaj.Designer.cs">
       <DependentUpon>RacunIzvjestaj.cs</DependentUpon>
     </Compile>
+    <Compile Include="Izvjestaj\StatistikaProjekcije.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Izvjestaj\StatistikaProjekcije.Designer.cs">
+      <DependentUpon>StatistikaProjekcije.cs</DependentUpon>
+    </Compile>
     <Compile Include="Izvjestaj\UlaznicaIspis.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +101,12 @@
     <Compile Include="Racun.cs" />
     <Compile Include="RacunArtikl.cs" />
     <Compile Include="RacunUlaznica.cs" />
+    <Compile Include="Sucelja\CustomMessageBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Sucelja\CustomMessageBox.Designer.cs">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sucelja\FrmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,8 +203,12 @@
     <EmbeddedResource Include="Izvjestaj\RacunIzvjestaj.resx">
       <DependentUpon>RacunIzvjestaj.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Izvjestaj\rptProjekcije.rdlc" />
     <EmbeddedResource Include="Izvjestaj\rptUlaznicaIspis.rdlc" />
     <EmbeddedResource Include="Izvjestaj\rptRacun.rdlc" />
+    <EmbeddedResource Include="Izvjestaj\StatistikaProjekcije.resx">
+      <DependentUpon>StatistikaProjekcije.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Izvjestaj\UlaznicaIspis.resx">
       <DependentUpon>UlaznicaIspis.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +222,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Sucelja\CustomMessageBox.resx">
+      <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sucelja\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -252,9 +271,9 @@
       <DependentUpon>KinoDBDataSet.xsd</DependentUpon>
     </None>
     <None Include="KinoDBDataSet.xsd">
+      <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
       <LastGenOutput>KinoDBDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
     </None>
     <None Include="KinoDBDataSet.xss">
       <DependentUpon>KinoDBDataSet.xsd</DependentUpon>
@@ -338,44 +357,43 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\BCKground_2.jpg" />
+    <None Include="Resources\imgPocetna.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\projekcije.JPG" />
+    <None Include="Resources\imgPozadina.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\admin.jpg" />
+    <None Include="Resources\imgOpcije.gif" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\dvorana.jpg" />
+    <None Include="Resources\imgOdjava.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\kokice.gif" />
+    <None Include="Resources\imgIzlaz.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\Movies.gif" />
+    <None Include="Resources\imgSifarnici.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\tiket.gif" />
+    <None Include="Resources\imgZaposlenici.png" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\zaglavlje.jpg" />
+    <None Include="Resources\imgArtikli.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\zaglavlje2.jpg" />
+    <None Include="Resources\imgFilmovi.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\zaposlenik.jpg" />
+    <None Include="Resources\imgProjekcije.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\BCKground.jpg" />
+    <None Include="Resources\imgDvorane.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\sjedala.jpg" />
+    <None Include="Resources\imgStatistika.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Slike\pozadina.jpg" />
-    <Content Include="Slike\ulaznica.jpg" />
+    <None Include="Resources\imgUlaznice.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

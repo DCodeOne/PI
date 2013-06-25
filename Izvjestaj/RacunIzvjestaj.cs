@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,17 +14,35 @@ namespace PI_projekt.Izvjestaj
     public partial class RacunIzvjestaj : Form
     {
         private int IdRacuna = 0;
-        public RacunIzvjestaj(int IDRacuna)
+        private float ukupnaCijenaUlaznica, ukupnaCijenaArtikala;
+        private bool popust = true;
+
+        /// <summary>
+        /// Kreiranje izvještaja (račun)
+        /// </summary>
+        /// <param name="IDRacuna">ID računa</param>
+        /// <param name="ukupnoUlaznice">Suma cijena odabranih ulaznica</param>
+        /// <param name="ukupnoArtikli">Suma cijena odabranih artikala</param>
+        public RacunIzvjestaj(int IDRacuna, float ukupnoUlaznice, float ukupnoArtikli)
         {
             InitializeComponent();
             IdRacuna = IDRacuna;
+            if (ukupnoUlaznice == 0)
+            {
+                popust = false;
+            }
+            ukupnaCijenaUlaznica = ukupnoUlaznice;
+            ukupnaCijenaArtikala = ukupnoArtikli;
         }
 
+        /// <summary>
+        /// Metoda koja se poziva pri pokretanju forme
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void RacunIzvjestaj_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'kinoDBDataSet.Racun' table. You can move, or remove it, as needed.
-            //this.racunTableAdapter.Fill(this.kinoDBDataSet.Racun);
-            // TODO: This line of code loads data into the 'kinoDBDataSet.Racun' table. You can move, or remove it, as needed.
+            this.cijenaArtikalaTableAdapter.Fill(this.kinoDBDataSet.CijenaArtikala);
             this.racunTableAdapter.FillByIdRacuna(this.kinoDBDataSet.Racun, IdRacuna);
             this.nacin_placanjaTableAdapter.Fill(this.kinoDBDataSet.Nacin_placanja, IdRacuna);
             this.zaposlenikTableAdapter.Fill(this.kinoDBDataSet.Zaposlenik, IdRacuna);
@@ -34,7 +53,18 @@ namespace PI_projekt.Izvjestaj
             this.racun_kartaTableAdapter.Fill(this.kinoDBDataSet.racun_karta, IdRacuna);
             this.projekcijaTableAdapter.Fill(this.kinoDBDataSet.Projekcija, IdRacuna);
             this.filmTableAdapter.Fill(this.kinoDBDataSet.Film, IdRacuna);
-            this.popustTableAdapter.Fill(this.kinoDBDataSet.Popust, IdRacuna);
+            if (!popust)
+            {
+                this.popustTableAdapter.FillByMin(this.kinoDBDataSet.Popust);
+            }
+            else
+            {
+                this.popustTableAdapter.Fill(this.kinoDBDataSet.Popust, IdRacuna);
+            }
+            this.cijenaUlaznicaTableAdapter.UpdateQuery((decimal)ukupnaCijenaUlaznica);
+            this.cijenaUlaznicaTableAdapter.Fill(this.kinoDBDataSet.CijenaUlaznica);
+            this.cijenaArtikalaTableAdapter.UpdateQuery((decimal)ukupnaCijenaArtikala);
+            this.cijenaArtikalaTableAdapter.Fill(this.kinoDBDataSet.CijenaArtikala);
             
             this.reportViewer1.RefreshReport();
         }

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    /// Klasa za rad s podacima o ulogama
+    /// </summary>
     class Uloga
     {
 
@@ -89,7 +92,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća sve uloge iz baze i vraća ih u obliku generičke liste.
+        /// Metoda koja dohvaća sve uloge iz baze i vraća ih u obliku generičke liste.
         /// </summary>
         /// <returns>Lista uloga</returns>
         public static List<Uloga> DohvatiSveUloge()
@@ -107,7 +110,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Dohvaća  ulogu za određeni zaposlenika
+        /// Metoda koja dohvaća  ulogu za određeni zaposlenika
         /// </summary>
         /// <param name="idZaposlenika">Int idZaposlenika</param>
         /// <returns>Lista žanrova</returns>
@@ -130,7 +133,7 @@ namespace PI_projekt
         /// </summary>
         /// <param name="idZaposlenika"></param>
         /// <param name="idUloge"></param>
-        /// <returns></returns>
+        /// <returns></broj zahvaćenih redova>
         public static int UnesiUlogu(int idZaposlenika, int idUloge)
         {
             int zahvaceno = 0;
@@ -144,6 +147,4 @@ namespace PI_projekt
 
         #endregion
     }
-
-
 }

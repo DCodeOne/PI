@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace PI_projekt
 {
+    /// <summary>
+    /// Klasa za rad s artiklima računa
+    /// </summary>
     class RacunArtikl
     {
         #region Constructors
@@ -105,7 +108,7 @@ namespace PI_projekt
         #region Methods
 
         /// <summary>
-        /// Dohvaća stavke svih računa
+        /// Metoda koja dohvaća stavke svih računa
         /// </summary>
         /// <returns>Lista stavki svih računa (artikli)</returns>
         public static List<RacunArtikl> DohvatiSveRacunArtikl()
@@ -123,7 +126,7 @@ namespace PI_projekt
         }
 
         /// <summary>
-        /// Dohvaća stavke (artikle) za određeni račun
+        /// Metoda koja dohvaća stavke (artikle) za određeni račun
         /// </summary>
         /// <param name="idRacuna">Id računa za kojeg se dohvaćaju sve stavke</param>
         /// <returns></returns>
@@ -141,6 +144,12 @@ namespace PI_projekt
             return lista;
         }
 
+        /// <summary>
+        /// Metoda koja unosi podatke u bazu za klasu RacunArtikl
+        /// </summary>
+        /// <param name="IdRacuna"></param>
+        /// <param name="IdArtikla"></param>
+        /// <param name="Kolicina"></param>
         public static void UnesiRacunArtikl(int IdRacuna, int IdArtikla, int Kolicina)
         {
             string sqlUpit = "INSERT INTO stavka_racuna VALUES (" + IdRacuna + ", " + IdArtikla + ", " + Kolicina + ");";

@@ -12,7 +12,7 @@ namespace PI_projekt.Sucelja
 {
     public partial class FrmAdminDvorane : Form
     {
-        //objekt klase artikl u kojeg se sprema artikl za uredivanje
+        //objekt klase dvorana u kojeg se sprema dvorana za uređivanje
         Dvorana detaljiDvorana = null;
         int BrojDvorane = -1;
 
@@ -25,24 +25,36 @@ namespace PI_projekt.Sucelja
             dgvSveDvorane.DataSource = listaDvorana;
         }
 
+        /// <summary>
+        /// Inicijalizacija
+        /// </summary>
         public FrmAdminDvorane()
         {
             InitializeComponent();
         }
 
-
+        /// <summary>
+        /// Prilikom pokretanja forme poziva se metoda koja osvježava spisak svih dvorana
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void FrmAdminDvorane_Load(object sender, EventArgs e)
         {
             OsvjeziDvorane();
         }
 
+        /// <summary>
+        /// Gumb OSvježi osvježava spisak svih dvorana u dgvSveDvorane
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnDvoraneOsvjezi_Click(object sender, EventArgs e)
         {
             OsvjeziDvorane();
         }
 
         /// <summary>
-        /// Prilikom klika na odredenu celiju dohvaca se id pojedine dvorane
+        /// Prilikom klika na odredenu ćeliju dohvaća se id pojedine dvorane
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -55,8 +67,7 @@ namespace PI_projekt.Sucelja
                 BrojDvorane = int.Parse(red.Cells["BrojDvorane"].Value.ToString());
             }
         }
-
-      
+              
         /// <summary>
         /// Klikom na gumb dodaj otvara se forma za dodavanje nove dvorane
         /// </summary>

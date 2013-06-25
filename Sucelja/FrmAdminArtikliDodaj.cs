@@ -14,7 +14,7 @@ namespace PI_projekt.Sucelja
     {
  
         private Artikl artiklAzuriraj = null;
-
+        //lista mjernih jedinica
         List<MjernaJedinica> listaMjernihJedinica = MjernaJedinica.DohvatiMjerneJedinice();
 
         /// <summary>
@@ -64,7 +64,6 @@ namespace PI_projekt.Sucelja
         }
 
 
-
         private void cbMjerneJedinice_SelectedIndexChanged(object sender, EventArgs e)
         {
 
@@ -77,7 +76,6 @@ namespace PI_projekt.Sucelja
         /// <param name="e"></param>
         private void btnOdustani_Click(object sender, EventArgs e)
         {
-
             this.Close(); 
         }
 
@@ -88,38 +86,37 @@ namespace PI_projekt.Sucelja
         /// <param name="e"></param>
         private void btnDodaj_Click(object sender, EventArgs e)
         {
-            Artikl noviArtikl = new Artikl();
-            noviArtikl.Naziv = txtNazivDodajArtikl.Text.ToString();
-            //MessageBox.Show(txtCijenaDodajArtikl.Text.ToString());
-           try
+           Artikl noviArtikl = new Artikl();
+           noviArtikl.Naziv = txtNazivDodajArtikl.Text.ToString();
+           if (noviArtikl.Naziv == "")
            {
-                noviArtikl.Cijena = float.Parse(txtCijenaDodajArtikl.Text.ToString());
+               MessageBox.Show("Greška! Pogrešan unos podataka.");
+           }
+           else
+           {
+               try
+               {
+                   noviArtikl.Cijena = float.Parse(txtCijenaDodajArtikl.Text.ToString());
 
-                //pod hitno popravit!!!  ovaj način hvatanja combo boxa nije dobar
-                noviArtikl.IdMjerneJedinice = int.Parse(listaMjernihJedinica[cbMjerneJedinice.SelectedIndex].IdMjerneJedinice.ToString());
+                   //pod hitno popravit!!!  ovaj način hvatanja combo boxa nije dobar
+                   noviArtikl.IdMjerneJedinice = int.Parse(listaMjernihJedinica[cbMjerneJedinice.SelectedIndex].IdMjerneJedinice.ToString());
 
-                if (artiklAzuriraj != null)
-                {   
-                    noviArtikl.IdArtikla=artiklAzuriraj.IdArtikla;
-                    Artikl.AzurirajArtikl(noviArtikl);
-                
-                }
-                else
-                {
-                    Artikl.DodajArtikl(noviArtikl);
-                    
-                }
-                
-                this.Close();
-            }
-            catch
-            {
-                
-                MessageBox.Show("Pogrešan unos podataka!");
-            }
-            
+                   if (artiklAzuriraj != null)
+                   {
+                       noviArtikl.IdArtikla = artiklAzuriraj.IdArtikla;
+                       Artikl.AzurirajArtikl(noviArtikl);
+                   }
+                   else
+                   {
+                       Artikl.DodajArtikl(noviArtikl);
+                   }
+                   this.Close();
+               }
+               catch
+               {
+                   MessageBox.Show("Greška! Pogrešan unos podataka.");
+               }
+           }
         }
-        
-       
     }
 }

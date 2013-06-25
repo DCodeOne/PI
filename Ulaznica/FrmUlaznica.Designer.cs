@@ -93,9 +93,9 @@
             this.lblNazivProjekcije.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblNazivProjekcije.Location = new System.Drawing.Point(7, 33);
             this.lblNazivProjekcije.Name = "lblNazivProjekcije";
-            this.lblNazivProjekcije.Size = new System.Drawing.Size(125, 16);
+            this.lblNazivProjekcije.Size = new System.Drawing.Size(124, 16);
             this.lblNazivProjekcije.TabIndex = 20;
-            this.lblNazivProjekcije.Text = "Naziv Projekcije:";
+            this.lblNazivProjekcije.Text = "Naziv projekcije:";
             // 
             // cbNazivProjekcije
             // 
@@ -183,18 +183,18 @@
             // 
             this.label1.AutoSize = true;
             this.label1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label1.Location = new System.Drawing.Point(147, 170);
+            this.label1.Location = new System.Drawing.Point(192, 170);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 16);
+            this.label1.Size = new System.Drawing.Size(137, 16);
             this.label1.TabIndex = 37;
-            this.label1.Text = "Odabrano:";
+            this.label1.Text = "Odabrano sjedala:";
             // 
             // btnUkloni
             // 
             this.btnUkloni.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnUkloni.Location = new System.Drawing.Point(102, 288);
+            this.btnUkloni.Location = new System.Drawing.Point(110, 288);
             this.btnUkloni.Name = "btnUkloni";
-            this.btnUkloni.Size = new System.Drawing.Size(43, 30);
+            this.btnUkloni.Size = new System.Drawing.Size(75, 30);
             this.btnUkloni.TabIndex = 36;
             this.btnUkloni.Text = "<--";
             this.btnUkloni.UseVisualStyleBackColor = false;
@@ -203,9 +203,9 @@
             // btnDodaj
             // 
             this.btnDodaj.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnDodaj.Location = new System.Drawing.Point(102, 242);
+            this.btnDodaj.Location = new System.Drawing.Point(110, 239);
             this.btnDodaj.Name = "btnDodaj";
-            this.btnDodaj.Size = new System.Drawing.Size(43, 28);
+            this.btnDodaj.Size = new System.Drawing.Size(75, 28);
             this.btnDodaj.TabIndex = 35;
             this.btnDodaj.Text = "-->";
             this.btnDodaj.UseVisualStyleBackColor = false;
@@ -227,9 +227,9 @@
             this.lbOdabrana.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lbOdabrana.FormattingEnabled = true;
             this.lbOdabrana.ItemHeight = 16;
-            this.lbOdabrana.Location = new System.Drawing.Point(151, 199);
+            this.lbOdabrana.Location = new System.Drawing.Point(196, 199);
             this.lbOdabrana.Name = "lbOdabrana";
-            this.lbOdabrana.Size = new System.Drawing.Size(81, 244);
+            this.lbOdabrana.Size = new System.Drawing.Size(88, 244);
             this.lbOdabrana.TabIndex = 33;
             // 
             // cbDatum
@@ -249,9 +249,9 @@
             this.lblSjedalo.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.lblSjedalo.Location = new System.Drawing.Point(6, 170);
             this.lblSjedalo.Name = "lblSjedalo";
-            this.lblSjedalo.Size = new System.Drawing.Size(79, 16);
+            this.lblSjedalo.Size = new System.Drawing.Size(135, 16);
             this.lblSjedalo.TabIndex = 31;
-            this.lblSjedalo.Text = "Slobodno:";
+            this.lblSjedalo.Text = "Slobodna sjedala:";
             // 
             // lblDvorana
             // 
@@ -584,6 +584,7 @@
             this.Controls.Add(this.shapeContainer1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmUlaznica";
